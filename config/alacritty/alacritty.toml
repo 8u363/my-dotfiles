@@ -1,5 +1,26 @@
 
 # see https://alacritty.org/config-alacritty.html
 
+## GENERAL
+[shell]
+program = "/bin/sh"
+
+working_directory = "None"  # Default value
+live_config_reload = true   # Default value
+ipc_socket = true           # Default value
+
+## WINDOW
+[widow.dimensions]
+columns = 0                 # Default value
+lines = 0                   # Default value
+
+[window.padding]
+x = 10
+y = 10
+
 [font]
 size = 12.0
+
+
+
+
