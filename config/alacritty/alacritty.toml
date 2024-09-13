@@ -4,18 +4,25 @@
 ## GENERAL
 shell = "/bin/bash"
 
-working_directory = "None"  # Default value
-live_config_reload = true   # Default value
-ipc_socket = true           # Default value
+working_directory = "None"          # Default value
+live_config_reload = true           # Default value
+ipc_socket = true                   # Default value
 
 ## WINDOW
 [window.dimensions]
-columns = 0                 # Default value
-lines = 0                   # Default value
+columns = 0                         # Default value
+lines = 0                           # Default value
 
 [window.padding]
 x = 10
 y = 10
+
+window.dynamic_padding = false      # Default value
+window.decorations = "None"
+window.opacity = 0.7
+window.blur = false                 # Default value
+window.startup_mode = "Windowed"    # Default value
+
 
 [font]
 size = 12.0
