@@ -31,7 +31,7 @@ multiplier = 3                      # Default value
 normal = { family = "monospace", style = "Regular" }
 bold =  { family = "monospace", style = "Bold" }
 italic = { family = "monospace", style = "Italic" }
-italic = { family = "monospace", style = "Bold Italic" }
+bold_italic = { family = "monospace", style = "Bold Italic" }
 offset = { x =0, y= 0}              # Default value
 size = 12.0
 
