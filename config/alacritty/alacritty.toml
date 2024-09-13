@@ -10,7 +10,7 @@ live_config_reload = true   # Default value
 ipc_socket = true           # Default value
 
 ## WINDOW
-[widow.dimensions]
+[window.dimensions]
 columns = 0                 # Default value
 lines = 0                   # Default value
 
