@@ -4,30 +4,34 @@
 ## GENERAL
 shell = "/bin/bash"
 
-working_directory = "None"    # Default value
-live_config_reload = true     # Default value
-ipc_socket = true             # Default value
+working_directory = "None"          # Default value
+live_config_reload = true           # Default value
+ipc_socket = true                   # Default value
 
 ## WINDOW
-[window.dimensions]
-columns = 0                   # Default value
-lines = 0                     # Default value
-
-[window.padding]
-x = 10
-y = 10
-
 [window]
-dynamic_padding = false      # Default value
+dimensions = {columns = 0, lines = 0  } # Default value
+padding = {x= 10, y= 10}            # Default value
+dynamic_padding = false             # Default value
 decorations = "None"
 opacity = 0.7
-blur = false                 # Default value
-startup_mode = "Windowed"    # Default value
+blur = false                        # Default value
+startup_mode = "Windowed"           # Default value
+title= "Alacritty"                  # Default value
+dynamic_title = false               # Default value
+decorations_theme_variant = "None"  # Default value
+resize_increments = false           # Default value
+option_as_alt = "None"              # Default value
 
+[scrolling]
+history = 10000                     # Default value
+multiplier = 3                      # Default value
 
 [font]
+normal = { family = "monospace", style = "Regular" }
+bold =  { family = "monospace", style = "Bold" }
+italic = { family = "monospace", style = "Italic" }
+italic = { family = "monospace", style = "Bold Italic" }
+offset = { x =0, y= 0}              # Default value
 size = 12.0
-
-
-
 
