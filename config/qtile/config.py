@@ -81,10 +81,14 @@ layouts = [
 ]
 
 
+# --------------------------------------------------------
+# Setup Widget Defaults
+# --------------------------------------------------------
+
 widget_defaults = dict(
-    font="sans",
-    fontsize=12,
-    padding=3,
+    font="JetBrains Mono Light",
+    fontsize=14,
+    padding=3
 )
 extension_defaults = widget_defaults.copy()
 
