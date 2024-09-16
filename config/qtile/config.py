@@ -78,8 +78,8 @@ layout_theme = {
 layout_theme = { 
     "border_width": 3,
     "margin": 15,
-    "border_focus": Color2,
-    "border_normal": "FFFFFF",
+    "border_focus": "#FF0000",
+    "border_normal": "#FFFFFF",
     "single_border_width": 3
 }
 
