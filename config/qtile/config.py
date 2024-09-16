@@ -142,13 +142,13 @@ decor_right = {
 widget_list = [
         widget.Bluetooth(
         **decor_right,
-        background=Color2+".4",
+        background="#FFFFFF"+".4",
         padding=10,
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("blueman-manager")},
     ),
     widget.Clock(
         **decor_right,
-        background=Color4+".4",   
+        background="#FFFFFF"+".4",   
         padding=10,      
         format="%Y-%m-%d / %I:%M %p",
     ),
