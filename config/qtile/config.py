@@ -76,8 +76,8 @@ layout_theme = {
 # Layouts
 # --------------------------------------------------------
 layout_theme = { 
-    "border_width": 3,
-    "margin": 15,
+    "border_width": 2,
+    "margin": 5,
     "border_focus": "#FF0000",
     "border_normal": "#FFFFFF",
     "single_border_width": 3
