@@ -1,6 +1,7 @@
 from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
+from libqtile.dgroups import simple_key_binder
 import os
 import json
 
@@ -45,41 +46,20 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 ]
 
-# Add key bindings to switch VTs in Wayland.
-# We can't check qtile.core.name in default config as it is loaded before qtile is started
-# We therefore defer the check until the key binding is run by using .when(func=...)
-for vt in range(1, 8):
-    keys.append(
-        Key(
-            ["control", "mod1"],
-            f"f{vt}",
-            lazy.core.change_vt(vt).when(func=lambda: qtile.core.name == "wayland"),
-            desc=f"Switch to VT{vt}",
-        )
-    )
-
-
-groups = [Group(i) for i in "123456789"]
-
-for i in groups:
-    keys.extend(
-        [
-            # mod + group number = switch to group
-            Key(
-                [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
-            ),
-            # mod + shift + group number = switch to & move focused window to group
-            Key(
-                [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-            ),
-         ]
-    )
+# --------------------------------------------------------
+# Groups
+# --------------------------------------------------------
+groups = [
+    Group("1", layout='monadtall'),
+    Group("2", layout='monadtall'),
+    Group("3", layout='monadtall'),
+    Group("4", layout='monadtall'),
+    Group("6", layout='monadtall'),
+    Group("7", layout='monadtall'),
+    Group("8", layout='monadtall'),
+    Group("9", layout='monadtall'),
+]
+dgroups_key_binder = simple_key_binder(mod)
 
 # --------------------------------------------------------
 # Setup Layout Theme
@@ -87,8 +67,8 @@ for i in groups:
 layout_theme = { 
     "border_width": 3,
     "margin": 15,
-    "border_focus": "FFFFFF",
-    "border_normal": "FFFFFF",
+    "border_focus": "#d75f5f",
+    "border_normal": "#FFFFFF",
     "single_border_width": 3
 }
 
