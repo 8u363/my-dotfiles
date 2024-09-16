@@ -72,21 +72,25 @@ layout_theme = {
     "single_border_width": 3
 }
 
+# --------------------------------------------------------
+# Layouts
+# --------------------------------------------------------
+layout_theme = { 
+    "border_width": 3,
+    "margin": 15,
+    "border_focus": Color2,
+    "border_normal": "FFFFFF",
+    "single_border_width": 3
+}
+
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    layout.Max(**layout_theme),
+    layout.MonadTall(**layout_theme),
+    layout.MonadWide(**layout_theme),
+    layout.Tile(**layout_theme),
+    layout.Floating()
 ]
+
 
 widget_defaults = dict(
     font="sans",
