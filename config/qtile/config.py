@@ -92,15 +92,20 @@ layout_theme = {
     "single_border_width": 3
 }
 
-# --------------------------------------------------------
-# Layouts
-# --------------------------------------------------------
 layouts = [
-    layout.Max(**layout_theme),
-    layout.MonadTall(**layout_theme),
-    layout.MonadWide(**layout_theme),
-    layout.RatioTile(**layout_theme),
-    layout.Floating()
+    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Max(),
+    # Try more layouts by unleashing below layouts.
+    # layout.Stack(num_stacks=2),
+    # layout.Bsp(),
+    # layout.Matrix(),
+    # layout.MonadTall(),
+    # layout.MonadWide(),
+    # layout.RatioTile(),
+    # layout.Tile(),
+    # layout.TreeTab(),
+    # layout.VerticalTile(),
+    # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
@@ -110,64 +115,39 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-# --------------------------------------------------------
-# Decorations
-# https://qtile-extras.readthedocs.io/en/stable/manual/how_to/decorations.html
-# --------------------------------------------------------
-decor_left = {
-    "decorations": [
-        PowerLineDecoration(
-            path="arrow_left"
-            # path="rounded_left"
-            # path="forward_slash"
-            # path="back_slash"
-        )
-    ],
-}
-
-decor_right = {
-    "decorations": [
-        PowerLineDecoration(
-            path="arrow_right"
-            # path="rounded_right"
-            # path="forward_slash"
-            # path="back_slash"
-        )
-    ],
-}
-
-# --------------------------------------------------------
-# Widgets
-# --------------------------------------------------------
-widget_list = [
-        widget.Bluetooth(
-        **decor_right,
-        background="#FFFFFF"+".4",
-        padding=10,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("blueman-manager")},
-    ),
-    widget.Clock(
-        **decor_right,
-        background="#FFFFFF"+".4",   
-        padding=10,      
-        format="%Y-%m-%d / %I:%M %p",
-    ),
-
-]
-
 screens = [
     Screen(
-        top=bar.Bar(
-            widget_list,
-            30,
-            padding=20,
-            opacity=0.7,
-            border_width=[0, 0, 0, 0],
-            margin=[0,0,0,0],
-            background="#000000.3"
+        bottom=bar.Bar(
+            [
+                widget.CurrentLayout(),
+                widget.GroupBox(),
+                widget.Prompt(),
+                widget.WindowName(),
+                widget.Chord(
+                    chords_colors={
+                        "launch": ("#ff0000", "#ffffff"),
+                    },
+                    name_transform=lambda name: name.upper(),
+                ),
+                widget.TextBox("default config", name="default"),
+                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
+                # widget.StatusNotifier(),
+                widget.Systray(),
+                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.QuickExit(),
+            ],
+            24,
+            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
+        # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
+        # By default we handle these events delayed to already improve performance, however your system might still be struggling
+        # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
+        # x11_drag_polling_rate = 60,
     ),
 ]
+
 
 
 # Drag floating layouts.
