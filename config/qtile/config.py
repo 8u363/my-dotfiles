@@ -110,38 +110,65 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+# --------------------------------------------------------
+# Decorations
+# https://qtile-extras.readthedocs.io/en/stable/manual/how_to/decorations.html
+# --------------------------------------------------------
+decor_left = {
+    "decorations": [
+        PowerLineDecoration(
+            path="arrow_left"
+            # path="rounded_left"
+            # path="forward_slash"
+            # path="back_slash"
+        )
+    ],
+}
+
+decor_right = {
+    "decorations": [
+        PowerLineDecoration(
+            path="arrow_right"
+            # path="rounded_right"
+            # path="forward_slash"
+            # path="back_slash"
+        )
+    ],
+}
+
+# --------------------------------------------------------
+# Widgets
+# --------------------------------------------------------
+widget_list = [
+        widget.Bluetooth(
+        **decor_right,
+        background=Color2+".4",
+        padding=10,
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("blueman-manager")},
+    ),
+    widget.Clock(
+        **decor_right,
+        background=Color4+".4",   
+        padding=10,      
+        format="%Y-%m-%d / %I:%M %p",
+    ),
+
+]
+
 screens = [
     Screen(
         top=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
-            ],
-            24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            widget_list,
+            30,
+            padding=20,
+            opacity=0.7,
+            border_width=[0, 0, 0, 0],
+            margin=[0,0,0,0],
+            background="#000000.3"
         ),
-        # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
-        # By default we handle these events delayed to already improve performance, however your system might still be struggling
-        # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
-        # x11_drag_polling_rate = 60,
     ),
 ]
+
 
 # Drag floating layouts.
 mouse = [
@@ -183,12 +210,5 @@ wl_input_rules = None
 wl_xcursor_theme = None
 wl_xcursor_size = 24
 
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
+
 wmname = "LG3D"
