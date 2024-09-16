@@ -69,7 +69,7 @@ layout_theme = {
     "margin": 5,
     "border_focus": "#FF0000",
     "border_normal": "#FFFFFF",
-    "single_border_width": 3
+    "single_border_width": 2
 }
 
 layouts = [    
@@ -112,6 +112,7 @@ screens = [
                 # widget.StatusNotifier(),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+
                 widget.QuickExit(),
             ],
             24,
