@@ -62,17 +62,6 @@ groups = [
 dgroups_key_binder = simple_key_binder(mod)
 
 # --------------------------------------------------------
-# Setup Layout Theme
-# --------------------------------------------------------
-layout_theme = { 
-    "border_width": 3,
-    "margin": 15,
-    "border_focus": "#d75f5f",
-    "border_normal": "#FFFFFF",
-    "single_border_width": 3
-}
-
-# --------------------------------------------------------
 # Layouts
 # --------------------------------------------------------
 layout_theme = { 
@@ -83,11 +72,11 @@ layout_theme = {
     "single_border_width": 3
 }
 
-layouts = [
-    layout.Max(**layout_theme),
+layouts = [    
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),
     layout.Tile(**layout_theme),
+    layout.Columns(**layout_theme),
     layout.Floating()
 ]
 
