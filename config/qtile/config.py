@@ -37,6 +37,8 @@ keys = [
     #System
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
+    
+    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 ]
 
 # Add key bindings to switch VTs in Wayland.
