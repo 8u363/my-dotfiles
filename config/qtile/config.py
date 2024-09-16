@@ -109,6 +109,20 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
+                
+                widget.Memory(                    
+                    background="#ffffff"+".4",
+                    padding=10,        
+                    measure_mem='G',
+                    format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
+                ),
+                
+                widget.Volume(                    
+                    background="#ffffff"+".4",
+                    padding=10, 
+                    fmt='Vol: {}',
+                ),
+                
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
 
                 widget.QuickExit(),
