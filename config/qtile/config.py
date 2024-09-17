@@ -37,8 +37,19 @@ keys = [
         
     # Group functions
     Key([mod], "Tab", lazy.next_layout(), desc="Use next layout on the actual group"), 
+    
+    # Layout function
+    Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
+    Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
+    Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
+    Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
+    
+    Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
         
-    # Window functions        
+    # Window functions       
     Key([mod], "x", lazy.window.kill(), desc="Close the focused window"),
     Key([mod], "f", lazy.window.toggle_floating(), "Put the focused window to/from fullscreen mode"),
     Key([mod, "shift"], "f", lazy.window.toggle_fullscreen(), "Put the focused window to/from fullscreen mode"),
@@ -49,34 +60,7 @@ keys = [
     
     # Apps
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-
-    # Focus
-    #Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
-    #Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
-    #Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
-    #Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
-    #Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window around"),
-    
-    # Move
-    #Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    #Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    #Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
-    #Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
-
-    # Swap
-    #Key([mod, "shift"], "h", lazy.layout.swap_left()),
-    #Key([mod, "shift"], "l", lazy.layout.swap_right()),
-
-    # Size
-    #Key([mod, "control"], "Down", lazy.layout.shrink(), desc="Grow window to the left"),
-    #Key([mod, "control"], "Up", lazy.layout.grow(), desc="Grow window to the right"),
-    #Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-
-
-    
-    # Split
-    #Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
-    
+    Key([mod], "b", lazy.spawn("brave"), desc="Launch browser"),
 ]
 
 # Add key bindings to switch VTs in Wayland.
