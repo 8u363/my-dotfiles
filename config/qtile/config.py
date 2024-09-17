@@ -16,6 +16,7 @@ from pathlib import Path
 from libqtile import bar, layout, qtile, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
+from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
 
 # --------------------------------------------------------
@@ -166,8 +167,6 @@ screens = [
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
                 
                 widget.Sep(
                     linewidth = 1,
@@ -200,13 +199,14 @@ screens = [
                             radius = 2,
                             filled = True
                         ),
-                    ],),
+                    ],
+                ),
                 widget.Sep(
                     linewidth = 1,
                     padding = 5,
                     foreground = "4c566a",
                     background = "#2e3440"
-                    ),
+                ),
                 widget.Memory(
                     measure_mem = 'G',
                     foreground = "#2e3440",
@@ -220,7 +220,8 @@ screens = [
                             radius = 2,
                             filled = True
                         ),
-                    ],),                
+                    ],
+                ),                
                 
                 
                 
