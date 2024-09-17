@@ -187,7 +187,7 @@ screens = [
                 
                 widget.CPU(
                     background = "#2e3440",
-                    foreground = "#2e3440",
+                    foreground = "#d8dee9",
                     font = "monospace",
                     fontsize = 12,
                 ),
@@ -200,7 +200,7 @@ screens = [
                 widget.Memory(
                     measure_mem = 'G',
                     foreground = "#2e3440",
-                    background = "#2e3440",
+                    background = "#d8dee9",
                     font = "monospace",
                     fontsize = 12,
                 ),                
