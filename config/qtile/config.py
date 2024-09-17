@@ -13,27 +13,10 @@
 import os
 import subprocess
 from pathlib import Path
-from libqtile import hook, qtile, layout
-from libqtile.layout.columns import Columns
-from libqtile.layout.verticaltile import VerticalTile
-from libqtile.layout.xmonad import MonadTall
-from libqtile.layout.stack import Stack
-from libqtile.layout.floating import Floating
-from libqtile.config import (
-    Click,
-    Drag,
-    DropDown,
-    Group,
-    Key,
-    Match,
-    ScratchPad,
-    Screen
-)
+from libqtile import bar, layout, qtile, widget, hook
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 
-from colors import nord_fox
-
-from bar1 import bar
 
 # --------------------------------------------------------
 # General Variables
