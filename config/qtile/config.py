@@ -22,7 +22,7 @@ from libqtile.dgroups import simple_key_binder
 from pathlib import Path
 from colors import gruvbox
 
-from bar1 import bar
+#from bar1 import bar
 
 # --------------------------------------------------------
 # General Variables
@@ -167,7 +167,31 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 screens = [
-    Screen(top=bar)
+    Screen(top=bar.Bar(
+            [
+                widget.CurrentLayout(),
+                widget.GroupBox(),
+                widget.Prompt(),
+                widget.WindowName(),
+                widget.Chord(
+                    chords_colors={
+                        "launch": ("#ff0000", "#ffffff"),
+                    },
+                    name_transform=lambda name: name.upper(),
+                ),
+
+                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
+                # widget.StatusNotifier(),
+                widget.Systray(),
+                widget.CheckUpdates(),
+                widget.Clock(format="%a %d.%m.%Y %I:%M %p"),
+                widget.QuickExit(),
+            ],
+            24,
+            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+        ),
+    )
 ]
 
 # --------------------------------------------------------
