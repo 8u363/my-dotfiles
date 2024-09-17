@@ -110,11 +110,14 @@ for i in groups:
 # Scratchpads
 # --------------------------------------------------------
 groups.append(ScratchPad("6", [        
-    DropDown("btop", "alacritty", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),    
+    DropDown("btop", "alacritty -e btop", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),    
+    DropDown("thunar", "thunar", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),    
 ]))
 
 keys.extend([
+    Key([mod], 'F9', lazy.group["6"].dropdown_toggle("thunar")),
     Key([mod], 'F10', lazy.group["6"].dropdown_toggle("btop")),
+    
     ])
 
 layouts = [
@@ -222,3 +225,4 @@ wl_xcursor_size = 24
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
