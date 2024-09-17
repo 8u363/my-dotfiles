@@ -20,7 +20,7 @@ from libqtile.lazy import lazy
 from libqtile.dgroups import simple_key_binder
 
 from pathlib import Path
-from colors import nord_fox
+from colors import gruvbox
 
 # --------------------------------------------------------
 # General Variables
@@ -125,8 +125,8 @@ keys.extend([
 layout_theme = {
         "margin":5,
         "border_width": 2,
-        "border_normal": nord_fox['black'],
-        "border_focus": nord_fox['cyan'],
+        "border_normal": gruvbox['black'],
+        "border_focus": gruvbox['cyan'],
     }
 
 
@@ -159,7 +159,7 @@ widget_defaults = dict(
     font="monospace",
     fontsize=12,
     padding=3, 
-    bacgkround=nord_fox['bg'],)
+    bacgkround=gruvbox['bg'],)
 
 extension_defaults = widget_defaults.copy()
 
