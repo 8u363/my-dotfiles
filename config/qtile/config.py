@@ -62,16 +62,7 @@ keys = [
     Key([mod], "b", lazy.spawn("brave"), desc="Launch browser"),
 ]
 
-# --------------------------------------------------------
-# Scratchpads
-# --------------------------------------------------------
-groups.append(ScratchPad("6", [        
-    DropDown("btop", "alacritty", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),    
-]))
 
-keys.extend([
-    Key([mod], 'F10', lazy.group["6"].dropdown_toggle("btop")),
-    ])
 
 
 
@@ -114,6 +105,17 @@ for i in groups:
             #     desc="move focused window to group {}".format(i.name)),
         ]
     )
+
+# --------------------------------------------------------
+# Scratchpads
+# --------------------------------------------------------
+groups.append(ScratchPad("6", [        
+    DropDown("btop", "alacritty", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),    
+]))
+
+keys.extend([
+    Key([mod], 'F10', lazy.group["6"].dropdown_toggle("btop")),
+    ])
 
 layouts = [
     layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
