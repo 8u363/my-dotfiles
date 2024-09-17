@@ -167,18 +167,36 @@ screens = [
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
+                
+                widget.Sep(
+                    linewidth = 1,
+                    padding = 5,
+                    foreground = "#4c566a",
+                    background = "#2e3440"
+                ),
+                widget.Prompt(
+                    font = "monospace",
+                    fontsize = 12,
+                    background = "#2e3440",
+                    foreground = "#d8dee9"
+                ),
+                widget.WindowName(
+                    font = "monospace",
+                    fontsize = 12,
+                    foreground = "#d8dee9",
+                    background = "#2e3440"
+                    ),
+                
+                
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
                 widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.Clock(format="%a %d.%m.%Y %I:%M %p"),
                 widget.QuickExit(),
             ],
             24,
