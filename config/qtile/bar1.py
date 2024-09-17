@@ -26,14 +26,14 @@ bar = Bar([
      #   background=nord_fox['bg'],
         # spacing=2
     ),
-    left_half_circle(nord_fox['red'], nord_fox['bg']),
+    #left_half_circle(nord_fox['red'], nord_fox['bg']),
     CurrentLayout(
       #  background=nord_fox['red'],
       #  foreground=nord_fox['white'],
         margin=10,
     ),
 
-    right_arrow(nord_fox['fg_gutter'], nord_fox['red']),
+    #right_arrow(nord_fox['fg_gutter'], nord_fox['red']),
     WindowCount(
         text_format='缾 {num}',
        # background=nord_fox['fg_gutter'],
@@ -47,7 +47,7 @@ bar = Bar([
       #  foreground=nord_fox['fg']
     ),
 
-    left_half_circle(nord_fox['black'], nord_fox['bg']),
+    #left_half_circle(nord_fox['black'], nord_fox['bg']),
     CPU(
         format=' {freq_current}GHz {load_percent}%',
      #   background=nord_fox['black'],
