@@ -21,6 +21,8 @@ from libqtile.dgroups import simple_key_binder
 
 from pathlib import Path
 
+from bar1 import bar
+
 # --------------------------------------------------------
 # General Variables
 # --------------------------------------------------------
@@ -161,6 +163,10 @@ widget_defaults = dict(
     bacgkround=gruvbox['bg'],)
 
 extension_defaults = widget_defaults.copy()
+
+screens = [
+    Screen(top=bar)
+]
 
 screens = [
     Screen(
