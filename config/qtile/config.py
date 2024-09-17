@@ -160,7 +160,8 @@ widget_defaults = dict(
     font="monospace",
     fontsize=12,
     padding=3, 
-    bacgkround=gruvbox['bg'],)
+    #bacgkround=gruvbox['bg'],
+    )
 
 extension_defaults = widget_defaults.copy()
 
