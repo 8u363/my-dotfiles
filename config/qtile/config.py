@@ -13,7 +13,7 @@
 import os
 import subprocess
 from pathlib import Path
-from libqtile import bar, layout, qtile, widget, hook, qtile
+from libqtile import bar, layout, qtile,  hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 
