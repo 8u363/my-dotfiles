@@ -39,7 +39,7 @@ keys = [
     Key([mod, "shift"], "f", lazy.window.toggle_fullscreen(), "Put the focused window to/from fullscreen mode"),
 
     # Screen functions
-    Key([mod], "w", lazy.spawn("feh --bg-scale --randomize ~/git/my-wallpaper"))
+    Key([mod], "w", lazy.spawn("feh --bg-scale --randomize ~/git/my-wallpaper/art"))
   
 
     # Focus
