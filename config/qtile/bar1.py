@@ -31,7 +31,7 @@ bar=bar.Bar(
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
-                widget.CheckUpdates(),
+                #widget.CheckUpdates(),
                 widget.Clock(format="%a %d.%m.%Y %I:%M %p"),
                 widget.QuickExit(),
             ],
