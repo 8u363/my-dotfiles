@@ -10,13 +10,16 @@
 # see https://docs.qtile.org/
 # --------------------------------------------------------
 
-from libqtile import bar, layout, qtile, widget
+import subprocess
+import os
+import json
+
+from libqtile import bar, hook,layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.dgroups import simple_key_binder
+
 from pathlib import Path
-import os
-import json
 from colors import nord_fox
 
 # --------------------------------------------------------
@@ -235,3 +238,7 @@ wl_xcursor_size = 24
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
 
+@ hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~/.config/qtile/autostart.sh')
+    subprocess.run([home])
