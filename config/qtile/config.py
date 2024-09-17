@@ -30,7 +30,7 @@ terminal    = "alacritty"
 keys = [
     # General functions
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "x", lazy.shutdown(), desc="Close the whole Qtile")
+    Key([mod, "control"], "x", lazy.shutdown(), desc="Close the whole Qtile"),
     Key([mod], "space", lazy.spawncmd(), desc= "Open command prompt on the bar"),
         
     # Window functions        
@@ -39,44 +39,44 @@ keys = [
     Key([mod, "shift"], "f", lazy.window.toggle_fullscreen(), "Put the focused window to/from fullscreen mode"),
 
     # Screen functions
-   # Key([mod], "w", lazy.spawn("application"))
+    Key([mod], "w", lazy.spawn("feh --bg-scale --randomize ~/git/my-wallpaper"))
   
 
     # Focus
-    Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window around"),
+    #Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
+    #Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
+    #Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
+    #Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
+    #Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window around"),
     
     # Move
-    Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
+    #Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    #Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    #Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
+    #Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
 
     # Swap
-    Key([mod, "shift"], "h", lazy.layout.swap_left()),
-    Key([mod, "shift"], "l", lazy.layout.swap_right()),
+    #Key([mod, "shift"], "h", lazy.layout.swap_left()),
+    #Key([mod, "shift"], "l", lazy.layout.swap_right()),
 
     # Size
-    Key([mod, "control"], "Down", lazy.layout.shrink(), desc="Grow window to the left"),
-    Key([mod, "control"], "Up", lazy.layout.grow(), desc="Grow window to the right"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    #Key([mod, "control"], "Down", lazy.layout.shrink(), desc="Grow window to the left"),
+    #Key([mod, "control"], "Up", lazy.layout.grow(), desc="Grow window to the right"),
+    #Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
     # Floating
-    Key([mod], "t", lazy.window.toggle_floating(), desc='Toggle floating'),
+    #Key([mod], "t", lazy.window.toggle_floating(), desc='Toggle floating'),
     
     # Split
-    Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
+    #Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
 
     # Toggle Layouts
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    #Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
    
 
     # Apps
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod, "control"], "Return", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
+    #Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    #Key([mod, "control"], "Return", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
     #Key([mod], "b", lazy.spawn("sh " + home + "/dotfiles/.settings/browser.sh"), desc="Launch Browser"),
     #Key([mod, "shift"], "w", lazy.spawn(home + "/dotfiles/qtile/scripts/wallpaper.sh"), desc="Update Theme and Wallpaper"),
     #Key([mod, "control"], "w", lazy.spawn(home + "/dotfiles/qtile/scripts/wallpaper.sh select"), desc="Select Theme and Wallpaper"),
