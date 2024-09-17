@@ -120,8 +120,6 @@ keys.extend([
 # --------------------------------------------------------
 # Layouts
 # --------------------------------------------------------
-
-
 layout_theme = {
         "margin":5,
         "border_width": 2,
@@ -143,7 +141,7 @@ layouts = [
 # Widgets
 # --------------------------------------------------------
 widget_defaults = dict(
-    font="sans",
+    font="monospace",
     fontsize=12,
     padding=3,
 )
@@ -151,7 +149,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(),
