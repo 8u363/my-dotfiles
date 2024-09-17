@@ -20,6 +20,7 @@ from libqtile.lazy import lazy
 from libqtile.dgroups import simple_key_binder
 
 from pathlib import Path
+from colors import gruvbox
 
 from bar1 import bar
 
@@ -126,8 +127,8 @@ keys.extend([
 layout_theme = {
         "margin":5,
         "border_width": 2,
-       # "border_normal": gruvbox['black'],
-       # "border_focus": gruvbox['cyan'],
+        "border_normal": gruvbox['black'],
+        "border_focus": gruvbox['cyan'],
     }
 
 
