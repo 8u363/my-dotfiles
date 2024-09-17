@@ -28,7 +28,6 @@ terminal    = "alacritty"
 # --------------------------------------------------------
 # General key binding
 # --------------------------------------------------------
-
 keys = [
     # General functions
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
@@ -63,10 +62,23 @@ keys = [
     Key([mod], "b", lazy.spawn("brave"), desc="Launch browser"),
 ]
 
+# --------------------------------------------------------
+# Scratchpads
+# --------------------------------------------------------
+groups.append(ScratchPad("6", [        
+    DropDown("btop", "alacritty", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),    
+]))
+
+keys.extend([
+    Key([mod], 'F10', lazy.group["6"].dropdown_toggle("btop")),
+    ])
+
+
+
 # Add key bindings to switch VTs in Wayland.
 # We can't check qtile.core.name in default config as it is loaded before qtile is started
 # We therefore defer the check until the key binding is run by using .when(func=...)
-for vt in range(1, 8):
+for vt in range(1, 5):
     keys.append(
         Key(
             ["control", "mod1"],
@@ -77,7 +89,7 @@ for vt in range(1, 8):
     )
 
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i) for i in "12345"]
 
 for i in groups:
     keys.extend(
