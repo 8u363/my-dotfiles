@@ -23,8 +23,25 @@ import json
 mod         = "mod4"        # windows key
 terminal    = "alacritty"
 
+# --------------------------------------------------------
+# General key binding
+# --------------------------------------------------------
 
 keys = [
+    # General functions
+    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod, "control"], "x", lazy.shutdown(), desc="Close the whole Qtile")
+    Key([mod], "space", lazy.spawncmd(), desc= "Open command prompt on the bar"),
+        
+    # Window functions        
+    Key([mod], "x", lazy.window.kill(), desc="Close the focused window"),
+    Key([mod], "f", lazy.window.toggle_floating(), "Put the focused window to/from fullscreen mode"),
+    Key([mod, "shift"], "f", lazy.window.toggle_fullscreen(), "Put the focused window to/from fullscreen mode"),
+
+    # Screen functions
+   # Key([mod], "w", lazy.spawn("application"))
+  
+
     # Focus
     Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
@@ -55,14 +72,7 @@ keys = [
 
     # Toggle Layouts
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-
-    # Fullscreen
-    Key([mod], "f", lazy.window.toggle_fullscreen()),
-
-    #System
-    Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
-    #Key([mod, "control"], "q", lazy.spawn(home + "/dotfiles/qtile/scripts/powermenu.sh"), desc="Open Powermenu"),
-    Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
+   
 
     # Apps
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
