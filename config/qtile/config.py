@@ -78,7 +78,7 @@ keys.extend([
 # Add key bindings to switch VTs in Wayland.
 # We can't check qtile.core.name in default config as it is loaded before qtile is started
 # We therefore defer the check until the key binding is run by using .when(func=...)
-for vt in range(1, 5):
+for vt in range(1, 6):
     keys.append(
         Key(
             ["control", "mod1"],
@@ -89,7 +89,7 @@ for vt in range(1, 5):
     )
 
 
-groups = [Group(i) for i in "12345"]
+groups = [Group(i) for i in "123456"]
 
 for i in groups:
     keys.extend(
