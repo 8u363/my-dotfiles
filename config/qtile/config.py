@@ -11,7 +11,7 @@
 # --------------------------------------------------------
 
 from libqtile import bar, layout, qtile, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.dgroups import simple_key_binder
 from pathlib import Path
