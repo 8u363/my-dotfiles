@@ -52,6 +52,12 @@ keys = [
     Key([mod], "x", lazy.window.kill(), desc="Close the focused window"),
     Key([mod], "f", lazy.window.toggle_floating(), "Put the focused window to/from fullscreen mode"),
     Key([mod, "shift"], "f", lazy.window.toggle_fullscreen(), "Put the focused window to/from fullscreen mode"),
+    
+    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+
 
     # Screen functions
     Key([mod], "w", lazy.spawn("sh " + home +"/.config/qtile/scripts/changeWallpaper.sh" )),
