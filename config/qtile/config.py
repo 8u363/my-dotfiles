@@ -123,7 +123,7 @@ keys.extend([
 
 
 layout_theme = {
-        "margin":10,
+        "margin":5,
         "border_width": 2,
         "border_normal": "#FFFFFF",
         "border_focus": "#d75f5f",
