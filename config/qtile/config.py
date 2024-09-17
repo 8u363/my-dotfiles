@@ -43,6 +43,9 @@ keys = [
     # Screen functions
     Key([mod], "w", lazy.spawn("sh " + home +"/.config/qtile/scripts/changeWallpaper.sh" )),
     Key([mod, "shift"], "w", lazy.spawn("nitrogen")),
+    
+    # Apps
+    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
     # Focus
     #Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
@@ -76,8 +79,7 @@ keys = [
     #Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
    
 
-    # Apps
-    #Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+
     #Key([mod, "control"], "Return", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
     #Key([mod], "b", lazy.spawn("sh " + home + "/dotfiles/.settings/browser.sh"), desc="Launch Browser"),
     #Key([mod, "shift"], "w", lazy.spawn(home + "/dotfiles/qtile/scripts/wallpaper.sh"), desc="Update Theme and Wallpaper"),
