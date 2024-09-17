@@ -35,6 +35,9 @@ keys = [
     Key([mod, "control"], "x", lazy.shutdown(), desc="Close the whole Qtile"),
     Key([mod], "space", lazy.spawncmd(), desc= "Open command prompt on the bar"),
         
+    # Group functions
+    Key([mod], "Tab", lazy.next_layout(), desc="Use next layout on the actual group"), 
+        
     # Window functions        
     Key([mod], "x", lazy.window.kill(), desc="Close the focused window"),
     Key([mod], "f", lazy.window.toggle_floating(), "Put the focused window to/from fullscreen mode"),
@@ -69,22 +72,11 @@ keys = [
     #Key([mod, "control"], "Up", lazy.layout.grow(), desc="Grow window to the right"),
     #Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
-    # Floating
-    #Key([mod], "t", lazy.window.toggle_floating(), desc='Toggle floating'),
+
     
     # Split
     #Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
-
-    # Toggle Layouts
-    #Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-   
-
-
-    #Key([mod, "control"], "Return", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
-    #Key([mod], "b", lazy.spawn("sh " + home + "/dotfiles/.settings/browser.sh"), desc="Launch Browser"),
-    #Key([mod, "shift"], "w", lazy.spawn(home + "/dotfiles/qtile/scripts/wallpaper.sh"), desc="Update Theme and Wallpaper"),
-    #Key([mod, "control"], "w", lazy.spawn(home + "/dotfiles/qtile/scripts/wallpaper.sh select"), desc="Select Theme and Wallpaper"),
-
+    
 ]
 
 # Add key bindings to switch VTs in Wayland.
