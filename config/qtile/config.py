@@ -17,6 +17,7 @@ from libqtile.dgroups import simple_key_binder
 from pathlib import Path
 import os
 import json
+from colors import nord_fox
 
 # --------------------------------------------------------
 # General Variables
@@ -52,12 +53,6 @@ keys = [
     Key([mod], "x", lazy.window.kill(), desc="Close the focused window"),
     Key([mod], "f", lazy.window.toggle_floating(), "Put the focused window to/from fullscreen mode"),
     Key([mod, "shift"], "f", lazy.window.toggle_fullscreen(), "Put the focused window to/from fullscreen mode"),
-    
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-
 
     # Screen functions
     Key([mod], "w", lazy.spawn("sh " + home +"/.config/qtile/scripts/changeWallpaper.sh" )),
@@ -67,8 +62,6 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "b", lazy.spawn("brave"), desc="Launch browser"),
 ]
-
-
 
 # --------------------------------------------------------
 # Groups
@@ -129,8 +122,8 @@ keys.extend([
 layout_theme = {
         "margin":5,
         "border_width": 2,
-        "border_normal": "#FFFFFF",
-        "border_focus": "#d75f5f",
+        "border_normal": nord_fox['black'],
+        "border_focus": nord_fox['cyan'],
     }
 
 
@@ -143,14 +136,28 @@ layouts = [
     layout.MonadWide(**layout_theme),            
 ]
 
+floating_layout = layout.Floating(
+    float_rules=[
+        # Run the utility of `xprop` to see the wm class and name of an X client.
+        *layout.Floating.default_float_rules,
+        Match(wm_class="confirmreset"),  # gitk
+        Match(wm_class="makebranch"),  # gitk
+        Match(wm_class="maketag"),  # gitk
+        Match(wm_class="ssh-askpass"),  # ssh-askpass
+        Match(title="branchdialog"),  # gitk
+        Match(title="pinentry"),  # GPG key password entry
+    ]
+)
+
 # --------------------------------------------------------
 # Widgets
 # --------------------------------------------------------
 widget_defaults = dict(
     font="monospace",
     fontsize=12,
-    padding=3,
-)
+    padding=3, 
+    bacgkround=nord_fox['bg'],)
+
 extension_defaults = widget_defaults.copy()
 
 screens = [
@@ -186,6 +193,9 @@ screens = [
     ),
 ]
 
+# --------------------------------------------------------
+# Mouse configuration
+# --------------------------------------------------------
 # Drag floating layouts.
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
@@ -199,18 +209,7 @@ follow_mouse_focus = True
 bring_front_click = False
 floats_kept_above = True
 cursor_warp = False
-floating_layout = layout.Floating(
-    float_rules=[
-        # Run the utility of `xprop` to see the wm class and name of an X client.
-        *layout.Floating.default_float_rules,
-        Match(wm_class="confirmreset"),  # gitk
-        Match(wm_class="makebranch"),  # gitk
-        Match(wm_class="maketag"),  # gitk
-        Match(wm_class="ssh-askpass"),  # ssh-askpass
-        Match(title="branchdialog"),  # gitk
-        Match(title="pinentry"),  # GPG key password entry
-    ]
-)
+
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
