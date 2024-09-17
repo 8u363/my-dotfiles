@@ -22,7 +22,7 @@ from libqtile.dgroups import simple_key_binder
 from pathlib import Path
 from colors import gruvbox
 
-#from bar1 import bar
+from bar1 import bar
 
 # --------------------------------------------------------
 # General Variables
