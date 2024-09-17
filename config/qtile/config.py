@@ -14,13 +14,15 @@ from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.dgroups import simple_key_binder
+from pathlib import Path
 import os
 import json
 
 # --------------------------------------------------------
 # General Variables
 # --------------------------------------------------------
-mod         = "mod4"        # windows key
+home        = str(Path.home())  # get home path
+mod         = "mod4"            # windows key
 terminal    = "alacritty"
 
 # --------------------------------------------------------
@@ -39,7 +41,7 @@ keys = [
     Key([mod, "shift"], "f", lazy.window.toggle_fullscreen(), "Put the focused window to/from fullscreen mode"),
 
     # Screen functions
-    Key([mod], "w", lazy.spawn("feh --bg-scale --randomize ~/git/my-wallpaper/art")),
+    Key([mod], "w", lazy.spawn("sh " + "feh --bg-scale --randomize " + home + "/git/my-wallpaper/art")),
     Key([mod, "shift"], "w", lazy.spawn("nitrogen")),
 
     # Focus
