@@ -16,6 +16,7 @@ from pathlib import Path
 from libqtile import bar, layout, qtile, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
+from qtile_extras.widget.decorations import RectDecoration
 
 # --------------------------------------------------------
 # General Variables
@@ -185,7 +186,43 @@ screens = [
                     fontsize = 12,
                     foreground = "#d8dee9",
                     background = "#2e3440"
+                ),
+                
+                widget.CPU(
+                    background = "#2e3440",
+                    foreground = "#2e3440",
+                    font = "monospace",
+                    fontsize = 12,
+                    decorations = [
+                        RectDecoration (
+                            colour = "#ebcb8b",
+                            padding_y = 3,
+                            radius = 2,
+                            filled = True
+                        ),
+                    ],),
+                widget.Sep(
+                    linewidth = 1,
+                    padding = 5,
+                    foreground = "4c566a",
+                    background = "#2e3440"
                     ),
+                widget.Memory(
+                    measure_mem = 'G',
+                    foreground = "#2e3440",
+                    background = "#2e3440",
+                    font = "monospace",
+                    fontsize = 12,
+                    decorations = [
+                        RectDecoration (
+                            colour = "#88c0d0",
+                            padding_y = 3,
+                            radius = 2,
+                            filled = True
+                        ),
+                    ],),                
+                
+                
                 
                 
                 widget.Chord(
