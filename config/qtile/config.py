@@ -164,10 +164,49 @@ widget_defaults = dict(
 
 extension_defaults = widget_defaults.copy()
 
+# --------------------------------------------------------
+# Decorations
+# https://qtile-extras.readthedocs.io/en/stable/manual/how_to/decorations.html
+# --------------------------------------------------------
+
+decor_left = {
+    "decorations": [
+        PowerLineDecoration(
+            path="arrow_left"
+            # path="rounded_left"
+            # path="forward_slash"
+            # path="back_slash"
+        )
+    ],
+}
+
+decor_right = {
+    "decorations": [
+        PowerLineDecoration(
+            path="arrow_right"
+            # path="rounded_right"
+            # path="forward_slash"
+            # path="back_slash"
+        )
+    ],
+}
+
+
 screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.TextBox(
+                    **decor_left,
+                    background="#2e3440"+".4",
+                    text='Apps',
+                    foreground='ffffff',
+                    desc='',
+                    padding=10,
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("rofi -show drun")},
+                ),
+
+                
                 widget.CurrentLayout(),
                 widget.GroupBox(),
                 
