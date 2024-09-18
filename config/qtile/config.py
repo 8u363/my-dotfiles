@@ -164,16 +164,16 @@ color = ["#282828", # background
         "#68948a", # blue
         "#ab6c7d"] # purple
 
-def pline(rl, fg, bg):
-    if rl == 0:
-        uc = ""
+def textBoxWithTriangle(triangleDirection, foregroundColor, backgroundColor):
+    if triangleDirection == 0:
+        triangle = ""
     else:
-        uc = ""
-    return widget.TextBox(text = uc,
+        triangle = ""
+    return widget.TextBox(text = triangle,
                           padding = 0,
                           fontsize = 22,
-                          foreground=fg,
-                          background=bg)
+                          foreground=foregroundColor,
+                          background=backgroundColor)
 
 screens = [
     Screen(
@@ -183,12 +183,23 @@ screens = [
                     scale=0.75,
                     background=color[3]
                 ),
-                pline(0, color[3], color[6]),
+                textBoxWithTriangle(0, color[3], color[6]),
+                
                 widget.GroupBox(
                     highlight_method="block",
                     background=color[6],
-                    this_current_screen_border="#7daea3"
+                    this_current_screen_border=color[6]
                 ),
+                textBoxWithTriangle(0, color[6], color[7]),
+                
+                widget.TaskList(
+                    highlight_method="block",
+                    max_title_width=300,
+                    border="#d3869b",
+                    padding=2,
+                    background=color[7]
+                ),
+
                 widget.CurrentLayout(),
                 widget.GroupBox(),
                 widget.Prompt(),
