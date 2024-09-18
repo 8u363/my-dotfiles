@@ -211,7 +211,12 @@ screens = [
                 
                 textBoxWithTriangle(1, color[7], color[6]),     
                 widget.Systray(background=color[7]),
+    
                 
+                textBoxWithTriangle(1, color[1], color[7]),   
+                widget.QuickExit(background=color[1]),
+                
+                            
                 widget.Prompt(),
                 
                 widget.Chord(
@@ -220,9 +225,6 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                
-                
-                widget.QuickExit(),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
