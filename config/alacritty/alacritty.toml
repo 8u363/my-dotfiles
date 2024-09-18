@@ -3,14 +3,14 @@
 
 [window]
 padding = {x= 10, y= 10}            # Default value
-opacity = 0.8
+opacity = 0.9
 
 [font]
 normal = { family = "monospace", style = "Regular" }
 bold =  { family = "monospace", style = "Bold" }
 italic = { family = "monospace", style = "Italic" }
 bold_italic = { family = "monospace", style = "Bold Italic" }
-size = 12.0
+size = 14.0
 
 [colors]
 primary = {background = "#24273a", foreground = "#cad3f5", dim_foreground = "#8087a2", bright_foreground = "#cad3f5"}
