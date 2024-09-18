@@ -164,6 +164,17 @@ color = ["#282828", # background
         "#68948a", # blue
         "#ab6c7d"] # purple
 
+def pline(rl, fg, bg):
+    if rl == 0:
+        uc = ""
+    else:
+        uc = ""
+    return widget.TextBox(text = uc,
+                          padding = 0,
+                          fontsize = 22,
+                          foreground=fg,
+                          background=bg)
+
 screens = [
     Screen(
         top=bar.Bar(
@@ -172,7 +183,12 @@ screens = [
                     scale=0.75,
                     background=color[3]
                 ),
-                
+                pline(0, color[3], color[6]),
+                widget.GroupBox(
+                    highlight_method="block",
+                    background=colo[6],
+                    this_current_screen_border="#7daea3"
+                ),
                 widget.CurrentLayout(),
                 widget.GroupBox(),
                 widget.Prompt(),
