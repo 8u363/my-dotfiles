@@ -14,7 +14,7 @@ import os
 import subprocess
 from pathlib import Path
 
-from libqtile import bar, layout, qtile, widget
+from libqtile import bar, layout, qtile, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 
@@ -113,7 +113,7 @@ groups.append(ScratchPad("6", [
 keys.extend([
     Key([mod], 'e', lazy.group["6"].dropdown_toggle("thunar")),
     Key([mod], 'F10', lazy.group["6"].dropdown_toggle("btop")),
-    Key([mod, 'F11'], lazy.group["6"].dropdown_toggle("nitrogen")),
+    Key([mod], 'F11', lazy.group["6"].dropdown_toggle("nitrogen")),
     ])
 
 # --------------------------------------------------------
