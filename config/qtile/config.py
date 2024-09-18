@@ -193,10 +193,11 @@ screens = [
                 textBoxWithTriangle(0, color[3], color[4]),
                 
                 widget.WindowName(
-                     background=color[5]
+                     background=color[4]
                 ),
-                textBoxWithTriangle(0, color[5], color[6]),
-widget.Clock(format='  %H:%M', padding=0),
+                textBoxWithTriangle(0, color[4], color[5]),
+                
+                widget.Clock(format='  %H:%M', padding=0),
 
                 widget.Prompt(),
                 
