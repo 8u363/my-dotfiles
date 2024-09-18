@@ -192,11 +192,13 @@ screens = [
                 ),
                 textBoxWithTriangle(0, color[6], color[7]),
                 
-
+                widget.WindowName(
+                     background=color[7]
+                ),
 
 
                 widget.Prompt(),
-                widget.WindowName(),
+                
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
