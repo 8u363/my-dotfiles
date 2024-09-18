@@ -197,14 +197,21 @@ screens = [
                 ),
                 textBoxWithTriangle(0, color[4], color[5]),
                
-                widget.Systray(),
-                textBoxWithTriangle(0, color[5], color[6]),
+                
+                textBoxWithTriangle(1, color[5], color[6]),
                 
                 widget.Clock(
-                    format='%a %d.%m.%y %H:%M',
+                    format='%H:%M',
                     background=color[5]
                 ),
+                 textBoxWithTriangle(1, color[5], color[6]),
                 
+                widget.Clock(
+                    format='%a %d.%m.%y',
+                    background=color[6]
+                ),
+                
+
                 
                 widget.Prompt(),
                 
@@ -216,7 +223,7 @@ screens = [
                 ),
                 
 
-                
+                widget.Systray(),
                 
                 
                
