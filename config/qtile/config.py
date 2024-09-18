@@ -224,9 +224,7 @@ screens = [
                     measure='G',
                     visible_on_warn = False
                 ),
-                widget.Clock(                    
-                    format="%a, %d.%m.%Y %I:%M %p"
-                ),
+
                 widget.QuickExit(),
             ],
             24,
