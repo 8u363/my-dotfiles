@@ -193,14 +193,7 @@ screens = [
                 textBoxWithTriangle(0, color[6], color[7]),
                 
 
-                textBoxWithTriangle(1, color[3], color[5]),
-                widget.Volume(
-                    emoji=True,
-                    background=color[3]
-                ),
-                widget.Volume(
-                    background=color[3]
-                ),
+
 
                 widget.Prompt(),
                 widget.WindowName(),
