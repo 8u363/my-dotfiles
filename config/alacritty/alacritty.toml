@@ -6,10 +6,10 @@ padding = {x= 10, y= 10}            # Default value
 opacity = 0.9
 
 [font]
-normal = { family = "monospace", style = "Regular" }
-bold =  { family = "monospace", style = "Bold" }
-italic = { family = "monospace", style = "Italic" }
-bold_italic = { family = "monospace", style = "Bold Italic" }
+normal = { family = "Hack Nerd Font Mono", style = "Regular" }
+bold =  { family = "Hack Nerd Font Mono", style = "Bold" }
+italic = { family = "Hack Nerd Font Mono", style = "Italic" }
+bold_italic = { family = "Hack Nerd Font Mono", style = "Bold Italic" }
 size = 14.0
 
 [colors]
