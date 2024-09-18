@@ -190,12 +190,12 @@ screens = [
                     background=color[3],
                     this_current_screen_border=color[4]
                 ),
-                
+                textBoxWithTriangle(0, color[3], color[4]),
                 
                 widget.WindowName(
-                     background=color[7]
+                     background=color[5]
                 ),
-                textBoxWithTriangle(0, color[6], color[7]),
+                textBoxWithTriangle(0, color[5], color[6]),
 widget.Clock(format='  %H:%M', padding=0),
 
                 widget.Prompt(),
