@@ -154,29 +154,25 @@ widget_defaults = dict(
 
 extension_defaults = widget_defaults.copy()
 
-colors = [["#292d3e", "#292d3e"],  # panel background
-                # background for current screen tab
-                ["#434758", "#434758"],
-                ["#ffffff", "#ffffff"],  # font color for group names
-                # border line color for current tab
-                ["#bc13fe", "#bc13fe"],  # Group down color
-                # border line color for other tab and odd widgets
-                ["#8d62a9", "#8d62a9"],
-                ["#668bd7", "#668bd7"],  # color for the even widgets
-                ["#e1acff", "#e1acff"],  # window name
-
-                ["#000000", "#000000"],
-                ["#AD343E", "#AD343E"],
-                ["#f76e5c", "#f76e5c"],
-                ["#F39C12", "#F39C12"],
-                ["#F7DC6F", "#F7DC6F"],
-                ["#f1ffff", "#f1ffff"],
-                ["#4c566a", "#4c566a"], ]
+## COLORS
+color = ["#282828", # background
+        "#b85651", # red
+        "#bd6f3e", # orange
+        "#c18f41", # yellow
+        "#8f9a52", # green
+        "#72966c", # aqua
+        "#68948a", # blue
+        "#ab6c7d"] # purple
 
 screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.CurrentLayoutIcon(
+                    scale=0.75,
+                    background=color[3]
+                ),
+                
                 widget.CurrentLayout(),
                 widget.GroupBox(),
                 widget.Prompt(),
@@ -188,18 +184,7 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 
-                widget.CurrentLayout(
-                    foreground=colors[7],
-                    background=colors[9],
-                    padding=5
-                ),
-                widget.TextBox(
-                    text='',
-                    foreground=colors[8],
-                    background=colors[9],
-                    padding=0,
-                    fontsize=37
-                ),
+
                 widget.Clock(format='  %H:%M', padding=0),
                 widget.TextBox(text=" ",padding=5),
                 widget.TextBox(text=" ",padding=5),
