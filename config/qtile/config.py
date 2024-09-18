@@ -13,10 +13,10 @@
 import os
 import subprocess
 from pathlib import Path
-from libqtile import bar, layout, qtile, widget,  hook, qtile
+
+from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
-
 
 # --------------------------------------------------------
 # General Variables
@@ -158,34 +158,24 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top=bar.Bar(
+        bottom=bar.Bar(
             [
-
-                
                 widget.CurrentLayout(),
                 widget.GroupBox(),
-
-                widget.WindowName(
-                    font = "Hack Nerd Font Mono",
-                    fontsize = 12,
-                    foreground = "#d8dee9",
-                    background = "#2e3440"
-                ),
-             
-                
-                
-                
-                
-                
+                widget.Prompt(),
+                widget.WindowName(),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+                widget.TextBox("default config", name="default"),
+                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
+                # widget.StatusNotifier(),
                 widget.Systray(),
-                widget.Clock(format="%a %d.%m.%Y %I:%M %p"),
+                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.QuickExit(),
             ],
             24,
