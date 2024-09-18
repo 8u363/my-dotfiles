@@ -181,21 +181,22 @@ screens = [
             [
                 widget.CurrentLayoutIcon(
                     scale=0.75,
-                    background=color[3]
+                    background=color[2]
                 ),
-                textBoxWithTriangle(0, color[3], color[6]),
+                textBoxWithTriangle(0, color[2], color[3]),
                 
                 widget.GroupBox(
                     highlight_method="block",
-                    background=color[6],
-                    this_current_screen_border=color[6]
+                    background=color[3],
+                    this_current_screen_border=color[4]
                 ),
-                textBoxWithTriangle(0, color[6], color[7]),
+                
                 
                 widget.WindowName(
                      background=color[7]
                 ),
-
+                textBoxWithTriangle(0, color[6], color[7]),
+widget.Clock(format='  %H:%M', padding=0),
 
                 widget.Prompt(),
                 
@@ -207,7 +208,7 @@ screens = [
                 ),
                 
 
-                widget.Clock(format='  %H:%M', padding=0),
+                
                 widget.TextBox(text=" ",padding=5),
                 widget.TextBox(text=" ",padding=5),
                 widget.Clock(format = '  %a %d/%m/%y',padding=0),
