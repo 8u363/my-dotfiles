@@ -200,19 +200,10 @@ screens = [
                     padding=0,
                     fontsize=37
                 ),
-                widget.Clock(
-                    foreground=colors[7],
-                    background=colors[8],
-                   # mouse_callbacks={
-                   #     "Button1": lambda qtile: qtile.cmd_spawn(PWA.calendar())},
-                    format="%B %d  [ %H:%M ]"
-                ),
-                widget.Sep(
-                    linewidth=0,
-                    padding=10,
-                    foreground=colors[0],
-                    background=colors[8]
-                ),
+                widget.Clock(format='  %H:%M', padding=0),
+                widget.TextBox(text=" ",padding=5),
+                widget.TextBox(text=" ",padding=5),
+                widget.Clock(format = '  %a %d/%m/%y',padding=0),
                 
                 
                 widget.Systray(),
