@@ -33,7 +33,7 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "x", lazy.shutdown(), desc="Close the whole Qtile"),
     Key([mod], "space", lazy.spawncmd(), desc= "Open command prompt on the bar"),
-        
+    Key([mod], 'r', lazy.spawn('rofi -show run')),
     # Group functions
     Key([mod], "Tab", lazy.next_layout(), desc="Use next layout on the actual group"), 
     
