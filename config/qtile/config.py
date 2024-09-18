@@ -196,9 +196,16 @@ screens = [
                      background=color[4]
                 ),
                 textBoxWithTriangle(0, color[4], color[5]),
+               
+                widget.Systray(),
+                textBoxWithTriangle(0, color[5], color[6]),
                 
-                widget.Clock(format='  %H:%M', padding=0),
-
+                widget.Clock(
+                    format='%a %d.%m.%y %H:%M',
+                    background=color[5]
+                ),
+                
+                
                 widget.Prompt(),
                 
                 widget.Chord(
@@ -210,12 +217,9 @@ screens = [
                 
 
                 
-                widget.TextBox(text=" ",padding=5),
-                widget.TextBox(text=" ",padding=5),
-                widget.Clock(format = '  %a %d/%m/%y',padding=0),
                 
                 
-                widget.Systray(),
+               
                 widget.DF(
                     measure='G',
                     visible_on_warn = False
