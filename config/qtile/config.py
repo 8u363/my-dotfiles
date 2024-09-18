@@ -203,15 +203,15 @@ screens = [
                 widget.Clock(
                     foreground=colors[7],
                     background=colors[8],
-                    mouse_callbacks={
-                        "Button1": lambda qtile: qtile.cmd_spawn(PWA.calendar())},
+                   # mouse_callbacks={
+                   #     "Button1": lambda qtile: qtile.cmd_spawn(PWA.calendar())},
                     format="%B %d  [ %H:%M ]"
                 ),
                 widget.Sep(
                     linewidth=0,
                     padding=10,
-                    foreground=self.colors[0],
-                    background=self.colors[8]
+                    foreground=colors[0],
+                    background=colors[8]
                 ),
                 
                 
