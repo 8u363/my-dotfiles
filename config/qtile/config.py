@@ -190,9 +190,9 @@ screens = [
                 ),
                 textBoxWithTriangle(0, color[3], color[4]),
                 
-                                widget.GroupBox(
+                widget.GroupBox(
                     highlight_method="block",
-                    background=color[3],
+                    background=color[4],
                     this_current_screen_border=color[4]
                 ),
                 
