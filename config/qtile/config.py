@@ -186,7 +186,7 @@ screens = [
                 pline(0, color[3], color[6]),
                 widget.GroupBox(
                     highlight_method="block",
-                    background=colo[6],
+                    background=color[6],
                     this_current_screen_border="#7daea3"
                 ),
                 widget.CurrentLayout(),
