@@ -13,13 +13,9 @@
 import os
 import subprocess
 from pathlib import Path
-from libqtile import bar, layout, qtile,  hook, qtile
+from libqtile import bar, layout, qtile, widget,  hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
-
-from qtile_extras import widget
-from qtile_extras.widget.decorations import RectDecoration
-from qtile_extras.widget.decorations import PowerLineDecoration
 
 
 # --------------------------------------------------------
@@ -59,7 +55,7 @@ keys = [
 
     # Screen functions
     Key([mod], "w", lazy.spawn("sh " + home +"/.config/qtile/scripts/changeWallpaper.sh" )),
-    Key([mod, "shift"], "w", lazy.spawn("nitrogen")),
+
     
     # Apps
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
@@ -110,30 +106,26 @@ for i in groups:
 # --------------------------------------------------------
 groups.append(ScratchPad("6", [        
     DropDown("btop", "alacritty -e btop", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),    
-    DropDown("thunar", "thunar", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),    
+    DropDown("thunar", "thunar", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),   
+    DropDown("nitrogen", "nitrogen", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),     
 ]))
 
 keys.extend([
-    Key([mod], 'F9', lazy.group["6"].dropdown_toggle("thunar")),
+    Key([mod], 'e', lazy.group["6"].dropdown_toggle("thunar")),
     Key([mod], 'F10', lazy.group["6"].dropdown_toggle("btop")),
-    
+    Key([mod, 'F11'], lazy.group["6"].dropdown_toggle("nitrogen")),
     ])
 
 # --------------------------------------------------------
 # Layouts
 # --------------------------------------------------------
 layout_theme = {
-        "margin":5,
-        "border_width": 2,
-        #"border_normal": gruvbox['black'],
-        #"border_focus": gruvbox['cyan'],
-    }
+    "margin":5,
+    "border_width": 2,
+}
 
 
 layouts = [
-    #layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    
-    # Try more layouts by unleashing below layouts.    
     layout.Tile(**layout_theme),    
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),            
@@ -156,98 +148,31 @@ floating_layout = layout.Floating(
 # Widgets
 # --------------------------------------------------------
 widget_defaults = dict(
-    font="monospace",
+    font="Hack Nerd Font Mono",
     fontsize=12,
-    padding=3, 
-    #bacgkround=gruvbox['bg'],
+    padding=3,     
     )
 
 extension_defaults = widget_defaults.copy()
-
-# --------------------------------------------------------
-# Decorations
-# https://qtile-extras.readthedocs.io/en/stable/manual/how_to/decorations.html
-# --------------------------------------------------------
-
-decor_left = {
-    "decorations": [
-        PowerLineDecoration(
-            path="arrow_left"
-            # path="rounded_left"
-            # path="forward_slash"
-            # path="back_slash"
-        )
-    ],
-}
-
-decor_right = {
-    "decorations": [
-        PowerLineDecoration(
-            path="arrow_right"
-            # path="rounded_right"
-            # path="forward_slash"
-            # path="back_slash"
-        )
-    ],
-}
 
 
 screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.TextBox(
-                    **decor_left,
-                    background="#2e3440"+".4",
-                    text='Apps',
-                    foreground='ffffff',
-                    desc='',
-                    padding=10,
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("rofi -show drun")},
-                ),
 
                 
                 widget.CurrentLayout(),
                 widget.GroupBox(),
-                
-                widget.Sep(
-                    linewidth = 1,
-                    padding = 5,
-                    foreground = "#4c566a",
-                    background = "#2e3440"
-                ),
-                widget.Prompt(
-                    font = "monospace",
-                    fontsize = 12,
-                    background = "#2e3440",
-                    foreground = "#d8dee9"
-                ),
+
                 widget.WindowName(
-                    font = "monospace",
+                    font = "Hack Nerd Font Mono",
                     fontsize = 12,
                     foreground = "#d8dee9",
                     background = "#2e3440"
                 ),
+             
                 
-                widget.CPU(
-                    background = "#2e3440",
-                    foreground = "#d8dee9",
-                    font = "monospace",
-                    fontsize = 12,
-                ),
-                widget.Sep(
-                    linewidth = 1,
-                    padding = 5,
-                    foreground = "4c566a",
-                    background = "#2e3440"
-                ),
-                widget.Memory(
-                    measure_mem = 'G',
-                    foreground = "#2e3440",
-                    background = "#d8dee9",
-                    font = "monospace",
-                    fontsize = 12,
-                ),                
                 
                 
                 
