@@ -127,8 +127,7 @@ layout_theme = {
 
 layouts = [
     layout.Tile(**layout_theme),    
-    layout.MonadTall(**layout_theme),
-    layout.MonadWide(**layout_theme),            
+    layout.RatioTile(**layout_theme),    
 ]
 
 floating_layout = layout.Floating(
@@ -149,12 +148,30 @@ floating_layout = layout.Floating(
 # --------------------------------------------------------
 widget_defaults = dict(
     font="Hack Nerd Font Mono",
-    fontsize=12,
+    fontsize=14,
     padding=3,     
     )
 
 extension_defaults = widget_defaults.copy()
 
+colors = [["#292d3e", "#292d3e"],  # panel background
+                # background for current screen tab
+                ["#434758", "#434758"],
+                ["#ffffff", "#ffffff"],  # font color for group names
+                # border line color for current tab
+                ["#bc13fe", "#bc13fe"],  # Group down color
+                # border line color for other tab and odd widgets
+                ["#8d62a9", "#8d62a9"],
+                ["#668bd7", "#668bd7"],  # color for the even widgets
+                ["#e1acff", "#e1acff"],  # window name
+
+                ["#000000", "#000000"],
+                ["#AD343E", "#AD343E"],
+                ["#f76e5c", "#f76e5c"],
+                ["#F39C12", "#F39C12"],
+                ["#F7DC6F", "#F7DC6F"],
+                ["#f1ffff", "#f1ffff"],
+                ["#4c566a", "#4c566a"], ]
 
 screens = [
     Screen(
@@ -170,8 +187,42 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+                
+                widget.CurrentLayout(
+                    foreground=colors[7],
+                    background=colors[9],
+                    padding=5
+                ),
+                widget.TextBox(
+                    text='',
+                    foreground=colors[8],
+                    background=colors[9],
+                    padding=0,
+                    fontsize=37
+                ),
+                widget.Clock(
+                    foreground=colors[7],
+                    background=colors[8],
+                    mouse_callbacks={
+                        "Button1": lambda qtile: qtile.cmd_spawn(PWA.calendar())},
+                    format="%B %d  [ %H:%M ]"
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10,
+                    foreground=self.colors[0],
+                    background=self.colors[8]
+                ),
+                
+                
                 widget.Systray(),
-                widget.Clock(format="%a, %d.%m.%Y %I:%M %p"),
+                widget.DF(
+                    measure='G',
+                    visible_on_warn = false
+                ),
+                widget.Clock(                    
+                    format="%a, %d.%m.%Y %I:%M %p"
+                ),
                 widget.QuickExit(),
             ],
             24,
