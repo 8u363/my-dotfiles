@@ -193,10 +193,9 @@ screens = [
                 widget.GroupBox(
                     highlight_method="block",
                     background=color[4],
-                    this_current_screen_border=color[4]
+                    this_current_screen_border=color[7]
                 ),
-                
-               
+                          
                               
                 textBoxWithTriangle(1, color[5], color[4]),                
                 widget.Clock(
@@ -210,7 +209,8 @@ screens = [
                     background=color[6]
                 ),
                 
-
+                textBoxWithTriangle(1, color[7], color[6]),     
+                widget.Systray(background=color[7]),
                 
                 widget.Prompt(),
                 
@@ -221,7 +221,7 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 
-                widget.Systray(),
+                
                 widget.QuickExit(),
             ],
             24,
