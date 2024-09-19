@@ -217,12 +217,17 @@ screens = [
                 widget.Spacer(length=20),         
 
                 widget.Clock(
+                    background=Color7,
                     format="%a, %d.%m.%y %H:%M",
                     ),
                 widget.Spacer(length=20),         
                 
-                widget.Systray(),
-                widget.QuickExit(),                
+                widget.Systray(
+                    background=Color7,
+                ),
+                widget.QuickExit(
+                    background=Color7,
+                ),                
 
             ],
             25,
