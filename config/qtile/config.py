@@ -205,15 +205,20 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayoutIcon(                    ),
+                widget.CurrentLayoutIcon(                   
+                     background=Color7,),
                 widget.Spacer(length=20),
                 
               
-                widget.GroupBox(),
+                widget.GroupBox(
+                        background=Color7,
+                ),
                 widget.Spacer(length=20),
                 
                 widget.Spacer(length=20),
-                widget.WindowName(),     
+                widget.WindowName(
+                        background=Color7,
+                ),     
                 widget.Spacer(length=20),         
 
                 widget.Clock(
