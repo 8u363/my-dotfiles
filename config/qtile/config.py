@@ -219,14 +219,18 @@ screens = [
                     padding=10
                 ),
 
+                widget.Memory(
+                    background=Color10+".4",
+                    padding=10,        
+                    measure_mem='G',
+                    format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
+                ),
 
 
                 
                 #textBoxWithTriangle(0, color[2], color[3]),
 
-                widget.WindowName(
-                     background=color[3]
-                ),
+
                 #textBoxWithTriangle(0, color[3], color[4]),
                 
                 widget.GroupBox(
