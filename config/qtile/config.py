@@ -206,32 +206,32 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(                   
-                     background=Color7,),
+                     background=Color15,),
                 widget.Spacer(length=20),
                 
               
                 widget.GroupBox(
-                        background=Color7,
+                        background=Color15,
                 ),
                 widget.Spacer(length=20),
                 
                 widget.Spacer(length=20),
                 widget.WindowName(
-                        background=Color7,
+                        background=Color15,
                 ),     
                 widget.Spacer(length=20),         
 
                 widget.Clock(
-                    background=Color7,
+                    background=Color15,
                     format="%a, %d.%m.%y %H:%M",
                     ),
                 widget.Spacer(length=20),         
                 
                 widget.Systray(
-                    background=Color7,
+                    background=Color15,
                 ),
                 widget.QuickExit(
-                    background=Color7,
+                    background=Color15,
                 ),                
 
             ],
