@@ -207,6 +207,10 @@ screens = [
             [
                 widget.CurrentLayoutIcon(),
                 
+                widget.Text(
+                    text="▶",
+                )
+                
                 widget.GroupBox(),
                 
                 widget.WindowName(),              
@@ -215,7 +219,7 @@ screens = [
                     
                 widget.Systray(),
     
-                widget.QuickExit(background=Color8,),                
+                widget.QuickExit(,),                
 
             ],
             25,
