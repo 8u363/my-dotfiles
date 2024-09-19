@@ -208,72 +208,39 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(
-                    scale=0.75,
-                    background=Color1+".4"
+
+                ),
+                
+                widget.GroupBox(
+                    highlight_method="block",                
+                ),
+                
+                widget.TextBox(
+                    "ShortCut",
                 ),
                 
                 widget.WindowName(
-                    max_chars=50,
-                    background=Color2+".4",
-                    width=400,
-                    padding=10
+                    
                 ),
-
-                widget.Memory(
-                    background=Color10+".4",
-                    padding=10,        
-                    measure_mem='G',
-                    format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
-                ),
-
-    widget.Volume(
-        background=Color12+".4",
-        padding=10, 
-        fmt='Vol: {}',
-    ),
-    widget.DF(
-        padding=10, 
-        background=Color8+".4",        
-        visible_on_warn=False,
-        format="{p} {uf}{m} ({r:.0f}%)"
-    ),
-    widget.Bluetooth(
-        background=Color2+".4",
-        padding=10,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("blueman-manager")},
-    ),
-
                 
-                #textBoxWithTriangle(0, color[2], color[3]),
-
-
-                #textBoxWithTriangle(0, color[3], color[4]),
-                
-                widget.GroupBox(
-                    highlight_method="block",
-                    background=color[4],
-                    this_current_screen_border=color[7]
+                widget.TextBox(
+                    "Update",
                 ),
-                          
-                              
-                textBoxWithTriangle(1, color[5], color[4]),                
+
                 widget.Clock(
                     format='%H:%M',
                     background=color[5]
                 ),
                 
-                textBoxWithTriangle(1, color[6], color[5]),                
                 widget.Clock(
                     format='%a %d.%m.%y',
                     background=color[6]
                 ),
                 
-                textBoxWithTriangle(1, color[7], color[6]),     
                 widget.Systray(background=color[7]),
     
-                
-                textBoxWithTriangle(1, color[1], color[7]),   
                 widget.QuickExit(background=color[1]),                
+
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
