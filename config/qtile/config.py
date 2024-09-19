@@ -205,52 +205,35 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayoutIcon(
-                    background=Color8,
-                ),
-                
-                widget.Spacer(),
-                
-                widget.GroupBox(
-                    background=Color8,
-                    highlight_method="block",                
-                ),
-                
-                widget.Spacer(),
-                
-                widget.TextBox(
-                    background=Color8,
-                    text="ShortCut",
-                ),
-                
-                widget.Spacer(),
-                
-                widget.WindowName(
-                    background=Color8,
-                ),
-                
-                widget.Spacer(),
-                
-                widget.TextBox(
-                    background=Color8,
-                    "Update",
-                ),
-                
-                widget.Spacer(),
-
-                widget.Clock(
-                    background=Color8,
-                    format='%H:%M',
-                    background=color[5]
-                ),
-                
-                widget.Clock(
-                    background=Color8,
-                    format='%a %d.%m.%y',
-                    background=color[6]
-                ),
-                
-                widget.Systray(background=Color8,),
+            widget.TextBox(
+                font="Arial", foreground=Color8],
+                # font="Arial", foreground=COLS["deus_3"],
+                text="◢", fontsize=50, padding=-1
+            ),
+            widget.GroupBox(
+                other_current_screen_border=Color8,
+                this_current_screen_border=Color8,
+                # this_current_screen_border=COLS["deus_2"],
+                other_screen_border=Color8,
+                this_screen_border=Color8,
+                # this_screen_border=COLS["deus_2"],
+                highlight_color=Color8,
+                # highlight_color=COLS["deus_2"],
+                urgent_border=Color8,
+                background=Color8,
+                # background=COLS["deus_3"],
+                highlight_method="line",
+                inactive=Color8,
+                active=Color8,
+                disable_drag=True,
+                borderwidth=2,
+            ),
+            # Marker for the end of the groups to give a nice bg: ◢■■■■■■■◤
+            widget.TextBox(
+                font="Arial", foreground=Color8,
+                # font="Arial", foreground=COLS["deus_3"],
+                text="◤ ", fontsize=50, padding=-5
+            ),
     
                 widget.QuickExit(background=Color8,),                
 
