@@ -212,18 +212,14 @@ screens = [
                     background=Color1+".4"
                 ),
                 
-                widget.GroupBox(
-                background="#ffffff.7",
-                highlight_method='block',
-                highlight='ffffff',
-                block_border='ffffff',
-                highlight_color=['ffffff','ffffff'],
-                block_highlight_text_color='000000',
-                foreground='ffffff',
-                rounded=False,
-                this_current_screen_border='ffffff',
-                active='ffffff'
-            ),
+                widget.WindowName(
+                    max_chars=50,
+                    background=Color2+".4",
+                    width=400,
+                    padding=10
+                ),
+
+
 
                 
                 #textBoxWithTriangle(0, color[2], color[3]),
