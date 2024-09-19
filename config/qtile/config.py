@@ -12,6 +12,7 @@
 
 import os
 import subprocess
+import json
 from pathlib import Path
 
 from libqtile import bar, layout, qtile, widget, hook
@@ -55,6 +56,8 @@ keys = [
 
     # Screen functions
     Key([mod], "w", lazy.spawn("sh " + home +"/.config/qtile/scripts/changeWallpaper.sh" )),
+
+
 
     
     # Apps
@@ -164,6 +167,31 @@ color = ["#282828", # background
         "#68948a", # blue
         "#ab6c7d"] # purple
 
+# --------------------------------------------------------
+# Pywal Colors
+# --------------------------------------------------------
+
+colors = os.path.expanduser('~/.cache/wal/colors.json')
+colordict = json.load(open(colors))
+Color0=(colordict['colors']['color0'])
+Color1=(colordict['colors']['color1'])
+Color2=(colordict['colors']['color2'])
+Color3=(colordict['colors']['color3'])
+Color4=(colordict['colors']['color4'])
+Color5=(colordict['colors']['color5'])
+Color6=(colordict['colors']['color6'])
+Color7=(colordict['colors']['color7'])
+Color8=(colordict['colors']['color8'])
+Color9=(colordict['colors']['color9'])
+Color10=(colordict['colors']['color10'])
+Color11=(colordict['colors']['color11'])
+Color12=(colordict['colors']['color12'])
+Color13=(colordict['colors']['color13'])
+Color14=(colordict['colors']['color14'])
+Color15=(colordict['colors']['color15'])
+
+
+
 def textBoxWithTriangle(triangleDirection, foregroundColor, backgroundColor):
     if triangleDirection == 0:
         triangle = ""
@@ -179,6 +207,16 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.TextBox(
+                    background=Color1+".4",
+                    text='Apps',
+                    foreground='ffffff',
+                    desc='',
+                    padding=10,
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("rofi -show drun")},
+                ),
+
+                
                 widget.CurrentLayoutIcon(
                     scale=0.75,
                     background=color[2]
