@@ -208,22 +208,22 @@ screens = [
                 widget.CurrentLayoutIcon(                   
                      background=Color15,),
                 textBoxWithTriangle(0, Color15, Color0 ),
-                widget.Spacer(length=20),
+                widget.Spacer(length=10),
                 
                 textBoxWithTriangle(1, Color15, Color0 ),
                 widget.GroupBox(
                         background=Color15,
                 ),
                 textBoxWithTriangle(0, Color15, Color0 ),
-                widget.Spacer(length=20),
+                widget.Spacer(length=10),
                 
-                widget.Spacer(length=20),
+                widget.Spacer(length=10),
                 textBoxWithTriangle(1, Color15, Color0 ),
                 widget.WindowName(
                         background=Color15,
                 ),     
                 textBoxWithTriangle(0, Color15, Color0 ),
-                widget.Spacer(length=40),         
+                widget.Spacer(length=20),         
 
                 textBoxWithTriangle(1, Color15, Color0 ),
                 widget.Clock(
@@ -231,7 +231,7 @@ screens = [
                     format="%a, %d.%m.%y %H:%M",
                     ),
                 textBoxWithTriangle(0, Color15, Color0 ),
-                widget.Spacer(length=20),         
+                widget.Spacer(length=10),         
                 
                 textBoxWithTriangle(1, Color15, Color0 ),
                 widget.Systray(
