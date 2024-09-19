@@ -207,26 +207,31 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.TextBox(
-                    background=Color1+".4",
-                    text='Apps',
-                    foreground='ffffff',
-                    desc='',
-                    padding=10,
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("rofi -show drun")},
-                ),
-
-                
                 widget.CurrentLayoutIcon(
                     scale=0.75,
-                    background=color[2]
+                    background=Color1+".4"
                 ),
-                textBoxWithTriangle(0, color[2], color[3]),
+                
+                widget.GroupBox(
+                background="#ffffff.7",
+                highlight_method='block',
+                highlight='ffffff',
+                block_border='ffffff',
+                highlight_color=['ffffff','ffffff'],
+                block_highlight_text_color='000000',
+                foreground='ffffff',
+                rounded=False,
+                this_current_screen_border='ffffff',
+                active='ffffff'
+            ),
+
+                
+                #textBoxWithTriangle(0, color[2], color[3]),
 
                 widget.WindowName(
                      background=color[3]
                 ),
-                textBoxWithTriangle(0, color[3], color[4]),
+                #textBoxWithTriangle(0, color[3], color[4]),
                 
                 widget.GroupBox(
                     highlight_method="block",
