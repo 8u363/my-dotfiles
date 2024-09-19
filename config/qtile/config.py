@@ -208,24 +208,34 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(
-
+                    background=Color1
                 ),
+                
+                widget.Spacer(),
                 
                 widget.GroupBox(
                     highlight_method="block",                
                 ),
                 
+                widget.Spacer(),
+                
                 widget.TextBox(
                     "ShortCut",
                 ),
+                
+                widget.Spacer(),
                 
                 widget.WindowName(
                     
                 ),
                 
+                widget.Spacer(),
+                
                 widget.TextBox(
                     "Update",
                 ),
+                
+                widget.Spacer(),
 
                 widget.Clock(
                     format='%H:%M',
