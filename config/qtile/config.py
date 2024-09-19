@@ -208,7 +208,7 @@ screens = [
                 widget.CurrentLayoutIcon(),
                 
                 widget.Text(
-                    text="▶",
+                    text="◤",
                 )
                 
                 widget.GroupBox(),
@@ -219,7 +219,7 @@ screens = [
                     
                 widget.Systray(),
     
-                widget.QuickExit(,),                
+                widget.QuickExit(),                
 
             ],
             25,
