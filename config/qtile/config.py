@@ -206,15 +206,13 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(),
-                
-                widget.Text(
-                    text="◤",
-                )
-                
+                widget.Spacer(length="20"),
+              
                 widget.GroupBox(),
                 
                 widget.WindowName(),              
 
+                textBoxWithTriangle(1, color[6], color[0]),
                 widget.Clock(),
                     
                 widget.Systray(),
