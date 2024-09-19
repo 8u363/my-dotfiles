@@ -205,7 +205,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayoutIcon(),
+                widget.CurrentLayoutIcon(                    ),
                 widget.Spacer(length=20),
                 
               
@@ -216,7 +216,9 @@ screens = [
                 widget.WindowName(),     
                 widget.Spacer(length=20),         
 
-                widget.Clock(),
+                widget.Clock(
+                    format="%a, %d.%m.%y %H:%M",
+                    ),
                 widget.Spacer(length=20),         
                 
                 widget.Systray(),
