@@ -206,7 +206,7 @@ screens = [
         top=bar.Bar(
             [
             widget.TextBox(
-                font="Arial", foreground=Color8],
+                font="Arial", foreground=Color8,
                 # font="Arial", foreground=COLS["deus_3"],
                 text="◢", fontsize=50, padding=-1
             ),
