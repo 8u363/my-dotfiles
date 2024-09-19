@@ -190,8 +190,6 @@ Color13=(colordict['colors']['color13'])
 Color14=(colordict['colors']['color14'])
 Color15=(colordict['colors']['color15'])
 
-
-
 def textBoxWithTriangle(triangleDirection, foregroundColor, backgroundColor):
     if triangleDirection == 0:
         triangle = ""
@@ -208,51 +206,56 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(
-                    background=Color1
+                    background=Color8,
                 ),
                 
                 widget.Spacer(),
                 
                 widget.GroupBox(
+                    background=Color8,
                     highlight_method="block",                
                 ),
                 
                 widget.Spacer(),
                 
                 widget.TextBox(
-                    "ShortCut",
+                    background=Color8,
+                    text="ShortCut",
                 ),
                 
                 widget.Spacer(),
                 
                 widget.WindowName(
-                    
+                    background=Color8,
                 ),
                 
                 widget.Spacer(),
                 
                 widget.TextBox(
+                    background=Color8,
                     "Update",
                 ),
                 
                 widget.Spacer(),
 
                 widget.Clock(
+                    background=Color8,
                     format='%H:%M',
                     background=color[5]
                 ),
                 
                 widget.Clock(
+                    background=Color8,
                     format='%a %d.%m.%y',
                     background=color[6]
                 ),
                 
-                widget.Systray(background=color[7]),
+                widget.Systray(background=Color8,),
     
-                widget.QuickExit(background=color[1]),                
+                widget.QuickExit(background=Color8,),                
 
             ],
-            24,
+            25,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
