@@ -205,6 +205,14 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.CurrentLayoutIcon(),
+                widget.TextBox(
+                    font="Arial",
+                    foreground=Color8,
+                    text="◤ ", fontsize=50, padding=-5
+                ),
+                
+                
             widget.TextBox(
                 font="Arial", foreground=Color8,
                 # font="Arial", foreground=COLS["deus_3"],
