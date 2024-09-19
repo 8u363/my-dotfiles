@@ -207,6 +207,7 @@ screens = [
             [
                 widget.CurrentLayoutIcon(                   
                      background=Color15,),
+                textBoxWithTriangle(0, Color15, Color0 ),
                 widget.Spacer(length=20),
                 
                 textBoxWithTriangle(1, Color15, Color0 ),
