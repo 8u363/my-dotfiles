@@ -219,7 +219,7 @@ screens = [
                 widget.WindowName(
                         background=Color15,
                 ),     
-                widget.Spacer(length=20),         
+                widget.Spacer(length=40),         
 
                 widget.Clock(
                     background=Color15,
