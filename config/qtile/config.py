@@ -18,7 +18,7 @@ from pathlib import Path
 from libqtile import bar, layout, qtile, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
-
+from qtile_extras.widget.decorations import PowerLineDecoration
 # --------------------------------------------------------
 # General Variables
 # --------------------------------------------------------
@@ -192,6 +192,8 @@ layout_theme = {
 
 
 layouts = [
+    layout.MonadTall(**layout_theme),
+    layout.MonadWide(**layout_theme),
     layout.Tile(**layout_theme),    
     layout.RatioTile(**layout_theme),    
 ]
@@ -200,10 +202,33 @@ layouts = [
 # Widgets
 # --------------------------------------------------------
 
+decor_left = {
+    "decorations": [
+        PowerLineDecoration(
+            path="arrow_left"
+            # path="rounded_left"
+            # path="forward_slash"
+            # path="back_slash"
+        )
+    ],
+}
+
+decor_right = {
+    "decorations": [
+        PowerLineDecoration(
+            path="arrow_right"
+            # path="rounded_right"
+            # path="forward_slash"
+            # path="back_slash"
+        )
+    ],
+}
+
 widget_list = [
     widget.CurrentLayoutIcon(background=Color15,),                
     widget.Spacer(length=10),
-    widget.GroupBox(        
+    widget.GroupBox(  
+        **decor_left,      
         background="#ffffff.7",
         highlight_method='block',
         highlight='ffffff',
