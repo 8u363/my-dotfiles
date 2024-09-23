@@ -235,6 +235,31 @@ widget_list = [
     ),
     widget.Spacer(length=bar.STRETCH),
 
+    # volume
+    widget.TextBox(**decor_rounded_right,),
+    widget.Volume(
+        **decor_rounded_left,
+        background=Color10 +".4",
+        padding=10, 
+        fmt='Vol: {}',
+    ),
+
+    # System information    
+    widget.TextBox(**decor_rounded_right,),
+    widget.Memory(        
+        background=Color10 +".4",
+        padding=10,        
+        measure_mem='G',
+        format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
+    ),
+        
+    widget.DF(
+        **decor_rounded_left,
+        background=Color10 +".4",     
+        padding=10, 
+        visible_on_warn=False,
+        format="{p} {uf}{m} ({r:.0f}%)"
+    ),
 
     # system tray
     widget.Systray(
@@ -251,36 +276,9 @@ widget_list = [
         format="%a, %d.%m.%Y %H:%S",
     ),   
     
-        # System information    
-    widget.TextBox(**decor_rounded_right,),
-    widget.Memory(        
-        background=Color10 +".4",
-        padding=10,        
-        measure_mem='G',
-        format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
-    ),
-        
-    widget.DF(
-        **decor_rounded_left,
-        background=Color10 +".4",     
-        padding=10, 
-        visible_on_warn=False,
-        format="{p} {uf}{m} ({r:.0f}%)"
-    ),
-     
-    
     # Power menu
     widget.QuickExit(
         background=Color15,
-    ),
-
-    # volume
-    widget.TextBox(**decor_rounded_right,),
-    widget.Volume(
-        **decor_rounded_left,
-        background=Color10 +".4",
-        padding=10, 
-        fmt='Vol: {}',
     ),
 ]    
 
