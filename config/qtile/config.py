@@ -272,7 +272,7 @@ widget_list = [
         padding=5,    
         text=" ",
         fontsize=20,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + "scripts/powermenu.sh")},
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + '/.config/qtile/scripts/powermenu.sh')},
     ),
 ]    
 
@@ -335,5 +335,5 @@ wmname = "QTILE"
 
 @ hook.subscribe.startup_once
 def autostart():
-    autostartPath = os.path.expanduser('~/.config/qtile/autostart.sh')
+    autostartPath = os.path.expanduser(home + '/.config/qtile/autostart.sh')
     subprocess.run([autostartPath])
