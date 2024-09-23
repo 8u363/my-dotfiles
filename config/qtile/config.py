@@ -214,7 +214,7 @@ widget_list = [
         max_chars=50,
         background=Color2,
         width=400,
-        padding=10
+        padding=5
     ),         
                     
     # workspace numbers
@@ -240,7 +240,7 @@ widget_list = [
     widget.Volume(
         **decor_rounded_left,
         background=Color10 +".4",
-        padding=10, 
+        padding=5, 
         fmt='Vol: {}',
     ),
 
@@ -256,15 +256,11 @@ widget_list = [
         **decor_rounded_left,
         background="#ffffff",
         foreground="#000000",   
-        padding=10,      
+        padding=5,      
         format="%a, %d.%m.%Y %H:%S",
     ),   
     
     # Power menu
-    widget.QuickExit(
-        background=Color15,
-    ),
-    
     widget.TextBox(**decor_rounded_right,),
     widget.TextBox(
         **decor_rounded_left,
