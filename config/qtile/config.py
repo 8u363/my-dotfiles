@@ -141,7 +141,7 @@ floating_layout = layout.Floating(
 # Widgets
 # --------------------------------------------------------
 widget_defaults = dict(
-    font="Hack Nerd Font Bold",
+    font="Hack Nerd Font SemiBold",
     fontsize=14,
     padding=3,     
     )
@@ -169,17 +169,6 @@ Color12=(colordict['colors']['color12'])
 Color13=(colordict['colors']['color13'])
 Color14=(colordict['colors']['color14'])
 Color15=(colordict['colors']['color15'])
-
-def textBoxWithTriangle(triangleDirection, foregroundColor, backgroundColor):
-    if triangleDirection == 0:
-        triangle = ""
-    else:
-        triangle = ""
-    return widget.TextBox(text = triangle,
-                          padding = 0,
-                          fontsize = 22,
-                          foreground=foregroundColor,
-                          background=backgroundColor)
 
 # --------------------------------------------------------
 # Layouts
@@ -254,14 +243,8 @@ widget_list = [
         format="%a, %d.%m.%Y %H:%S",
     ),    
     
-    widget.TextBox(**decor_forward_slash,),
-    widget.Memory(
-        **decor_forward_slash,
-        background=Color10,
-        padding=10,        
-        measure_mem='G',
-        format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
-    ),
+    
+
     
     widget.TextBox(**decor_forward_slash,),
     widget.Volume(
@@ -271,13 +254,31 @@ widget_list = [
         fmt='Vol: {}',
     ),
     
+    # System information    
     widget.TextBox(**decor_forward_slash,),
+    widget.Memory(        
+        background=Color10,
+        padding=10,        
+        measure_mem='G',
+        format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
+    ),
+        
     widget.DF(
         **decor_forward_slash,
         padding=10, 
         background=Color8,        
         visible_on_warn=False,
         format="{p} {uf}{m} ({r:.0f}%)"
+    ),
+    
+    # system tray
+    widget.Systray(
+        background=Color10,
+    ),
+    
+    # Power menu
+    widget.QuickExit(
+        background=Color15,
     ),
 ]    
 
