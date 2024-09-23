@@ -156,17 +156,6 @@ widget_defaults = dict(
     )
 
 extension_defaults = widget_defaults.copy()
-
-## COLORS
-color = ["#282828", # background
-        "#b85651", # red
-        "#bd6f3e", # orange
-        "#c18f41", # yellow
-        "#8f9a52", # green
-        "#72966c", # aqua
-        "#68948a", # blue
-        "#ab6c7d"] # purple
-
 # --------------------------------------------------------
 # Pywal Colors
 # --------------------------------------------------------
@@ -200,56 +189,86 @@ def textBoxWithTriangle(triangleDirection, foregroundColor, backgroundColor):
                           fontsize = 22,
                           foreground=foregroundColor,
                           background=backgroundColor)
+    
+# --------------------------------------------------------
+# Widgets
+# --------------------------------------------------------
+
+widget_list = [
+    widget.CurrentLayoutIcon(background=Color15,),                
+    widget.Spacer(length=10),
+    widget.GroupBox(        
+        background="#ffffff.7",
+        highlight_method='block',
+        highlight='ffffff',
+        block_border='ffffff',
+        highlight_color=['ffffff','ffffff'],
+        block_highlight_text_color='000000',
+        foreground='ffffff',
+        rounded=False,
+        this_current_screen_border='ffffff',
+        active='ffffff'
+    ),
+    widget.Spacer(length=10),
+    widget.WindowName(    
+        max_chars=50,
+        background=Color2+".4",
+        width=400,
+        padding=10
+    ),
+    widget.Spacer(length=10),    
+    widget.Memory(
+        background=Color10+".4",
+        padding=10,        
+        measure_mem='G',
+        format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
+    ),
+    widget.Spacer(length=10),    
+    widget.Volume(
+        background=Color12+".4",
+        padding=10, 
+        fmt='Vol: {}',
+    ),
+    widget.Spacer(length=10),    
+    widget.DF(
+        padding=10, 
+        background=Color8+".4",        
+        visible_on_warn=False,
+        format="{p} {uf}{m} ({r:.0f}%)"
+    ),
+    widget.Spacer(length=10),    
+    widget.Bluetooth(
+        background=Color2+".4",
+        padding=10,
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("blueman-manager")},
+    ),
+    widget.Spacer(length=10),    
+    widget.Wlan(
+        background=Color2+".4",
+        padding=10,
+        format='{essid} {percent:2.0%}',
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("alacritty -e nmtui")},
+    ),
+    widget.Spacer(length=10),    
+    widget.Clock(
+        background=Color4+".4",   
+        padding=10,      
+        format="%Y-%m-%d / %I:%M %p",
+    ),    
+]    
+
 
 screens = [
     Screen(
         top=bar.Bar(
-            [
-                widget.CurrentLayoutIcon(                   
-                     background=Color15,),
-                textBoxWithTriangle(0, Color15, Color0 ),
-                widget.Spacer(length=10),
-                
-                textBoxWithTriangle(1, Color15, Color0 ),
-                widget.GroupBox(
-                        background=Color15,
-                ),
-                textBoxWithTriangle(0, Color15, Color0 ),
-                widget.Spacer(length=10),
-                
-                widget.Spacer(length=10),
-                textBoxWithTriangle(1, Color15, Color0 ),
-                widget.WindowName(
-                        background=Color15,
-                ),     
-                textBoxWithTriangle(0, Color15, Color0 ),
-                widget.Spacer(length=20),         
-
-                textBoxWithTriangle(1, Color15, Color0 ),
-                widget.Clock(
-                    background=Color15,
-                    format="%a, %d.%m.%y %H:%M",
-                    ),
-                textBoxWithTriangle(0, Color15, Color0 ),
-                widget.Spacer(length=10),         
-                
-                textBoxWithTriangle(1, Color15, Color0 ),
-                widget.Systray(
-                    background=Color15,
-                ),
-                widget.QuickExit(
-                    background=Color15,
-                ),                
-
-            ],
-            25,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            widget_list,
+            30,
+            padding=20,
+            opacity=0.7,
+            border_width=[0, 0, 0, 0],
+            margin=[0,0,0,0],
+            background="#000000.3"
         ),
-        # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
-        # By default we handle these events delayed to already improve performance, however your system might still be struggling
-        # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
-        # x11_drag_polling_rate = 60,
     ),
 ]
 
@@ -294,7 +313,7 @@ wl_xcursor_size = 24
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+wmname = "QTILE"
 
 @ hook.subscribe.startup_once
 def autostart():
