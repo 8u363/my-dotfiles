@@ -244,26 +244,10 @@ widget_list = [
         fmt='Vol: {}',
     ),
 
-    # System information    
-    widget.TextBox(**decor_rounded_right,),
-    widget.Memory(        
-        background=Color10 +".4",
-        padding=10,        
-        measure_mem='G',
-        format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
-    ),
-        
-    widget.DF(
-        **decor_rounded_left,
-        background=Color10 +".4",     
-        padding=10, 
-        visible_on_warn=False,
-        format="{p} {uf}{m} ({r:.0f}%)"
-    ),
-
     # system tray
+    widget.TextBox(**decor_rounded_right,),
     widget.Systray(
-        
+        **decor_rounded_left,        
     ),
 
     # clock
@@ -279,6 +263,16 @@ widget_list = [
     # Power menu
     widget.QuickExit(
         background=Color15,
+    ),
+    
+    widget.TextBox(**decor_rounded_right,),
+    widget.TextBox(
+        **decor_rounded_left,
+        background=Color15+".4",     
+        padding=5,    
+        text=" ",
+        fontsize=20,
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + "scripts/powermenu.sh")},
     ),
 ]    
 
