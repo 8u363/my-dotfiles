@@ -219,9 +219,9 @@ decor_back_slash={
 widget_list = [
     widget.CurrentLayoutIcon(background=Color15,),
                     
-    widget.TextBox(**decor_rounded_left,),
+    widget.TextBox(**decor_rounded_right,),
     widget.GroupBox(  
-        **decor_rounded_right,      
+        **decor_rounded_left,      
         background="#ffffff",
         highlight_method='block',
         highlight='ffffff',
@@ -234,9 +234,9 @@ widget_list = [
         active='ffffff'
     ),
         
-    widget.TextBox(**decor_forward_slash,),
+    widget.TextBox(**decor_rounded_right,),
     widget.WindowName(    
-        **decor_forward_slash,
+        **decor_rounded_left,
         max_chars=50,
         background=Color2,
         width=400,
