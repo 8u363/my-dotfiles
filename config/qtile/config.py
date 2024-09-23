@@ -204,21 +204,21 @@ decor_rounded_left={
     ],   
 }
 
-decor_forward_slash={  
-    "decorations": [
-        PowerLineDecoration(path="forward_slash")        
-    ],
-}
-
-decor_back_slash={
-    "decorations": [
-        PowerLineDecoration(path="back_slash")
-    ],
-}
-
 widget_list = [
     widget.CurrentLayoutIcon(background=Color15,),
+         
+    # window name    
+    widget.TextBox(**decor_rounded_right,),
+    widget.WindowName(    
+        **decor_rounded_left,
+        max_chars=50,
+        background=Color2,
+        width=400,
+        padding=10
+    ),         
                     
+    # workspace numbers
+    widget.Spacer(length=bar.STRETCH),
     widget.TextBox(**decor_rounded_right,),
     widget.GroupBox(  
         **decor_rounded_left,      
@@ -233,15 +233,12 @@ widget_list = [
         this_current_screen_border='ffffff',
         active='ffffff'
     ),
+    widget.Spacer(length=bar.STRETCH),
 
-    # window name    
-    widget.TextBox(**decor_rounded_right,),
-    widget.WindowName(    
-        **decor_rounded_left,
-        max_chars=50,
-        background=Color2,
-        width=400,
-        padding=10
+
+    # system tray
+    widget.Systray(
+        
     ),
 
     # clock
@@ -251,19 +248,10 @@ widget_list = [
         background="#ffffff",   
         padding=10,      
         format="%a, %d.%m.%Y %H:%S",
-    ),    
-
-    # volume
-    widget.TextBox(**decor_rounded_right,),
-    widget.Volume(
-        **decor_rounded_left,
-        background=Color10 +".4",
-        padding=10, 
-        fmt='Vol: {}',
-    ),
+    ),   
     
-    # System information    
-    widget.TextBox(**decor_forward_slash,),
+        # System information    
+    widget.TextBox(**decor_rounded_right,),
     widget.Memory(        
         background=Color10 +".4",
         padding=10,        
@@ -272,21 +260,26 @@ widget_list = [
     ),
         
     widget.DF(
-        **decor_forward_slash,
+        **decor_rounded_left,
         background=Color10 +".4",     
         padding=10, 
         visible_on_warn=False,
         format="{p} {uf}{m} ({r:.0f}%)"
     ),
-    
-    # system tray
-    widget.Systray(
-        background=Color10,
-    ),
+     
     
     # Power menu
     widget.QuickExit(
         background=Color15,
+    ),
+
+    # volume
+    widget.TextBox(**decor_rounded_right,),
+    widget.Volume(
+        **decor_rounded_left,
+        background=Color10 +".4",
+        padding=10, 
+        fmt='Vol: {}',
     ),
 ]    
 
