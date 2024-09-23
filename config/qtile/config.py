@@ -215,14 +215,13 @@ decor_back_slash={
     ],
 }
 
-
 widget_list = [
     widget.CurrentLayoutIcon(background=Color15,),                
     widget.Spacer(length=10),
     widget.TextBox(**decor_forward_slash,),
     widget.GroupBox(  
         **decor_forward_slash,      
-        background="#ffffff.7",
+        background="#ffffff",
         highlight_method='block',
         highlight='ffffff',
         block_border='ffffff',
@@ -234,55 +233,46 @@ widget_list = [
         active='ffffff'
     ),
     widget.Spacer(length=10),
+    widget.TextBox(**decor_forward_slash,),
     widget.WindowName(    
          **decor_forward_slash,
         max_chars=50,
-        background=Color2+".4",
+        background=Color2,
         width=400,
         padding=10
     ),
     widget.Spacer(length=10),    
+    widget.TextBox(**decor_forward_slash,),
     widget.Memory(
-          **decor_forward_slash,
-        background=Color10+".4",
+        **decor_forward_slash,
+        background=Color10,
         padding=10,        
         measure_mem='G',
         format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
     ),
+    
     widget.Spacer(length=10),    
+    widget.TextBox(**decor_forward_slash,),
     widget.Volume(
         **decor_forward_slash,
-        background=Color12+".4",
+        background=Color12,
         padding=10, 
         fmt='Vol: {}',
     ),
     widget.Spacer(length=10),    
+    widget.TextBox(**decor_forward_slash,),
     widget.DF(
         **decor_forward_slash,
         padding=10, 
-        background=Color8+".4",        
+        background=Color8,        
         visible_on_warn=False,
         format="{p} {uf}{m} ({r:.0f}%)"
     ),
-    widget.Spacer(length=10),    
-    widget.Bluetooth(
-        **decor_forward_slash,
-        background=Color2+".4",
-        padding=10,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("blueman-manager")},
-    ),
-    widget.Spacer(length=10),    
-    widget.Wlan(
-        **decor_forward_slash,
-        background=Color2+".4",
-        padding=10,
-        format='{essid} {percent:2.0%}',
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("alacritty -e nmtui")},
-    ),
+    widget.TextBox(**decor_forward_slash,),
     widget.Spacer(length=10),    
     widget.Clock(
         **decor_forward_slash,
-        background=Color4+".4",   
+        background=Color4,   
         padding=10,      
         format="%a, %d.%m.%Y %H:%S",
     ),    
