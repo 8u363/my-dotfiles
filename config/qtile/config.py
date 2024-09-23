@@ -242,6 +242,7 @@ widget_list = [
     ),
     widget.Spacer(length=10),
     widget.WindowName(    
+        **decor_left,
         max_chars=50,
         background=Color2+".4",
         width=400,
@@ -249,6 +250,7 @@ widget_list = [
     ),
     widget.Spacer(length=10),    
     widget.Memory(
+        **decor_right,
         background=Color10+".4",
         padding=10,        
         measure_mem='G',
@@ -256,12 +258,14 @@ widget_list = [
     ),
     widget.Spacer(length=10),    
     widget.Volume(
+        **decor_right,
         background=Color12+".4",
         padding=10, 
         fmt='Vol: {}',
     ),
     widget.Spacer(length=10),    
     widget.DF(
+        **decor_right,
         padding=10, 
         background=Color8+".4",        
         visible_on_warn=False,
@@ -269,12 +273,14 @@ widget_list = [
     ),
     widget.Spacer(length=10),    
     widget.Bluetooth(
+        **decor_right,
         background=Color2+".4",
         padding=10,
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("blueman-manager")},
     ),
     widget.Spacer(length=10),    
     widget.Wlan(
+        **decor_right,
         background=Color2+".4",
         padding=10,
         format='{essid} {percent:2.0%}',
@@ -282,6 +288,7 @@ widget_list = [
     ),
     widget.Spacer(length=10),    
     widget.Clock(
+        **decor_right,
         background=Color4+".4",   
         padding=10,      
         format="%Y-%m-%d / %I:%M %p",
