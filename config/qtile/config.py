@@ -204,33 +204,29 @@ layouts = [
 # Widgets
 # --------------------------------------------------------
 
-decor_left = {
+decor_forward_slash={  
     "decorations": [
         PowerLineDecoration(
-            path="arrow_left"
-            # path="rounded_left"
-            # path="forward_slash"
-            # path="back_slash"
+            PowerLineDecoration(path="forward_slash")
         )
-    ],
+    ]
 }
 
-decor_right = {
+decor_back_slash={
     "decorations": [
         PowerLineDecoration(
-            path="arrow_right"
-            # path="rounded_right"
-            # path="forward_slash"
-            # path="back_slash"
+            PowerLineDecoration(path="back_slash")
         )
-    ],
+    ]
 }
+
 
 widget_list = [
     widget.CurrentLayoutIcon(background=Color15,),                
     widget.Spacer(length=10),
+    widget.TextBox(**decor_forward_slash,),
     widget.GroupBox(  
-        **decor_left,      
+        **decor_forward_slash,      
         background="#ffffff.7",
         highlight_method='block',
         highlight='ffffff',
@@ -244,7 +240,7 @@ widget_list = [
     ),
     widget.Spacer(length=10),
     widget.WindowName(    
-        **decor_left,
+         **decor_forward_slash,
         max_chars=50,
         background=Color2+".4",
         width=400,
@@ -252,7 +248,7 @@ widget_list = [
     ),
     widget.Spacer(length=10),    
     widget.Memory(
-        **decor_right,
+          **decor_forward_slash,
         background=Color10+".4",
         padding=10,        
         measure_mem='G',
@@ -260,14 +256,14 @@ widget_list = [
     ),
     widget.Spacer(length=10),    
     widget.Volume(
-        **decor_right,
+        **decor_forward_slash,
         background=Color12+".4",
         padding=10, 
         fmt='Vol: {}',
     ),
     widget.Spacer(length=10),    
     widget.DF(
-        **decor_right,
+        **decor_forward_slash,
         padding=10, 
         background=Color8+".4",        
         visible_on_warn=False,
@@ -275,14 +271,14 @@ widget_list = [
     ),
     widget.Spacer(length=10),    
     widget.Bluetooth(
-        **decor_right,
+        **decor_forward_slash,
         background=Color2+".4",
         padding=10,
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("blueman-manager")},
     ),
     widget.Spacer(length=10),    
     widget.Wlan(
-        **decor_right,
+        **decor_forward_slash,
         background=Color2+".4",
         padding=10,
         format='{essid} {percent:2.0%}',
@@ -290,10 +286,10 @@ widget_list = [
     ),
     widget.Spacer(length=10),    
     widget.Clock(
-        **decor_right,
+        **decor_forward_slash,
         background=Color4+".4",   
         padding=10,      
-        format="%Y-%m-%d / %I:%M %p",
+        format="%a, %d.%m.%Y %H:%S",
     ),    
 ]    
 
