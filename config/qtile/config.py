@@ -107,9 +107,9 @@ for i in groups:
 # Scratchpads
 # --------------------------------------------------------
 groups.append(ScratchPad("6", [        
-    DropDown("btop", "alacritty -e btop", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),    
-    DropDown("thunar", "thunar", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),   
-    DropDown("nitrogen", "nitrogen", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),     
+    DropDown("btop", "alacritty -e btop", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),    
+    DropDown("thunar", "thunar", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),   
+    DropDown("nitrogen", "nitrogen", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),     
     DropDown("terminal", "alacritty", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False ),
 ]))
 
