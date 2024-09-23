@@ -192,6 +192,18 @@ layouts = [
 # --------------------------------------------------------
 # Widgets
 # --------------------------------------------------------
+decor_rounded_right={
+    "decorations": [
+        PowerLineDecoration(path="rounded_right")        
+    ],       
+}
+
+decor_rounded_left={
+    "decorations": [
+        PowerLineDecoration(path="rounded_left")        
+    ],   
+}
+
 decor_forward_slash={  
     "decorations": [
         PowerLineDecoration(path="forward_slash")        
@@ -207,9 +219,9 @@ decor_back_slash={
 widget_list = [
     widget.CurrentLayoutIcon(background=Color15,),
                     
-    widget.TextBox(**decor_forward_slash,),
+    widget.TextBox(**decor_rounded_left,),
     widget.GroupBox(  
-        **decor_forward_slash,      
+        **decor_rounded_right,      
         background="#ffffff",
         highlight_method='block',
         highlight='ffffff',
