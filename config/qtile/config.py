@@ -174,7 +174,7 @@ Color15=(colordict['colors']['color15'])
 # Layouts
 # --------------------------------------------------------
 layout_theme = {
-    "margin":5,
+    "margin":2,
     "border_width": 2,
     "border_focus": Color2,
     "border_normal": "FFFFFF",
@@ -233,7 +233,8 @@ widget_list = [
         this_current_screen_border='ffffff',
         active='ffffff'
     ),
-        
+
+    # window name    
     widget.TextBox(**decor_rounded_right,),
     widget.WindowName(    
         **decor_rounded_left,
@@ -242,26 +243,21 @@ widget_list = [
         width=400,
         padding=10
     ),
-    widget.Spacer(),
-    widget.Spacer(
-        length=30
-    ),
 
-    widget.TextBox(**decor_forward_slash,),
+    # clock
+    widget.TextBox(**decor_rounded_right,),
     widget.Clock(
-        **decor_forward_slash,
-        background=Color4,   
+        **decor_rounded_left,
+        background="#ffffff",   
         padding=10,      
         format="%a, %d.%m.%Y %H:%S",
     ),    
-    
-    
 
-    
-    widget.TextBox(**decor_forward_slash,),
+    # volume
+    widget.TextBox(**decor_rounded_right,),
     widget.Volume(
-        **decor_forward_slash,
-        background=Color12,
+        **decor_rounded_left,
+        background=Color10 +".4",
         padding=10, 
         fmt='Vol: {}',
     ),
@@ -269,7 +265,7 @@ widget_list = [
     # System information    
     widget.TextBox(**decor_forward_slash,),
     widget.Memory(        
-        background=Color10,
+        background=Color10 +".4",
         padding=10,        
         measure_mem='G',
         format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
@@ -277,8 +273,8 @@ widget_list = [
         
     widget.DF(
         **decor_forward_slash,
+        background=Color10 +".4",     
         padding=10, 
-        background=Color8,        
         visible_on_warn=False,
         format="{p} {uf}{m} ({r:.0f}%)"
     ),
