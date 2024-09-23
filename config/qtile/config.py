@@ -120,19 +120,7 @@ keys.extend([
     Key([mod], 'F11', lazy.group["6"].dropdown_toggle("nitrogen")),
     ])
 
-# --------------------------------------------------------
-# Layouts
-# --------------------------------------------------------
-layout_theme = {
-    "margin":5,
-    "border_width": 2,
-}
 
-
-layouts = [
-    layout.Tile(**layout_theme),    
-    layout.RatioTile(**layout_theme),    
-]
 
 floating_layout = layout.Floating(
     float_rules=[
@@ -190,6 +178,23 @@ def textBoxWithTriangle(triangleDirection, foregroundColor, backgroundColor):
                           fontsize = 22,
                           foreground=foregroundColor,
                           background=backgroundColor)
+
+# --------------------------------------------------------
+# Layouts
+# --------------------------------------------------------
+layout_theme = {
+    "margin":5,
+    "border_width": 2,
+    "border_focus": Color2,
+    "border_normal": "FFFFFF",
+    "single_border_width": 3
+}
+
+
+layouts = [
+    layout.Tile(**layout_theme),    
+    layout.RatioTile(**layout_theme),    
+]
     
 # --------------------------------------------------------
 # Widgets

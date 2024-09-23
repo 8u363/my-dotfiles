@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # wallpaper
-feh --bg-scale --randomize ~/git/my-wallpaper/art &
+./scripts/chnageWallpaper.sh
 
 # systemtray
 blueman-applet &
