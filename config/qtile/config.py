@@ -218,7 +218,6 @@ decor_back_slash={
 widget_list = [
     widget.CurrentLayoutIcon(background=Color15,),
                     
-    widget.Spacer(length=5),
     widget.TextBox(**decor_forward_slash,),
     widget.GroupBox(  
         **decor_forward_slash,      
@@ -234,7 +233,6 @@ widget_list = [
         active='ffffff'
     ),
         
-    widget.Spacer(length=5),
     widget.TextBox(**decor_forward_slash,),
     widget.WindowName(    
         **decor_forward_slash,
@@ -243,8 +241,11 @@ widget_list = [
         width=400,
         padding=10
     ),
-    
-    widget.Spacer(length=5),    
+    widget.Spacer(),
+    widget.Spacer(
+        length=30
+    ),
+
     widget.TextBox(**decor_forward_slash,),
     widget.Clock(
         **decor_forward_slash,
@@ -253,7 +254,6 @@ widget_list = [
         format="%a, %d.%m.%Y %H:%S",
     ),    
     
-    widget.Spacer(length=5),    
     widget.TextBox(**decor_forward_slash,),
     widget.Memory(
         **decor_forward_slash,
@@ -263,7 +263,6 @@ widget_list = [
         format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
     ),
     
-    widget.Spacer(length=5),    
     widget.TextBox(**decor_forward_slash,),
     widget.Volume(
         **decor_forward_slash,
@@ -272,7 +271,6 @@ widget_list = [
         fmt='Vol: {}',
     ),
     
-    widget.Spacer(length=5),    
     widget.TextBox(**decor_forward_slash,),
     widget.DF(
         **decor_forward_slash,
@@ -297,7 +295,6 @@ screens = [
         ),
     ),
 ]
-
 
 # --------------------------------------------------------
 # Mouse configuration
