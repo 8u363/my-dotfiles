@@ -141,7 +141,7 @@ floating_layout = layout.Floating(
 # Widgets
 # --------------------------------------------------------
 widget_defaults = dict(
-    font="Hack Nerd Font Mono",
+    font="Hack Nerd Font Bold",
     fontsize=14,
     padding=3,     
     )
@@ -216,8 +216,9 @@ decor_back_slash={
 }
 
 widget_list = [
-    widget.CurrentLayoutIcon(background=Color15,),                
-    widget.Spacer(length=10),
+    widget.CurrentLayoutIcon(background=Color15,),
+                    
+    widget.Spacer(length=5),
     widget.TextBox(**decor_forward_slash,),
     widget.GroupBox(  
         **decor_forward_slash,      
@@ -232,16 +233,27 @@ widget_list = [
         this_current_screen_border='ffffff',
         active='ffffff'
     ),
-    widget.Spacer(length=10),
+        
+    widget.Spacer(length=5),
     widget.TextBox(**decor_forward_slash,),
     widget.WindowName(    
-         **decor_forward_slash,
+        **decor_forward_slash,
         max_chars=50,
         background=Color2,
         width=400,
         padding=10
     ),
-    widget.Spacer(length=10),    
+    
+    widget.Spacer(length=5),    
+    widget.TextBox(**decor_forward_slash,),
+    widget.Clock(
+        **decor_forward_slash,
+        background=Color4,   
+        padding=10,      
+        format="%a, %d.%m.%Y %H:%S",
+    ),    
+    
+    widget.Spacer(length=5),    
     widget.TextBox(**decor_forward_slash,),
     widget.Memory(
         **decor_forward_slash,
@@ -251,7 +263,7 @@ widget_list = [
         format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
     ),
     
-    widget.Spacer(length=10),    
+    widget.Spacer(length=5),    
     widget.TextBox(**decor_forward_slash,),
     widget.Volume(
         **decor_forward_slash,
@@ -259,7 +271,8 @@ widget_list = [
         padding=10, 
         fmt='Vol: {}',
     ),
-    widget.Spacer(length=10),    
+    
+    widget.Spacer(length=5),    
     widget.TextBox(**decor_forward_slash,),
     widget.DF(
         **decor_forward_slash,
@@ -268,14 +281,6 @@ widget_list = [
         visible_on_warn=False,
         format="{p} {uf}{m} ({r:.0f}%)"
     ),
-    widget.TextBox(**decor_forward_slash,),
-    widget.Spacer(length=10),    
-    widget.Clock(
-        **decor_forward_slash,
-        background=Color4,   
-        padding=10,      
-        format="%a, %d.%m.%Y %H:%S",
-    ),    
 ]    
 
 
