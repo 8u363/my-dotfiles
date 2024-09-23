@@ -203,21 +203,16 @@ layouts = [
 # --------------------------------------------------------
 # Widgets
 # --------------------------------------------------------
-
 decor_forward_slash={  
     "decorations": [
-        PowerLineDecoration(
-            PowerLineDecoration(path="forward_slash")
-        )
-    ]
+        PowerLineDecoration(path="forward_slash")        
+    ],
 }
 
 decor_back_slash={
     "decorations": [
-        PowerLineDecoration(
-            PowerLineDecoration(path="back_slash")
-        )
-    ]
+        PowerLineDecoration(path="back_slash")
+    ],
 }
 
 
