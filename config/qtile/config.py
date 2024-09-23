@@ -61,7 +61,6 @@ keys = [
 
     
     # Apps
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "b", lazy.spawn("brave"), desc="Launch browser"),
 ]
 
@@ -111,9 +110,11 @@ groups.append(ScratchPad("6", [
     DropDown("btop", "alacritty -e btop", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),    
     DropDown("thunar", "thunar", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),   
     DropDown("nitrogen", "nitrogen", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),     
+    DropDown("terminal", "alacritty", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),
 ]))
 
 keys.extend([
+    Key([mod], "Return", lazy.group["6"].dropdown_toggle("terminal")),
     Key([mod], 'e', lazy.group["6"].dropdown_toggle("thunar")),
     Key([mod], 'F10', lazy.group["6"].dropdown_toggle("btop")),
     Key([mod], 'F11', lazy.group["6"].dropdown_toggle("nitrogen")),
