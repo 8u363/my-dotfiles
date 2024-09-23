@@ -245,7 +245,8 @@ widget_list = [
     widget.TextBox(**decor_rounded_right,),
     widget.Clock(
         **decor_rounded_left,
-        background="#ffffff",   
+        background="#ffffff",
+        foreground="#000000",   
         padding=10,      
         format="%a, %d.%m.%Y %H:%S",
     ),   
