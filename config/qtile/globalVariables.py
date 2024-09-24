@@ -1,9 +1,10 @@
 import os
 import json
 from pathlib import Path
+from libqtile.config import Group
 
 keys            = []   
-groups          = []
+groups          = [Group(i) for i in "123456"]
 widget_list     = []
 layouts         = []
 

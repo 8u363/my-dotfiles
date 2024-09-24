@@ -23,7 +23,7 @@ def initGroups():
         )
 
 
-    groups = [Group(i) for i in "123456"]
+    
 
     for i in groups:
         keys.extend(
@@ -45,7 +45,7 @@ def initGroups():
             ]
         )
         
-    groups.append(ScratchPad(numerOfGroups, [        
+    groups.append(ScratchPad("6", [        
         DropDown("btop", "alacritty -e btop", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),    
         DropDown("explorer", "krusader", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),   
         DropDown("nitrogen", "nitrogen", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),     
