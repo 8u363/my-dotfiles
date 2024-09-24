@@ -299,7 +299,7 @@ widget_list = [
 
 
 if (showHomePartion==False):
-    del widget_list[13:15]
+    del widget_list[16:18]
 
 screens = [
     Screen(
