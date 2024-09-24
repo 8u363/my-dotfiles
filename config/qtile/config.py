@@ -292,7 +292,8 @@ widget_list = [
     # system tray
     widget.TextBox(**decor_rounded_right,),
     widget.Systray(
-        **decor_rounded_left,        
+        **decor_rounded_left,   
+        background=Color10 +".4",        
     ),  
     
     # Power menu
