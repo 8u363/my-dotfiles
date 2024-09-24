@@ -209,10 +209,31 @@ decor_rounded_left={
     ],   
 }
 
-widget_list = [
-    widget.CurrentLayoutIcon(background=Color10),
-
+widget_list = [    
+    # Power menu
+    widget.TextBox(**decor_rounded_right,),
+    widget.TextBox(
+        **decor_rounded_left,
+        background="#ffffff",
+        foreground="#000000",     
+        padding=5,    
+        text=" ",
+        fontsize=20,
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + '/.config/qtile/scripts/powermenu.sh')},
+    ),
+         
+    # window name    
+    widget.TextBox(**decor_rounded_right,),
+    widget.WindowName(    
+        **decor_rounded_left,
+        max_chars=50,
+        background=Color10,
+        width=400,
+        padding=5
+    ),         
+  
     # workspace numbers
+    widget.Spacer(length=bar.STRETCH),
     widget.TextBox(**decor_rounded_right,),
     widget.GroupBox(  
         **decor_rounded_left,      
@@ -227,27 +248,6 @@ widget_list = [
         this_current_screen_border='ffffff',
         active='ffffff'
     ),
-         
-    # window name    
-    widget.TextBox(**decor_rounded_right,),
-    widget.WindowName(    
-        **decor_rounded_left,
-        max_chars=50,
-        background=Color10,
-        width=400,
-        padding=5
-    ),         
-
-    # clock
-    widget.Spacer(length=bar.STRETCH),
-    widget.TextBox(**decor_rounded_right,),
-    widget.Clock(
-        **decor_rounded_left,
-        background="#ffffff",
-        foreground="#000000",   
-        padding=5,      
-        format="%a, %d.%m.%Y %H:%S",
-    ), 
     widget.Spacer(length=bar.STRETCH),
     
     # updates
@@ -278,7 +278,6 @@ widget_list = [
         format="{p} {uf}{m} ({r:.0f}%)"
     ),
 
-
     widget.TextBox(**decor_rounded_right,),
     widget.DF(
         **decor_rounded_left,
@@ -295,22 +294,20 @@ widget_list = [
         **decor_rounded_left,              
     ),  
     
-    # Power menu
+    # clock
     widget.TextBox(**decor_rounded_right,),
-    widget.TextBox(
+    widget.Clock(
         **decor_rounded_left,
         background="#ffffff",
-        foreground="#000000",     
-        padding=5,    
-        text=" ",
-        fontsize=20,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + '/.config/qtile/scripts/powermenu.sh')},
-    ),
+        foreground="#000000",   
+        padding=5,      
+        format="%a, %-d.%-m.%y %H:%S",
+    ), 
 ]    
 
 
 if (showHomePartion==False):
-    del widget_list[16:18]
+    del widget_list[15:17]
 
 screens = [
     Screen(
