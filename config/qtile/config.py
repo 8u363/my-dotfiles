@@ -22,7 +22,7 @@ from libqtile.lazy import lazy
 from qtile_extras import widget
 from qtile_extras.widget.decorations import PowerLineDecoration
 
-from keybinding import keys
+from keybinding import keys, mod
 
 
 
