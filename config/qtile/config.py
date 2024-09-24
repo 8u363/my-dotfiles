@@ -255,15 +255,6 @@ widget_list = [
     ),
     
     widget.TextBox(**decor_rounded_right,),
-    widget.Memory(
-        **decor_rounded_left,
-        background=Color10+".4",
-        padding=5,        
-        measure_mem='G',
-        format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
-    ),
-    
-    widget.TextBox(**decor_rounded_right,),
     widget.DF(
         **decor_rounded_left,
         padding=5, 
