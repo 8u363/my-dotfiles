@@ -248,10 +248,20 @@ widget_list = [
     widget.Memory(
         **decor_rounded_left,
         background=Color10+".4",
-        padding=10,        
+        padding=5,        
         measure_mem='G',
         format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
     ),
+    
+    widget.TextBox(**decor_rounded_right,),
+    widget.DF(
+        **decor_rounded_left,
+        padding=10, 
+        background=Color8+".4",        
+        visible_on_warn=False,
+        format="{p} {uf}{m} ({r:.0f}%)"
+    ),
+
 
 
     # system tray
