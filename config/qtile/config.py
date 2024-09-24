@@ -243,6 +243,16 @@ widget_list = [
         padding=5, 
         fmt='Vol: {}',
     ),
+    
+    widget.TextBox(**decor_rounded_right,),
+    widget.Memory(
+        **decor_rounded_left,
+        background=Color10+".4",
+        padding=10,        
+        measure_mem='G',
+        format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
+    ),
+
 
     # system tray
     widget.TextBox(**decor_rounded_right,),
