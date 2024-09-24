@@ -24,9 +24,10 @@ from qtile_extras.widget.decorations import PowerLineDecoration
 # --------------------------------------------------------
 # General Variables
 # --------------------------------------------------------
-home        = str(Path.home())  # get home path
-mod         = "mod4"            # windows key
-terminal    = "alacritty"
+showHomePartion = False
+home            = str(Path.home())  # get home path
+mod             = "mod4"            # windows key
+terminal        = "alacritty"
 
 # --------------------------------------------------------
 # General key binding
@@ -58,10 +59,6 @@ keys = [
 
     # Screen functions
     Key([mod], "w", lazy.spawn("sh " + home +"/.config/qtile/scripts/changeWallpaper.sh" )),
-
-
-
-    
     # Apps
     Key([mod], "b", lazy.spawn("brave"), desc="Launch browser"),
 ]
@@ -110,14 +107,14 @@ for i in groups:
 # --------------------------------------------------------
 groups.append(ScratchPad("6", [        
     DropDown("btop", "alacritty -e btop", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),    
-    DropDown("thunar", "thunar", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),   
+    DropDown("explorer", "krusader", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),   
     DropDown("nitrogen", "nitrogen", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),     
     DropDown("terminal", "alacritty", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False ),
 ]))
 
 keys.extend([
     Key([mod], "Return", lazy.group["6"].dropdown_toggle("terminal")),
-    Key([mod], 'e', lazy.group["6"].dropdown_toggle("thunar")),
+    Key([mod], 'e', lazy.group["6"].dropdown_toggle("explorer")),
     Key([mod], 'F10', lazy.group["6"].dropdown_toggle("btop")),
     Key([mod], 'F11', lazy.group["6"].dropdown_toggle("nitrogen")),
     ])
@@ -279,9 +276,7 @@ widget_list = [
     widget.TextBox(**decor_rounded_right,),
     widget.Systray(
         **decor_rounded_left,        
-    ),
-
-  
+    ),  
     
     # Power menu
     widget.TextBox(**decor_rounded_right,),
@@ -295,6 +290,9 @@ widget_list = [
     ),
 ]    
 
+
+if (showHomePartion==False):
+    del widget_list[13:15]
 
 screens = [
     Screen(
