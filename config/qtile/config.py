@@ -210,7 +210,7 @@ decor_rounded_left={
 }
 
 widget_list = [
-    widget.CurrentLayoutIcon(background=Color15,),
+    widget.CurrentLayoutIcon(background=Color10 +".4",),
 
     # workspace numbers
     widget.TextBox(**decor_rounded_right,),
@@ -233,7 +233,7 @@ widget_list = [
     widget.WindowName(    
         **decor_rounded_left,
         max_chars=50,
-        background=Color2,
+        background=Color10 +".4",
         width=400,
         padding=5
     ),         
@@ -254,6 +254,7 @@ widget_list = [
     widget.TextBox(**decor_rounded_right,),
     widget.CheckUpdates(
         **decor_rounded_left,
+         background=Color10 +".4",       
          custom_command="checkupdates",
          execute="alacritty -e paru",
     ),
@@ -271,7 +272,7 @@ widget_list = [
     widget.DF(
         **decor_rounded_left,
         padding=5, 
-        background=Color8+".4",        
+        background=Color10 +".4",        
         visible_on_warn=False,
         partition='/',
         format="{p} {uf}{m} ({r:.0f}%)"
@@ -282,7 +283,7 @@ widget_list = [
     widget.DF(
         **decor_rounded_left,
         padding=5, 
-        background=Color8+".4",        
+        background=Color10 +".4",       
         visible_on_warn=False,
         partition='/home',
         format="{p} {uf}{m} ({r:.0f}%)"
@@ -298,7 +299,8 @@ widget_list = [
     widget.TextBox(**decor_rounded_right,),
     widget.TextBox(
         **decor_rounded_left,
-        background=Color15+".4",     
+        background="#ffffff",
+        foreground="#000000",     
         padding=5,    
         text=" ",
         fontsize=20,
