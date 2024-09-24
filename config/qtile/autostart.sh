@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# notofication
+dunst &
+
 # wallpaper
 ~/.config/qtile/scripts/changeWallpaper.sh
 
