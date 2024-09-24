@@ -241,7 +241,14 @@ widget_list = [
         format="%a, %d.%m.%Y %H:%S",
     ), 
     widget.Spacer(length=bar.STRETCH),
-
+    
+    # updates
+    widget.TextBox(**decor_rounded_right,),
+    widget.CheckUpdates(
+        **decor_rounded_left,
+         custom_command="checkupdates",
+    ),
+    
     # volume
     widget.TextBox(**decor_rounded_right,),
     widget.Volume(
