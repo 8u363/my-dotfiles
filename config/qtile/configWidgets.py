@@ -28,7 +28,7 @@ widget_defaults = dict(
 def initWidgets():
      # Power menu
     if showPowerMenu==True:
-        widget_list.append(
+        widget_list.extend([
             widget.TextBox(**decor_rounded_right,),
             widget.TextBox(
                 **decor_rounded_left,
@@ -39,11 +39,11 @@ def initWidgets():
                 padding=2,
                 mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + '/.config/qtile/scripts/powermenu.sh')},
             )
-        )
+        ])
         
     # window name 
     if showWindowName == True:
-        widget_list.append(
+        widget_list.extend([
             widget.TextBox(**decor_rounded_right,),
             widget.WindowName(    
                 **decor_rounded_left,
@@ -52,11 +52,11 @@ def initWidgets():
                 width=400,
                 padding=2,
             )
-        )
+        ])
         
     # group box
     if showGroupBox == True:
-        widget_list.append(
+        widget_list.extend([
             widget.Spacer(length=bar.STRETCH),
             widget.TextBox(**decor_rounded_right,),
             widget.GroupBox(  
@@ -73,10 +73,10 @@ def initWidgets():
                 active='ffffff'        
             ),
             widget.Spacer(length=bar.STRETCH)
-        )
+        ])
         
     if showUpdates == True:
-        widget_list.append(
+        widget_list.extend([
             widget.TextBox(**decor_rounded_right,),
             widget.CheckUpdates(
                 **decor_rounded_left,
@@ -84,10 +84,10 @@ def initWidgets():
                 custom_command="checkupdates",
                 execute="alacritty -e paru",
             )
-        )
+        ])
     
     if showVolume == True:
-        widget_list.append(
+        widget_list.extend([
             widget.TextBox(**decor_rounded_right,),
             widget.Volume(
                 **decor_rounded_left,
@@ -95,10 +95,10 @@ def initWidgets():
                 padding=2,
                 fmt='Vol: {}',
             )         
-        )
+        ])
 
     if showFreeDisk == True:
-        widget_list.append(
+        widget_list.extend([
             widget.TextBox(**decor_rounded_right,),
             widget.DF(
                 **decor_rounded_left,
@@ -108,10 +108,10 @@ def initWidgets():
                 partition='/',
                 format="{p} {uf}{m} ({r:.0f}%)"
             )            
-        )
+        ])
     
     if showFreeHome == True:
-        widget_list.append(
+        widget_list.extend([
             widget.TextBox(**decor_rounded_right,),
             widget.DF(
                 **decor_rounded_left,
@@ -121,18 +121,18 @@ def initWidgets():
                 partition='/home',
                 format="{p} {uf}{m} ({r:.0f}%)"
             )            
-        )
+        ])
         
     if showSysTray == True:
-        widget_list.append(
+        widget_list.extend([
             widget.TextBox(**decor_rounded_right,),
             widget.Systray(
                 **decor_rounded_left,              
             )          
-        )
+        ])
         
     if showClock == True:
-        widget_list.append(
+        widget_list.extend([
             widget.TextBox(**decor_rounded_right,),
             widget.Clock(
                 **decor_rounded_left,
@@ -141,39 +141,4 @@ def initWidgets():
                 padding=2,      
                 format="%a, %-d.%-m.%y %H:%S",
             )           
-        )
-
-
-
-widget_list = [    
-   
-
-         
-    # window name    
-       
-  
-    # workspace numbers
-
-    
-    # updates
-
-    
-    # volume
-
-    
-
-
-
-    # system tray
-
-    
-    # clock
-    widget.TextBox(**decor_rounded_right,),
-    widget.Clock(
-        **decor_rounded_left,
-        background="#ffffff",
-        foreground="#000000",   
-        padding=2,      
-        format="%a, %-d.%-m.%y %H:%S",
-    ), 
-]    
+        ])
