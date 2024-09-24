@@ -13,9 +13,9 @@ from  globalVariables import *
 # We therefore defer the check until the key binding is run by using .when(func=...)
 def initGroups():
     for i in range(1, numerOfGroups):
-        group_list.append(Group(i))
+        groups.append(Group(i))
         
-        key_list.append(
+        keys.append(
             Key(
                 ["control", "mod1"],
                 f"f{i}",
@@ -24,7 +24,7 @@ def initGroups():
             )
         )
                
-        key_list.extend(
+        keys.extend(
             [
                 # mod + group number = switch to group
                 Key(
@@ -43,7 +43,7 @@ def initGroups():
             ]
         )
         
-    group_list.append(ScratchPad(numerOfGroups, [        
+    groups.append(ScratchPad(numerOfGroups, [        
     DropDown("btop", "alacritty -e btop", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),    
     DropDown("explorer", "krusader", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),   
     DropDown("nitrogen", "nitrogen", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),     

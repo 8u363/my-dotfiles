@@ -2,10 +2,10 @@ import os
 import json
 from pathlib import Path
 
-key_list        = []   
-group_list      = []
+keys            = []   
+groups          = []
 widget_list     = []
-layout_list     = []
+layouts         = []
 
 home            = str(Path.home())  # get home path
 mod             = "mod4"            # windows key

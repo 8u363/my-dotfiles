@@ -7,7 +7,7 @@ from  globalVariables import *
 # key configuration
 # --------------------------------------------------------
 def initKeys():
-    key_list.extend([
+    keys.extend([
         # General functions
         Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
         Key([mod, "control"], "x", lazy.shutdown(), desc="Close the whole Qtile"),    

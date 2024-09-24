@@ -33,13 +33,11 @@ from configLayouts import initLayouts
 # key configuration
 # --------------------------------------------------------
 initKeys()
-keys = key_list.copy()
 
 # --------------------------------------------------------
 # group configuration
 # --------------------------------------------------------
 initGroups()
-groups = group_list.copy()
 
 # --------------------------------------------------------
 # widget configuration
@@ -50,7 +48,6 @@ initWidgets()
 # layout configuration
 # --------------------------------------------------------
 initLayouts()
-layouts = layout_list.copy()
 
 
 
