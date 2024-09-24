@@ -22,65 +22,33 @@ from libqtile.lazy import lazy
 from qtile_extras import widget
 from qtile_extras.widget.decorations import PowerLineDecoration
 
-from keybinding import keys, mod
 
-
-
-# --------------------------------------------------------
-# Groups
-# --------------------------------------------------------
-# Add key bindings to switch VTs in Wayland.
-# We can't check qtile.core.name in default config as it is loaded before qtile is started
-# We therefore defer the check until the key binding is run by using .when(func=...)
-for vt in range(1, 6):
-    keys.append(
-        Key(
-            ["control", "mod1"],
-            f"f{vt}",
-            lazy.core.change_vt(vt).when(func=lambda: qtile.core.name == "wayland"),
-            desc=f"Switch to VT{vt}",
-        )
-    )
-
-
-groups = [Group(i) for i in "123456"]
-
-for i in groups:
-    keys.extend(
-        [
-            # mod + group number = switch to group
-            Key(
-                [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
-            ),
-            # mod + shift + group number = switch to & move focused window to group
-            Key(
-                [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-            ),
-        ]
-    )
+from globalVariables import *
+from configKeys import initKeys
+from configGroups import initGroups
+from configWidgets import initWidgets
+from configLayouts import initLayouts
 
 # --------------------------------------------------------
-# Scratchpads
+# key configuration
 # --------------------------------------------------------
-groups.append(ScratchPad("6", [        
-    DropDown("btop", "alacritty -e btop", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),    
-    DropDown("explorer", "krusader", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),   
-    DropDown("nitrogen", "nitrogen", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False  ),     
-    DropDown("terminal", "alacritty", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False ),
-]))
+initKeys()
 
-keys.extend([
-    Key([mod], "space", lazy.group["6"].dropdown_toggle("terminal")),
-    Key([mod], 'e', lazy.group["6"].dropdown_toggle("explorer")),
-    Key([mod], 'F10', lazy.group["6"].dropdown_toggle("btop")),
-    Key([mod], 'F11', lazy.group["6"].dropdown_toggle("nitrogen")),
-    ])
+# --------------------------------------------------------
+# group configuration
+# --------------------------------------------------------
+initGroups()
+
+# --------------------------------------------------------
+# widget configuration
+# --------------------------------------------------------
+initWidgets()
+
+# --------------------------------------------------------
+# layout configuration
+# --------------------------------------------------------
+initLayouts()
+
 
 
 
@@ -96,173 +64,6 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ]
 )
-
-# --------------------------------------------------------
-# Widgets
-# --------------------------------------------------------
-widget_defaults = dict(
-    font="Hack Nerd Font SemiBold",
-    fontsize=12,
-    padding=2,     
-    )
-
-extension_defaults = widget_defaults.copy()
-# --------------------------------------------------------
-# Pywal Colors
-# --------------------------------------------------------
-
-colors = os.path.expanduser('~/.cache/wal/colors.json')
-colordict = json.load(open(colors))
-Color0=(colordict['colors']['color0'])
-Color1=(colordict['colors']['color1'])
-Color2=(colordict['colors']['color2'])
-Color3=(colordict['colors']['color3'])
-Color4=(colordict['colors']['color4'])
-Color5=(colordict['colors']['color5'])
-Color6=(colordict['colors']['color6'])
-Color7=(colordict['colors']['color7'])
-Color8=(colordict['colors']['color8'])
-Color9=(colordict['colors']['color9'])
-Color10=(colordict['colors']['color10'])
-Color11=(colordict['colors']['color11'])
-Color12=(colordict['colors']['color12'])
-Color13=(colordict['colors']['color13'])
-Color14=(colordict['colors']['color14'])
-Color15=(colordict['colors']['color15'])
-
-# --------------------------------------------------------
-# Layouts
-# --------------------------------------------------------
-layout_theme = {
-    "margin":2,
-    "border_width": 2,
-    "border_focus": Color2,
-    "border_normal": "FFFFFF",
-    "single_border_width": 3
-}
-
-
-layouts = [
-    layout.MonadTall(**layout_theme),
-    layout.MonadWide(**layout_theme),
-    layout.Tile(**layout_theme),    
-    layout.RatioTile(**layout_theme),    
-]
-    
-# --------------------------------------------------------
-# Widgets
-# --------------------------------------------------------
-decor_rounded_right={
-    "decorations": [
-        PowerLineDecoration(path="rounded_right")        
-    ],       
-}
-
-decor_rounded_left={
-    "decorations": [
-        PowerLineDecoration(path="rounded_left")        
-    ],   
-}
-
-widget_list = [    
-    # Power menu
-    widget.TextBox(**decor_rounded_right,),
-    widget.TextBox(
-        **decor_rounded_left,
-        background="#ffffff",
-        foreground="#000000",             
-        text=" ",
-        fontsize=14,
-        padding=2,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + '/.config/qtile/scripts/powermenu.sh')},
-    ),
-         
-    # window name    
-    widget.TextBox(**decor_rounded_right,),
-    widget.WindowName(    
-        **decor_rounded_left,
-        max_chars=50,
-        background=Color10,
-        width=400,
-        padding=2,
-    ),         
-  
-    # workspace numbers
-    widget.Spacer(length=bar.STRETCH),
-    widget.TextBox(**decor_rounded_right,),
-    widget.GroupBox(  
-        **decor_rounded_left,      
-        background="#ffffff",
-        highlight_method='block',
-        highlight='ffffff',
-        block_border='ffffff',
-        highlight_color=['ffffff','ffffff'],
-        block_highlight_text_color='000000',
-        foreground='ffffff',
-        rounded=False,
-        this_current_screen_border='ffffff',
-        active='ffffff'        
-    ),
-    widget.Spacer(length=bar.STRETCH),
-    
-    # updates
-    widget.TextBox(**decor_rounded_right,),
-    widget.CheckUpdates(
-        **decor_rounded_left,
-         background=Color10,       
-         custom_command="checkupdates",
-         execute="alacritty -e paru",
-    ),
-    
-    # volume
-    widget.TextBox(**decor_rounded_right,),
-    widget.Volume(
-        **decor_rounded_left,
-        background=Color10,
-        padding=2,
-        fmt='Vol: {}',
-    ),
-    
-    widget.TextBox(**decor_rounded_right,),
-    widget.DF(
-        **decor_rounded_left,
-        padding=2,
-        background=Color10,        
-        visible_on_warn=False,
-        partition='/',
-        format="{p} {uf}{m} ({r:.0f}%)"
-    ),
-
-    widget.TextBox(**decor_rounded_right,),
-    widget.DF(
-        **decor_rounded_left,
-        padding=2,
-        background=Color10,       
-        visible_on_warn=False,
-        partition='/home',
-        format="{p} {uf}{m} ({r:.0f}%)"
-    ),
-
-    # system tray
-    widget.TextBox(**decor_rounded_right,),
-    widget.Systray(
-        **decor_rounded_left,              
-    ),  
-    
-    # clock
-    widget.TextBox(**decor_rounded_right,),
-    widget.Clock(
-        **decor_rounded_left,
-        background="#ffffff",
-        foreground="#000000",   
-        padding=2,      
-        format="%a, %-d.%-m.%y %H:%S",
-    ), 
-]    
-
-
-if (showHomePartion==False):
-    del widget_list[15:17]
 
 screens = [
     Screen(
