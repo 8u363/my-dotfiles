@@ -61,6 +61,7 @@ keys = [
     Key([mod], "w", lazy.spawn("sh " + home +"/.config/qtile/scripts/changeWallpaper.sh" )),
     # Apps
     Key([mod], "b", lazy.spawn("brave"), desc="Launch browser"),
+    Key([mod], "Enter", lazy.spawn("alacritty"), desc="Launch terminal"),
     
     # Audio functions
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset Master 5%-"), desc="Lower Volume by 5%"),
@@ -121,7 +122,7 @@ groups.append(ScratchPad("6", [
 ]))
 
 keys.extend([
-    Key([mod], "Return", lazy.group["6"].dropdown_toggle("terminal")),
+    Key([mod], "Space", lazy.group["6"].dropdown_toggle("terminal")),
     Key([mod], 'e', lazy.group["6"].dropdown_toggle("explorer")),
     Key([mod], 'F10', lazy.group["6"].dropdown_toggle("btop")),
     Key([mod], 'F11', lazy.group["6"].dropdown_toggle("nitrogen")),
