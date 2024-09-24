@@ -247,6 +247,7 @@ widget_list = [
     widget.CheckUpdates(
         **decor_rounded_left,
          custom_command="checkupdates",
+         execute="alacritty -e paru",
     ),
     
     # volume
