@@ -147,8 +147,8 @@ floating_layout = layout.Floating(
 # --------------------------------------------------------
 widget_defaults = dict(
     font="Hack Nerd Font SemiBold",
-    fontsize=14,
-    padding=3,     
+    fontsize=12,
+    padding=2,     
     )
 
 extension_defaults = widget_defaults.copy()
@@ -215,10 +215,10 @@ widget_list = [
     widget.TextBox(
         **decor_rounded_left,
         background="#ffffff",
-        foreground="#000000",     
-        padding=5,    
+        foreground="#000000",             
         text=" ",
-        fontsize=20,
+        fontsize=14,
+        padding=2,
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + '/.config/qtile/scripts/powermenu.sh')},
     ),
          
@@ -229,7 +229,7 @@ widget_list = [
         max_chars=50,
         background=Color10,
         width=400,
-        padding=5
+        padding=2,
     ),         
   
     # workspace numbers
@@ -246,7 +246,7 @@ widget_list = [
         foreground='ffffff',
         rounded=False,
         this_current_screen_border='ffffff',
-        active='ffffff'
+        active='ffffff'        
     ),
     widget.Spacer(length=bar.STRETCH),
     
@@ -264,14 +264,14 @@ widget_list = [
     widget.Volume(
         **decor_rounded_left,
         background=Color10,
-        padding=5, 
+        padding=2,
         fmt='Vol: {}',
     ),
     
     widget.TextBox(**decor_rounded_right,),
     widget.DF(
         **decor_rounded_left,
-        padding=5, 
+        padding=2,
         background=Color10,        
         visible_on_warn=False,
         partition='/',
@@ -281,7 +281,7 @@ widget_list = [
     widget.TextBox(**decor_rounded_right,),
     widget.DF(
         **decor_rounded_left,
-        padding=5, 
+        padding=2,
         background=Color10,       
         visible_on_warn=False,
         partition='/home',
@@ -300,7 +300,7 @@ widget_list = [
         **decor_rounded_left,
         background="#ffffff",
         foreground="#000000",   
-        padding=5,      
+        padding=2,      
         format="%a, %-d.%-m.%y %H:%S",
     ), 
 ]    
