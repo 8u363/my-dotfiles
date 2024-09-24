@@ -13,6 +13,8 @@ from  globalVariables import *
 # We therefore defer the check until the key binding is run by using .when(func=...)
 def initGroups():
     for i in range(1, numerOfGroups):
+        group_list.append(Group(i))
+        
         key_list.append(
             Key(
                 ["control", "mod1"],
@@ -21,26 +23,22 @@ def initGroups():
                 desc=f"Switch to VT{i}",
             )
         )
-        
-        group_list.append(
-        Group(i) 
-        )
-        
+               
         key_list.extend(
             [
                 # mod + group number = switch to group
                 Key(
                     [mod],
-                    i.name,
-                    lazy.group[i.name].toscreen(),
-                    desc="Switch to group {}".format(i.name),
+                    str(i),
+                    lazy.group[str(i)].toscreen(),
+                    desc="Switch to group {}".format(str(i)),
                 ),
                 # mod + shift + group number = switch to & move focused window to group
                 Key(
                     [mod, "shift"],
-                    i.name,
-                    lazy.window.togroup(i.name, switch_group=True),
-                    desc="Switch to & move focused window to group {}".format(i.name),
+                    str(i),
+                    lazy.window.togroup(str(i), switch_group=True),
+                    desc="Switch to & move focused window to group {}".format(str(i)),
                 ),
             ]
         )
