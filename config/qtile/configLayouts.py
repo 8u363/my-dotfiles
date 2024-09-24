@@ -12,9 +12,9 @@ def initLayouts():
         "single_border_width": 3
     }
 
-    layout_list.append(
+    layout_list.extend([
         layout.MonadTall(**layout_theme),
         layout.MonadWide(**layout_theme),
         layout.Tile(**layout_theme),    
         layout.RatioTile(**layout_theme),    
-    )
+    ])

@@ -7,7 +7,7 @@ from  globalVariables import *
 # key configuration
 # --------------------------------------------------------
 def initKeys():
-    key_list.append(
+    key_list.extend([
         # General functions
         Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
         Key([mod, "control"], "x", lazy.shutdown(), desc="Close the whole Qtile"),    
@@ -50,4 +50,4 @@ def initKeys():
         Key([mod], 'e', lazy.group["6"].dropdown_toggle("explorer")),
         Key([mod], 'F10', lazy.group["6"].dropdown_toggle("btop")),
         Key([mod], 'F11', lazy.group["6"].dropdown_toggle("nitrogen")),    
-    )
+    ])
