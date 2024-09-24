@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # wallpaper
-./scripts/chnageWallpaper.sh
+~/.config/qtile/scripts/changeWallpaper.sh
 
 # systemtray
 blueman-applet &
