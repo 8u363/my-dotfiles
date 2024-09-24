@@ -60,7 +60,7 @@ keys = [
     Key([mod], "w", lazy.spawn("sh " + home +"/.config/qtile/scripts/changeWallpaper.sh" )),
     # Apps
     Key([mod], "b", lazy.spawn("brave"), desc="Launch browser"),
-    Key([mod], "Enter", lazy.spawn("alacritty"), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn("alacritty"), desc="Launch terminal"),
     
     # Audio functions
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset Master 5%-"), desc="Lower Volume by 5%"),
