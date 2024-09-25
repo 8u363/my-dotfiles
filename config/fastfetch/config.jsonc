@@ -8,12 +8,13 @@
         }
     },
     "display": {
-        "separator": " ➜  ",
+        "separator": "",
         "key": {
-            "width": 10
+            "width": 15
         }
     },
     "modules": [
+        "break",
         "break",
         "break",
         {
