@@ -19,8 +19,8 @@ decor_rounded_left={
 }
 
 widget_defaults = dict(
-    font="Hack Nerd Font SemiBold",
-    fontsize=12,
+    font="Hack Nerd Font Bold",
+    fontsize=14,
     padding=2,     
 )
 

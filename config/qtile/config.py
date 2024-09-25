@@ -30,6 +30,41 @@ from configWidgets import initWidgets
 from configLayouts import initLayouts
 
 # --------------------------------------------------------
+# autostart configuration
+# --------------------------------------------------------
+@ hook.subscribe.startup_once
+def autostart():
+    autostartPath = os.path.expanduser(home + '/.config/qtile/autostart.sh')
+    subprocess.run([autostartPath])
+
+# --------------------------------------------------------
+# gernal configuration
+# --------------------------------------------------------
+dgroups_key_binder          = None
+dgroups_app_rules           = []  # type: list
+follow_mouse_focus          = True
+bring_front_click           = False
+floats_kept_above           = True
+cursor_warp                 = False
+
+auto_fullscreen             = True
+focus_on_window_activation  = "smart"
+reconfigure_screens         = True
+
+# If things like steam games want to auto-minimize themselves when losing
+# focus, should we respect this or not?
+auto_minimize               = True
+
+# When using the Wayland backend, this can be used to configure input devices.
+wl_input_rules              = None
+
+# xcursor theme (string or None) and size (integer) for Wayland backend
+wl_xcursor_theme            = None
+wl_xcursor_size             = 24
+
+wmname = "QTILE"
+
+# --------------------------------------------------------
 # key configuration
 # --------------------------------------------------------
 initKeys()
@@ -49,7 +84,22 @@ initWidgets()
 # --------------------------------------------------------
 initLayouts()
 
-
+# --------------------------------------------------------
+# screen configuration
+# --------------------------------------------------------
+screens = [
+    Screen(
+        top=bar.Bar(
+            widget_list,
+            40,
+            padding=20,
+            opacity=0.7,
+            border_width=[0, 0, 0, 0],
+            margin=[0,0,0,0],
+            background="#000000.3"
+        ),
+    ),
+]
 
 floating_layout = layout.Floating(
     float_rules=[
@@ -64,22 +114,8 @@ floating_layout = layout.Floating(
     ]
 )
 
-screens = [
-    Screen(
-        top=bar.Bar(
-            widget_list,
-            30,
-            padding=20,
-            opacity=0.7,
-            border_width=[0, 0, 0, 0],
-            margin=[0,0,0,0],
-            background="#000000.3"
-        ),
-    ),
-]
-
 # --------------------------------------------------------
-# Mouse configuration
+# mouse configuration
 # --------------------------------------------------------
 # Drag floating layouts.
 mouse = [
@@ -87,40 +123,3 @@ mouse = [
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
-
-dgroups_key_binder = None
-dgroups_app_rules = []  # type: list
-follow_mouse_focus = True
-bring_front_click = False
-floats_kept_above = True
-cursor_warp = False
-
-auto_fullscreen = True
-focus_on_window_activation = "smart"
-reconfigure_screens = True
-
-# If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
-auto_minimize = True
-
-# When using the Wayland backend, this can be used to configure input devices.
-wl_input_rules = None
-
-# xcursor theme (string or None) and size (integer) for Wayland backend
-wl_xcursor_theme = None
-wl_xcursor_size = 24
-
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
-wmname = "QTILE"
-
-@ hook.subscribe.startup_once
-def autostart():
-    autostartPath = os.path.expanduser(home + '/.config/qtile/autostart.sh')
-    subprocess.run([autostartPath])
