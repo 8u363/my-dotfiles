@@ -8,35 +8,38 @@
         }
     },
     "display": {
-        "separator": " ➜  "
+        "separator": " ➜  ",
+        "key": {
+            "width": 21
+        }
     },
     "modules": [
         "break",
         "break",
         {
             "type": "os",
-            "key": "OS   ",
+            "key": "OS",
             "keyColor": "31", // = color1
         },
         {
             "type": "kernel",
-            "key": "   Kernel",
+            "key": " Kernel",
             "keyColor": "31",
             "format": "{2} {4}"
         },
         {
             "type": "packages",
-            "key": "  󰏖 Packages",
+            "key": "󰏖 Packages",
             "keyColor": "31",
         },
         {
             "type": "uptime",
-            "key": "   Uptime",
+            "key": " Uptime",
             "keyColor": "31",
         },
         {
             "type": "localip",
-            "key": "  󰩟 LocalIP",
+            "key": "󰩟 LocalIP",
             "keyColor": "31",
             "showIpv4": true,
         },
