@@ -54,23 +54,20 @@
             "temp": true
         },
         {
-            "type": "cpuusage",
-            "key": "    󰓅 Usage",
+            "type": "gpu",
+            "key": "  󰾲 GPU",
             "keyColor": "33",
+            "format": "{1} {2} - {3} {4}",
+            "temp": true
         },
         {
             "type": "memory",
-            "key": " ├  ",
+            "key": "   Memory",
             "keyColor": "33",
         },
         {
             "type": "swap",
-            "key": " ├ 󰓡 ",
-            "keyColor": "33",
-        },
-        {
-            "type": "disk",
-            "key": " ├ 󰋊 ",
+            "key": "  󰓡 Swap",
             "keyColor": "33",
         },
         "break",
