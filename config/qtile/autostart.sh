@@ -1,14 +1,10 @@
 #!/bin/bash
 
-# notofication
-dunst &
-
-# wallpaper
 ~/.config/qtile/scripts/changeWallpaper.sh
 
-# systemtray
+xrandr --output Virtual-1 --primary --mode 1600x1200 --pos 0x0 --rotate normal
+
+dunst &
 blueman-applet &
 nm-applet &
-
-# programs
 picom &
