@@ -49,8 +49,13 @@
         },
         {
             "type": "cpu",
-            "format": "{1} ({3}) @ {7} GHz",
-            "key": " ├  ",
+            "key": "   CPU",
+            "keyColor": "33",
+            "temp": true
+        },
+        {
+            "type": "cpuusage",
+            "key": "    󰓅 Usage",
             "keyColor": "33",
         },
         {
