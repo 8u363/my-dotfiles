@@ -1,0 +1,50 @@
+//  Thanks to Bina
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "small",
+        "padding": {
+            "top": 2
+        }
+    },
+    "display": {
+        "separator": "",
+        "key": {
+            "width": 15
+        }
+    },
+    "modules": [
+        "break",
+        "break",
+        "break",
+        {
+            "type": "os",
+            "key": " os",
+            "keyColor": "31", // = color1
+        },
+        {
+            "type": "kernel",
+            "key": " Kernel",
+            "keyColor": "31",
+            "format": "{2} {4}"
+        },
+        {
+            "type": "packages",
+            "key": "󰏖 Packages",
+            "keyColor": "31",
+        },
+        "break",
+        {
+            "type": "uptime",
+            "key": " Uptime",
+            "keyColor": "33",
+        },
+        {
+            "type": "localip",
+            "key": "󰩟 LocalIP",
+            "keyColor": "33",
+            "showIpv4": true,
+        },
+        "break",
+    ]
+}
