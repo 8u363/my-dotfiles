@@ -20,24 +20,25 @@
         },
         {
             "type": "kernel",
-            "key": " ├  ",
+            "key": "   Kernel",
             "keyColor": "31",
+            "format": "{2} {4}"
         },
         {
             "type": "packages",
-            "format": "{} (pacman)",
-            "key": " ├ 󰏖 ",
-            "keyColor": "31",
-        },
-        {
-            "type": "shell",
-            "key": " └  ",
+            "key": "  󰏖 Packages",
             "keyColor": "31",
         },
         {
             "type": "uptime",
-            "key": " ├ 🕓 ",
+            "key": "   Uptime",
             "keyColor": "31",
+        },
+        {
+            "type": "localip",
+            "key": "  󰩟 LocalIP",
+            "keyColor": "31",
+            "showIpv4": true,
         },
         "break",
         {
