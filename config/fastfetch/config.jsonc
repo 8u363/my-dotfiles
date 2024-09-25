@@ -10,7 +10,7 @@
     "display": {
         "separator": " ➜  ",
         "key": {
-            "width": 21
+            "width": 10
         }
     },
     "modules": [
@@ -32,48 +32,18 @@
             "key": "󰏖 Packages",
             "keyColor": "31",
         },
+        "break",
         {
             "type": "uptime",
             "key": " Uptime",
-            "keyColor": "31",
+            "keyColor": "33",
         },
         {
             "type": "localip",
             "key": "󰩟 LocalIP",
-            "keyColor": "31",
+            "keyColor": "33",
             "showIpv4": true,
         },
-        "break",
-        {
-            "type": "host",
-            "format": "{5} {1} Type {2}",
-            "key": "PC   ",
-            "keyColor": "33",
-        },
-        {
-            "type": "cpu",
-            "key": "   CPU",
-            "keyColor": "33",
-            "temp": true
-        },
-        {
-            "type": "gpu",
-            "key": "  󰾲 GPU",
-            "keyColor": "33",
-            "format": "{1} {2} - {3} {4}",
-            "temp": true
-        },
-        {
-            "type": "memory",
-            "key": "   Memory",
-            "keyColor": "33",
-        },
-        {
-            "type": "swap",
-            "key": "  󰓡 Swap",
-            "keyColor": "33",
-        },
-        "break",
         "break",
     ]
 }
