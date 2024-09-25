@@ -13,8 +13,8 @@ def initLayouts():
     }
 
     layouts.extend([
+        layout.Tile(**layout_theme),    
         layout.MonadTall(**layout_theme),
         layout.MonadWide(**layout_theme),
-        layout.Tile(**layout_theme),    
         layout.RatioTile(**layout_theme),    
     ])
