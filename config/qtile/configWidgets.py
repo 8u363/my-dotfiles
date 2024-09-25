@@ -25,22 +25,7 @@ widget_defaults = dict(
 )
 
 
-def initWidgets():
-     # Power menu
-    if showPowerMenu==True:
-        widget_list.extend([
-            widget.TextBox(**decor_rounded_right,),
-            widget.TextBox(
-                **decor_rounded_left,
-                background="#ffffff",
-                foreground="#000000",             
-                text=" ",
-                fontsize=14,
-                padding=2,
-                mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + '/.config/qtile/scripts/powermenu.sh')},
-            )
-        ])
-        
+def initWidgets():        
     # window name 
     if showWindowName == True:
         widget_list.extend([

@@ -16,7 +16,6 @@ numerOfGroups   = 6
 # --------------------------------------------------------
 # widget configuration
 # --------------------------------------------------------
-showPowerMenu   = True
 showWindowName  = True
 showGroupBox    = True
 showUpdates     = True
