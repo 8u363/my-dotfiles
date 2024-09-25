@@ -18,7 +18,7 @@
         "break",
         {
             "type": "os",
-            "key": "OS",
+            "key": " os",
             "keyColor": "31", // = color1
         },
         {
