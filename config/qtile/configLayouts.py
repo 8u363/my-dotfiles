@@ -5,11 +5,11 @@ from  globalVariables import *
 # --------------------------------------------------------
 def initLayouts():
     layout_theme = {
-        "margin":2,
+        "margin":7,
         "border_width": 2,
         "border_focus": Color2,
         "border_normal": "#FFFFFF",
-        "single_border_width": 3
+        "single_border_width": 2
     }
 
     layouts.extend([
