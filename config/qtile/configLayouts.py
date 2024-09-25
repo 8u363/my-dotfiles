@@ -5,16 +5,16 @@ from  globalVariables import *
 # --------------------------------------------------------
 def initLayouts():
     layout_theme = {
-        "margin":2,
+        "margin":7,
         "border_width": 2,
         "border_focus": Color2,
         "border_normal": "#FFFFFF",
-        "single_border_width": 3
+        "single_border_width": 2
     }
 
     layouts.extend([
+        layout.Tile(**layout_theme),    
         layout.MonadTall(**layout_theme),
         layout.MonadWide(**layout_theme),
-        layout.Tile(**layout_theme),    
         layout.RatioTile(**layout_theme),    
     ])
