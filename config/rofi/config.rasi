@@ -41,7 +41,7 @@ window {
     padding:                      0px;
     margin:                       0px; 
     color:                        #FFFFFF;
-    border:                       @border-width;
+    border:                       2;
     border-color:                 #FFFFFF;
     cursor:                       "default";
     transparency:                 "real";
@@ -164,7 +164,7 @@ element {
     cursor:                       pointer;
     background-color:             @background;
     border-radius:                10px;
-    border:                       @border-width;
+    border:                       2;
 }
 
 element normal.normal {
