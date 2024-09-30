@@ -46,8 +46,7 @@ mainbox {
     orientation:                  horizontal;
     spacing:                      0px;
     margin:                       0px;
-    background-color:             @background;
-    background-image:             @current-image;
+    background-color:             @background;    
     children:                     ["imagebox","listbox"];
 }
 
