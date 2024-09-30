@@ -119,7 +119,7 @@ button {
 }
 
 button selected {
-    background-color:             @selected-active-background;;
+    background-color:             @selected-active-background;
     text-color:                   @foreground;
 }
 
