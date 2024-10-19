@@ -13,9 +13,9 @@ import os
 import subprocess
 from pathlib import Path
 
-from libqtile import layout, qtile
-from libqtile.config import Key, ScratchPad, DropDown
+from libqtile import bar, layout, qtile, hook
 from libqtile.lazy import lazy
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from qtile_extras import widget
 from qtile_extras.widget.decorations import BorderDecoration
 
@@ -299,6 +299,46 @@ widgets_list = [
     widget.Systray(padding=3),
     widget.Spacer(length=8),
 
+]
+
+# --------------------------------------------------------
+# screen configuration
+# --------------------------------------------------------
+screens = [
+    Screen(
+        top=bar.Bar(
+            widgets_list,
+            40,
+            padding=20,
+            opacity=0.7,
+            border_width=[0, 0, 0, 0],
+            margin=[0,0,0,0],
+            background="#000000.3"
+        ),
+    ),
+]
+
+floating_layout = layout.Floating(
+    float_rules=[
+        # Run the utility of `xprop` to see the wm class and name of an X client.
+        *layout.Floating.default_float_rules,
+        Match(wm_class="confirmreset"),  # gitk
+        Match(wm_class="makebranch"),  # gitk
+        Match(wm_class="maketag"),  # gitk
+        Match(wm_class="ssh-askpass"),  # ssh-askpass
+        Match(title="branchdialog"),  # gitk
+        Match(title="pinentry"),  # GPG key password entry
+    ]
+)
+
+# --------------------------------------------------------
+# mouse configuration
+# --------------------------------------------------------
+# Drag floating layouts.
+mouse = [
+    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
+    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
 """
