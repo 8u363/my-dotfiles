@@ -18,6 +18,8 @@ from libqtile.lazy import lazy
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from qtile_extras import widget
 from qtile_extras.widget.decorations import BorderDecoration
+from qtile_extras.widget.decorations import PowerLineDecoration
+
 
 # --------------------------------------------------------
 # general configuration
@@ -168,7 +170,36 @@ widget_defaults = dict(
     padding=2,
 )
 
+decor_rounded_right={
+    "decorations": [
+        PowerLineDecoration(path="rounded_right")
+    ],
+}
+
+decor_rounded_left={
+    "decorations": [
+        PowerLineDecoration(path="rounded_left")
+    ],
+}
+
 widgets_list = [
+    widget.Spacer(length=bar.STRETCH),
+    widget.TextBox(**decor_rounded_right,),
+    widget.GroupBox(
+        **decor_rounded_left,
+        background="#ffffff",
+        highlight_method='block',
+        highlight='ffffff',
+        block_border='ffffff',
+        highlight_color=['ffffff','ffffff'],
+        block_highlight_text_color='000000',
+        foreground='ffffff',
+        rounded=False,
+        this_current_screen_border='ffffff',
+        active='ffffff'
+    ),
+    widget.Spacer(length=bar.STRETCH),
+    """
     widget.Prompt(
         font="Hack Nerd Font Bold",
         fontsize=14,
@@ -297,7 +328,7 @@ widgets_list = [
     ),
     widget.Spacer(length=8),
     widget.Systray(padding=3),
-    widget.Spacer(length=8),
+    widget.Spacer(length=8),"""
 
 ]
 
