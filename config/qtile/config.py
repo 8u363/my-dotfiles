@@ -184,9 +184,8 @@ decor_rounded_left={
 
 widgets_list = [
     widget.Spacer(length=bar.STRETCH),
-    widget.TextBox(**decor_rounded_right,),
+
     widget.GroupBox(
-        **decor_rounded_left,
         background="#ffffff",
         highlight_method='block',
         highlight='ffffff',
@@ -198,7 +197,65 @@ widgets_list = [
         this_current_screen_border='ffffff',
         active='ffffff'
     ),
+
     widget.Spacer(length=bar.STRETCH),
+
+    widget.WindowName(
+        max_chars=50,
+        background=Color10,
+        width=400,
+        padding=2,
+    ),
+    widget.Spacer(length=bar.STRETCH),
+
+    widget.CPU(
+        format='▓  Cpu: {load_percent}%',
+        foreground=Color4,
+    ),
+
+    widget.Memory(
+        foreground=Color8,
+        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal + ' -e htop')},
+        format='{MemUsed: .0f}{mm}',
+        fmt='🖥  Mem: {} used',
+    ),
+
+    widget.Volume(
+        foreground=Color7,
+        fmt='🕫  Vol: {}',
+
+    ),
+
+    widget.CheckUpdates(
+        background=Color10,
+        custom_command="checkupdates",
+        execute="alacritty -e paru",
+    ),
+
+    widget.DF(
+        padding=2,
+        background=Color10,
+        visible_on_warn=False,
+        partition='/',
+        format="{p} {uf}{m} ({r:.0f}%)"
+    ),
+
+    widget.DF(
+        padding=2,
+        background=Color10,
+        visible_on_warn=False,
+        partition='/home',
+        format="{p} {uf}{m} ({r:.0f}%)"
+    ),
+
+    widget.Systray(    ),
+
+    widget.Clock(
+        background="#ffffff",
+        foreground="#000000",
+        padding=2,
+        format="%a, %-d.%-m.%y %H:%S",
+    ),
     """
     widget.Prompt(
         font="Hack Nerd Font Bold",
