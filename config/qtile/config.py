@@ -16,7 +16,6 @@ from libqtile import bar, layout, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from qtile_extras import widget
-from qtile_extras.widget.decorations import PowerLineDecoration
 
 # --------------------------------------------------------
 # general configuration
@@ -162,26 +161,14 @@ layouts = [
 # widget configuration
 # --------------------------------------------------------
 widget_defaults = dict(
-    font="Hack Nerd Font Mono",
-    fontsize=12,
+    font="Hack Nerd Font Bold",
+    fontsize=14,
     padding=2,
 )
 
-decoration_back_slash = {
-    "decorations": [
-        PowerLineDecoration(path="back_slash")
-    ],
-}
-
-decoration_forward_slash = {
-    "decorations": [
-        PowerLineDecoration(path="forward_slash")
-    ],
-}
-
 widgets_list = [
-    widget.CurrentLayout(**decoration_forward_slash,
-                         ),
+    widget.CurrentLayoutIcon(
+    ),
 
     widget.GroupBox(
         highlight_method='block',
@@ -225,7 +212,7 @@ widgets_list = [
         foreground="#ffffff",
         visible_on_warn=False,
         partition='/',
-        format="{p} {uf}{m} ({r:.0f}%)"
+        format="▤ {p} {uf}{m} ({r:.0f}%)"
     ),
 
     widget.DF(
