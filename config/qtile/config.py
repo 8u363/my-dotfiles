@@ -10,6 +10,7 @@ import json
 # see https://docs.qtile.org/
 # --------------------------------------------------------
 import os
+import subprocess
 from pathlib import Path
 
 from libqtile import bar, layout, qtile, hook
