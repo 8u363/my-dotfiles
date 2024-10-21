@@ -216,7 +216,7 @@ widgets_list = [
     widget.Spacer(length=bar.STRETCH),
 
     widget.CheckUpdates(
-        **decoration_back_slash,
+        **decoration_forward_slash,
         background="#ffffff",
         foreground="#000000",
         custom_command="checkupdates",
@@ -224,14 +224,14 @@ widgets_list = [
     ),
 
     widget.Volume(
-        **decoration_back_slash,
+        **decoration_forward_slash,
         background="#ffffff",
         foreground="#000000",
         fmt='🕫  Vol: {}',
     ),
 
     widget.DF(
-        **decoration_back_slash,
+        **decoration_forward_slash,
         background="#ffffff",
         foreground="#000000",
         visible_on_warn=False,
@@ -240,7 +240,7 @@ widgets_list = [
     ),
 
     widget.DF(
-        **decoration_back_slash,
+        **decoration_forward_slash,
         background="#ffffff",
         foreground="#000000",
         visible_on_warn=False,
@@ -249,7 +249,7 @@ widgets_list = [
     ),
 
     widget.Systray(
-        **decoration_back_slash,
+        **decoration_forward_slash,
     ),
 ]
 
