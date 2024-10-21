@@ -191,23 +191,18 @@ widgets_list = [
     widget.Spacer(length=5),
 
     widget.GroupBox(
-        fontsize = 20,
         margin_x = 1,
         margin_y = 4,
         padding_y = 0,
         padding_x = 1,
         borderwidth = 2.5,
-        active = Color2,
-        inactive = Color1,
+        active = "#ffffff",
+        inactive = "#B7B7B7",
+        this_current_screen_border = "#F87A53",
         rounded = True,
-        highlight_color = Color0,
         highlight_method = "line",
-        this_current_screen_border = Color8,
-        this_screen_border = Color0,
-        foreground = Color2,
         center_aligned = True,
         disable_drag = True,
-        background = Color0
     ),
 
     widget.Spacer(length=5),
