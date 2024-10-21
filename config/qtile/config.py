@@ -105,7 +105,7 @@ keys = [
 # --------------------------------------------------------
 # group configuration
 # --------------------------------------------------------
-groups = []
+groups = [Group(i) for i in "123456"]
 for vt in range(1, 6):
     keys.append(
         Key(
@@ -165,8 +165,8 @@ layouts = [
 # widget configuration
 # --------------------------------------------------------
 widget_defaults = dict(
-    font="Hack Nerd Font Bold",
-    fontsize=14,
+    font="Hack Nerd Font Mono",
+    fontsize=12,
     padding=2,
 )
 
@@ -183,7 +183,6 @@ decor_rounded_left={
 }
 
 widgets_list = [
-    widget.Spacer(length=bar.STRETCH),
 
     widget.GroupBox(
         background="#ffffff",
@@ -198,195 +197,53 @@ widgets_list = [
         active='ffffff'
     ),
 
-    widget.Spacer(length=bar.STRETCH),
-
     widget.WindowName(
+        background="#ffffff",
+        foreground="#000000",
         max_chars=50,
-        background=Color10,
         width=400,
-        padding=2,
     ),
+
     widget.Spacer(length=bar.STRETCH),
 
-    widget.CPU(
-        format='▓  Cpu: {load_percent}%',
-        foreground=Color4,
+    widget.Clock(
+        background="#ffffff",
+        foreground="#000000",
+        format="%a, %-d.%-m.%y %H:%S",
     ),
 
-    widget.Memory(
-        foreground=Color8,
-        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal + ' -e htop')},
-        format='{MemUsed: .0f}{mm}',
-        fmt='🖥  Mem: {} used',
-    ),
-
-    widget.Volume(
-        foreground=Color7,
-        fmt='🕫  Vol: {}',
-
-    ),
+    widget.Spacer(length=bar.STRETCH),
 
     widget.CheckUpdates(
-        background=Color10,
+        background="#ffffff",
+        foreground="#000000",
         custom_command="checkupdates",
         execute="alacritty -e paru",
     ),
 
+    widget.Volume(
+        background="#ffffff",
+        foreground="#000000",
+        fmt='🕫  Vol: {}',
+    ),
+
     widget.DF(
-        padding=2,
-        background=Color10,
+        background="#ffffff",
+        foreground="#000000",
         visible_on_warn=False,
         partition='/',
         format="{p} {uf}{m} ({r:.0f}%)"
     ),
 
     widget.DF(
-        padding=2,
-        background=Color10,
+        background="#ffffff",
+        foreground="#000000",
         visible_on_warn=False,
         partition='/home',
         format="{p} {uf}{m} ({r:.0f}%)"
     ),
 
     widget.Systray(    ),
-
-    widget.Clock(
-        background="#ffffff",
-        foreground="#000000",
-        padding=2,
-        format="%a, %-d.%-m.%y %H:%S",
-    ),
-    """
-    widget.Prompt(
-        font="Hack Nerd Font Bold",
-        fontsize=14,
-        foreground=Color1
-    ),
-    widget.GroupBox(
-        fontsize=11,
-        margin_y=5,
-        margin_x=5,
-        padding_y=0,
-        padding_x=1,
-        borderwidth=3,
-        active=Color8,
-        inactive=Color1,
-        rounded=False,
-        highlight_color=Color2,
-        highlight_method="line",
-        this_current_screen_border=Color7,
-        this_screen_border=Color4,
-        other_current_screen_border=Color7,
-        other_screen_border=Color4,
-    ),
-    widget.TextBox(
-        text='|',
-        font="Hack Nerd Font Bold",
-        foreground=Color1,
-        padding=2,
-        fontsize=14
-    ),
-    widget.CurrentLayoutIcon(
-        # custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
-        foreground=Color1,
-        padding=4,
-        scale=0.6
-    ),
-    widget.CurrentLayout(
-        foreground=Color1,
-        padding=5
-    ),
-    widget.TextBox(
-        text='|',
-        font="Hack Nerd Font Bold",
-        foreground=Color1,
-        padding=2,
-        fontsize=14
-    ),
-    widget.WindowName(
-        foreground=Color6,
-        max_chars=40
-    ),
-    widget.GenPollText(
-        update_interval=300,
-        func=lambda: subprocess.check_output("printf $(uname -r)", shell=True, text=True),
-        foreground=Color3,
-        fmt='❤  {}',
-        decorations=[
-            BorderDecoration(
-                colour=Color3,
-                border_width=[0, 0, 2, 0],
-            )
-        ],
-    ),
-    widget.Spacer(length=8),
-    widget.CPU(
-        format='▓  Cpu: {load_percent}%',
-        foreground=Color4,
-        decorations=[
-            BorderDecoration(
-                colour=Color4,
-                border_width=[0, 0, 2, 0],
-            )
-        ],
-    ),
-    widget.Spacer(length=8),
-    widget.Memory(
-        foreground=Color8,
-        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal + ' -e htop')},
-        format='{MemUsed: .0f}{mm}',
-        fmt='🖥  Mem: {} used',
-        decorations=[
-            BorderDecoration(
-                colour=Color8,
-                border_width=[0, 0, 2, 0],
-            )
-        ],
-    ),
-    widget.Spacer(length=8),
-    widget.DF(
-        update_interval=60,
-        foreground=Color5,
-        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal + ' -e df')},
-        partition='/',
-        # format = '[{p}] {uf}{m} ({r:.0f}%)',
-        format='{uf}{m} free',
-        fmt='🖴  Disk: {}',
-        visible_on_warn=False,
-        decorations=[
-            BorderDecoration(
-                colour=colors[5],
-                border_width=[0, 0, 2, 0],
-            )
-        ],
-    ),
-    widget.Spacer(length=8),
-    widget.Volume(
-        foreground=Color7,
-        fmt='🕫  Vol: {}',
-        decorations=[
-            BorderDecoration(
-                colour=Color7,
-                border_width=[0, 0, 2, 0],
-            )
-        ],
-    ),
-
-    widget.Spacer(length=8),
-    widget.Clock(
-        foreground=Color8,
-        format="⏱  %a, %b %d - %H:%M",
-        decorations=[
-            BorderDecoration(
-                colour=Color8,
-                border_width=[0, 0, 2, 0],
-            )
-        ],
-    ),
-    widget.Spacer(length=8),
-    widget.Systray(padding=3),
-    widget.Spacer(length=8),"""
-
 ]
 
 # --------------------------------------------------------
@@ -397,11 +254,10 @@ screens = [
         top=bar.Bar(
             widgets_list,
             40,
-            padding=20,
             opacity=0.7,
             border_width=[0, 0, 0, 0],
             margin=[0,0,0,0],
-            background="#000000.3"
+            background="#000000"
         ),
     ),
 ]
