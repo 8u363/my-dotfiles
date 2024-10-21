@@ -206,6 +206,7 @@ widgets_list = [
         foreground="#ffffff",
         custom_command="checkupdates",
         execute="alacritty -e paru",
+        display_format="\uf0ed  Updates",
     ),
 
     widget.Spacer(length=5),
