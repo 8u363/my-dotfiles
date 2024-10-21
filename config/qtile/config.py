@@ -205,7 +205,7 @@ widgets_list = [
 
     widget.Volume(
         foreground="#ffffff",
-        fmt='🕫  Vol: {}',
+        fmt='\uf028  Vol: {}',
     ),
 
     widget.DF(
@@ -219,7 +219,7 @@ widgets_list = [
         foreground="#ffffff",
         visible_on_warn=False,
         partition='/home',
-        format="{p} {uf}{m} ({r:.0f}%)"
+        format="\uf1c0 {p} {uf}{m} ({r:.0f}%)"
     ),
 
     widget.Systray(
