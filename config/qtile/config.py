@@ -180,7 +180,7 @@ widgets_list = [
     widget.Spacer(length=5),
 
     widget.CurrentLayoutIcon(
-        scale=0.7,
+        scale=0.5,
     ),
 
     widget.Spacer(length=5),
@@ -191,15 +191,23 @@ widgets_list = [
     widget.Spacer(length=5),
 
     widget.GroupBox(
-        highlight_method='line',
-        highlight='ffffff',
-        block_border='ffffff',
-        highlight_color=['#6a040f', '#6a040f'],
-        block_highlight_text_color='000000',
-        foreground='#ffffff',
-        rounded=False,
-        this_current_screen_border='#ffffff',
-        active='ffffff'
+        fontsize = 20,
+        margin_x = 1,
+        margin_y = 4,
+        padding_y = 0,
+        padding_x = 1,
+        borderwidth = 2.5,
+        active = Color2,
+        inactive = Color1,
+        rounded = True,
+        highlight_color = Color0,
+        highlight_method = "line",
+        this_current_screen_border = Color8,
+        this_screen_border = Color0,
+        foreground = Color2,
+        center_aligned = True,
+        disable_drag = True,
+        background = Color0
     ),
 
     widget.Spacer(length=5),
