@@ -10,16 +10,13 @@ import json
 # see https://docs.qtile.org/
 # --------------------------------------------------------
 import os
-import subprocess
 from pathlib import Path
 
-from libqtile import bar, layout, qtile, hook
-from libqtile.lazy import lazy
+from libqtile import bar, layout, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
+from libqtile.lazy import lazy
 from qtile_extras import widget
-from qtile_extras.widget.decorations import BorderDecoration
 from qtile_extras.widget.decorations import PowerLineDecoration
-
 
 # --------------------------------------------------------
 # general configuration
@@ -170,27 +167,29 @@ widget_defaults = dict(
     padding=2,
 )
 
-decor_rounded_right={
+decoration_back_slash = {
     "decorations": [
-        PowerLineDecoration(path="rounded_right")
+        PowerLineDecoration(path="back_slash")
     ],
 }
 
-decor_rounded_left={
+decoration_forward_slash = {
     "decorations": [
-        PowerLineDecoration(path="rounded_left")
+        PowerLineDecoration(path="forward_slash")
     ],
 }
 
 widgets_list = [
-    widget.CurrentLayout(),
+    widget.CurrentLayout(**decoration_forward_slash,
+                         ),
 
     widget.GroupBox(
+        **decoration_forward_slash,
         background="#ffffff",
         highlight_method='block',
         highlight='ffffff',
         block_border='ffffff',
-        highlight_color=['ffffff','ffffff'],
+        highlight_color=['ffffff', 'ffffff'],
         block_highlight_text_color='000000',
         foreground='ffffff',
         rounded=False,
@@ -199,6 +198,7 @@ widgets_list = [
     ),
 
     widget.WindowName(
+        **decoration_forward_slash,
         background="#ffffff",
         foreground="#000000",
         max_chars=50,
@@ -216,6 +216,7 @@ widgets_list = [
     widget.Spacer(length=bar.STRETCH),
 
     widget.CheckUpdates(
+        **decoration_back_slash,
         background="#ffffff",
         foreground="#000000",
         custom_command="checkupdates",
@@ -223,12 +224,14 @@ widgets_list = [
     ),
 
     widget.Volume(
+        **decoration_back_slash,
         background="#ffffff",
         foreground="#000000",
         fmt='🕫  Vol: {}',
     ),
 
     widget.DF(
+        **decoration_back_slash,
         background="#ffffff",
         foreground="#000000",
         visible_on_warn=False,
@@ -237,6 +240,7 @@ widgets_list = [
     ),
 
     widget.DF(
+        **decoration_back_slash,
         background="#ffffff",
         foreground="#000000",
         visible_on_warn=False,
@@ -244,7 +248,9 @@ widgets_list = [
         format="{p} {uf}{m} ({r:.0f}%)"
     ),
 
-    widget.Systray(    ),
+    widget.Systray(
+        **decoration_back_slash,
+    ),
 ]
 
 # --------------------------------------------------------
@@ -257,7 +263,7 @@ screens = [
             40,
             opacity=0.7,
             border_width=[0, 0, 0, 0],
-            margin=[0,0,0,0],
+            margin=[0, 0, 0, 0],
             background="#000000"
         ),
     ),
