@@ -183,6 +183,13 @@ widgets_list = [
         scale=0.7,
     ),
 
+    widget.Spacer(length=5),
+    widget.TextBox(
+        foreground="#B7B7B7",
+        text = "|",
+    ),
+    widget.Spacer(length=5),
+
     widget.GroupBox(
         highlight_method='block',
         highlight='ffffff',
@@ -196,6 +203,12 @@ widgets_list = [
     ),
 
     widget.Spacer(length=5),
+    widget.TextBox(
+        foreground="#B7B7B7",
+        text = "|",
+    ),
+    widget.Spacer(length=5),
+
 
     widget.WindowName(
         foreground="#ffffff",
@@ -220,12 +233,22 @@ widgets_list = [
     ),
 
     widget.Spacer(length=5),
+    widget.TextBox(
+        foreground="#B7B7B7",
+        text = "|",
+    ),
+    widget.Spacer(length=5),
 
     widget.Volume(
         foreground="#ffffff",
         fmt='\uf028  {}',
     ),
 
+    widget.Spacer(length=5),
+    widget.TextBox(
+        foreground="#B7B7B7",
+        text = "|",
+    ),
     widget.Spacer(length=5),
 
     widget.DF(
@@ -235,8 +258,6 @@ widgets_list = [
         format="\uf1c0  {p} {uf}{m} ({r:.0f}%)"
     ),
 
-    widget.Spacer(length=5),
-
     widget.DF(
         foreground="#ffffff",
         visible_on_warn=False,
@@ -244,6 +265,11 @@ widgets_list = [
         format="\uf1c0  {p} {uf}{m} ({r:.0f}%)"
     ),
 
+    widget.Spacer(length=5),
+    widget.TextBox(
+        foreground="#B7B7B7",
+        text = "|",
+    ),
     widget.Spacer(length=5),
 
     widget.Systray(
