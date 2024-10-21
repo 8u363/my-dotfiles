@@ -191,14 +191,14 @@ widgets_list = [
     widget.Spacer(length=5),
 
     widget.GroupBox(
-        highlight_method='block',
+        highlight_method='line',
         highlight='ffffff',
         block_border='ffffff',
-        highlight_color=['ffffff', 'ffffff'],
+        highlight_color=['#6a040f', '#6a040f'],
         block_highlight_text_color='000000',
-        foreground='ffffff',
+        foreground='#ffffff',
         rounded=False,
-        this_current_screen_border='ffffff',
+        this_current_screen_border='#ffffff',
         active='ffffff'
     ),
 
