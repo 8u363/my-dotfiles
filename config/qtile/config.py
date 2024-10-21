@@ -206,14 +206,14 @@ widgets_list = [
         foreground="#ffffff",
         custom_command="checkupdates",
         execute="alacritty -e paru",
-        display_format="\uf0ed  Updates {updates}",
+        display_format="\uf0ed  {updates}",
     ),
 
     widget.Spacer(length=5),
 
     widget.Volume(
         foreground="#ffffff",
-        fmt='\uf028  Vol: {}',
+        fmt='\uf028  {}',
     ),
 
     widget.Spacer(length=5),
