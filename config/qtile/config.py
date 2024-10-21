@@ -12,10 +12,19 @@ import json
 import os
 from pathlib import Path
 
-from libqtile import bar, layout, qtile
+from libqtile import bar, layout, qtile, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from qtile_extras import widget
+
+# --------------------------------------------------------
+# autostart configuration
+# --------------------------------------------------------
+@hook.subscribe.startup_once
+def autostart():
+    autostartPath = os.path.expanduser(home + '/.config/qtile/autostart.sh')
+    subprocess.run([autostartPath])
+
 
 # --------------------------------------------------------
 # general configuration
