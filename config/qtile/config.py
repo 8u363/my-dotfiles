@@ -258,6 +258,13 @@ widgets_list = [
         format="\uf1c0  {p} {uf}{m} ({r:.0f}%)"
     ),
 
+    widget.Spacer(length=5),
+    widget.TextBox(
+        foreground="#B7B7B7",
+        text = "|",
+    ),
+    widget.Spacer(length=5),
+
     widget.DF(
         foreground="#ffffff",
         visible_on_warn=False,
