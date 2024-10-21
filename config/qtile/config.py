@@ -212,7 +212,7 @@ widgets_list = [
         foreground="#ffffff",
         visible_on_warn=False,
         partition='/',
-        format="▤ {p} {uf}{m} ({r:.0f}%)"
+        format="\uf1c0 {p} {uf}{m} ({r:.0f}%)"
     ),
 
     widget.DF(
