@@ -184,8 +184,6 @@ widgets_list = [
                          ),
 
     widget.GroupBox(
-        **decoration_forward_slash,
-        background="#ffffff",
         highlight_method='block',
         highlight='ffffff',
         block_border='ffffff',
@@ -198,9 +196,7 @@ widgets_list = [
     ),
 
     widget.WindowName(
-        **decoration_forward_slash,
-        background="#ffffff",
-        foreground="#000000",
+        foreground="#ffffff",
         max_chars=50,
         width=400,
     ),
@@ -208,48 +204,38 @@ widgets_list = [
     widget.Spacer(length=bar.STRETCH),
 
     widget.Clock(
-        background="#ffffff",
-        foreground="#000000",
+        foreground="#ffffff",
         format="%a, %-d.%-m.%y %H:%S",
     ),
 
     widget.Spacer(length=bar.STRETCH),
 
     widget.CheckUpdates(
-        **decoration_forward_slash,
-        background="#ffffff",
-        foreground="#000000",
+        foreground="#ffffff",
         custom_command="checkupdates",
         execute="alacritty -e paru",
     ),
 
     widget.Volume(
-        **decoration_forward_slash,
-        background="#ffffff",
-        foreground="#000000",
+        foreground="#ffffff",
         fmt='🕫  Vol: {}',
     ),
 
     widget.DF(
-        **decoration_forward_slash,
-        background="#ffffff",
-        foreground="#000000",
+        foreground="#ffffff",
         visible_on_warn=False,
         partition='/',
         format="{p} {uf}{m} ({r:.0f}%)"
     ),
 
     widget.DF(
-        **decoration_forward_slash,
-        background="#ffffff",
-        foreground="#000000",
+        foreground="#ffffff",
         visible_on_warn=False,
         partition='/home',
         format="{p} {uf}{m} ({r:.0f}%)"
     ),
 
     widget.Systray(
-        **decoration_forward_slash,
     ),
 ]
 
@@ -264,7 +250,7 @@ screens = [
             opacity=0.7,
             border_width=[0, 0, 0, 0],
             margin=[0, 0, 0, 0],
-            background="#000000"
+            background="#00000000"
         ),
     ),
 ]
