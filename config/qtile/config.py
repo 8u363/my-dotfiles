@@ -167,7 +167,10 @@ widget_defaults = dict(
 )
 
 widgets_list = [
+    widget.Spacer(length=5),
+
     widget.CurrentLayoutIcon(
+        scale=0.7,
     ),
 
     widget.GroupBox(
@@ -234,6 +237,8 @@ widgets_list = [
 
     widget.Systray(
     ),
+
+    widget.Spacer(length=5),
 ]
 
 # --------------------------------------------------------
