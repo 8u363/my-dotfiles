@@ -183,6 +183,7 @@ decor_rounded_left={
 }
 
 widgets_list = [
+    widget.CurrentLayout(),
 
     widget.GroupBox(
         background="#ffffff",
