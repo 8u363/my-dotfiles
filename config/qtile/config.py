@@ -182,6 +182,8 @@ widgets_list = [
         active='ffffff'
     ),
 
+    widget.Spacer(length=5),
+
     widget.WindowName(
         foreground="#ffffff",
         max_chars=50,
@@ -203,24 +205,32 @@ widgets_list = [
         execute="alacritty -e paru",
     ),
 
+    widget.Spacer(length=5),
+
     widget.Volume(
         foreground="#ffffff",
         fmt='\uf028  Vol: {}',
     ),
 
+    widget.Spacer(length=5),
+
     widget.DF(
         foreground="#ffffff",
         visible_on_warn=False,
         partition='/',
-        format="\uf1c0 {p} {uf}{m} ({r:.0f}%)"
+        format="\uf1c0  {p} {uf}{m} ({r:.0f}%)"
     ),
+
+    widget.Spacer(length=5),
 
     widget.DF(
         foreground="#ffffff",
         visible_on_warn=False,
         partition='/home',
-        format="\uf1c0 {p} {uf}{m} ({r:.0f}%)"
+        format="\uf1c0  {p} {uf}{m} ({r:.0f}%)"
     ),
+
+    widget.Spacer(length=5),
 
     widget.Systray(
     ),
