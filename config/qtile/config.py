@@ -299,7 +299,7 @@ widgets_list = [
 
     widget.Clock(
         foreground="#ffffff",
-        format="%a, %-d.%-m.%y %H:%S",
+        format="%A, %-d.%-m.%y %H:%S",
     ),
 
     widget.Spacer(length=bar.STRETCH),
