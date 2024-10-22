@@ -17,6 +17,11 @@ from libqtile import bar, layout, qtile, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from qtile_extras import widget
+from qtile_extras.popup.toolkit import (
+    PopupRelativeLayout,
+    PopupImage,
+    PopupText
+)
 
 # --------------------------------------------------------
 # autostart configuration
@@ -56,6 +61,76 @@ Color12 = (colordict['colors']['color12'])
 Color13 = (colordict['colors']['color13'])
 Color14 = (colordict['colors']['color14'])
 Color15 = (colordict['colors']['color15'])
+def show_power_menu(qtile):
+
+    controls = [
+        PopupImage(
+            #filename="~/Pictures/icons/lock.svg",
+            pos_x=0.15,
+            pos_y=0.1,
+            width=0.1,
+            height=0.5,
+            mouse_callbacks={
+                "Button1": lazy.spawn("/path/to/lock_cmd")
+            }
+        ),
+        PopupImage(
+            #filename="~/Pictures/icons/sleep.svg",
+            pos_x=0.45,
+            pos_y=0.1,
+            width=0.1,
+            height=0.5,
+            mouse_callbacks={
+                "Button1": lazy.spawn("/path/to/sleep_cmd")
+            }
+        ),
+        PopupImage(
+            #filename="~/Pictures/icons/shutdown.svg",
+            pos_x=0.75,
+            pos_y=0.1,
+            width=0.1,
+            height=0.5,
+            highlight="A00000",
+            mouse_callbacks={
+                "Button1": lazy.shutdown()
+            }
+        ),
+        PopupText(
+            text="Lock",
+            pos_x=0.1,
+            pos_y=0.7,
+            width=0.2,
+            height=0.2,
+            h_align="center"
+        ),
+        PopupText(
+            text="Sleep",
+            pos_x=0.4,
+            pos_y=0.7,
+            width=0.2,
+            height=0.2,
+            h_align="center"
+        ),
+        PopupText(
+            text="Shutdown",
+            pos_x=0.7,
+            pos_y=0.7,
+            width=0.2,
+            height=0.2,
+            h_align="center"
+        ),
+    ]
+
+    layout = PopupRelativeLayout(
+        qtile,
+        width=1000,
+        height=200,
+        controls=controls,
+        background="00000060",
+        initial_focus=None,
+    )
+
+    layout.show(centered=True)
 
 # --------------------------------------------------------
 # key configuration
@@ -65,7 +140,8 @@ keys = [
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
 
     Key([mod], "q", lazy.window.kill(), desc="Close the focused window"),
-    Key([mod, "shift"], "q", lazy.spawn("sh " + home + '/.config/qtile/scripts/powermenu.sh'), desc="Show Powermenu"),
+    #Key([mod, "shift"], "q", lazy.spawn("sh " + home + '/.config/qtile/scripts/powermenu.sh'), desc="Show Powermenu"),
+    Key([mod, "shift"], "q", lazy.function(show_power_menu)),
 
     # Group functions
     Key([mod], "Tab", lazy.next_layout(), desc="Use next layout on the actual group"),
