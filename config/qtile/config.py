@@ -70,9 +70,9 @@ def show_power_menu(qtile):
             pos_y=0.1,
             width=0.1,
             height=0.5,
-            #mouse_callbacks={
-            #    "Button1": lazy.spawn("/path/to/lock_cmd")
-            #}
+            mouse_callbacks={
+                "Button1": lazy.shutdown()
+            }
         ),
         PopupImage(
             filename="~/.config/qtile/icons/shutdown.png",
@@ -81,7 +81,7 @@ def show_power_menu(qtile):
             width=0.1,
             height=0.5,
             mouse_callbacks={
-                "Button1": lazy.spawn("/path/to/sleep_cmd")
+                "Button1": lazy.spawn("systemctl reboot")
             }
         ),
         PopupImage(
@@ -92,11 +92,11 @@ def show_power_menu(qtile):
             height=0.5,
             highlight="A00000",
             mouse_callbacks={
-                "Button1": lazy.shutdown()
+                "Button1": lazy.spawn("systemctl poweroff")
             }
         ),
         PopupText(
-            text="Lock",
+            text="Logout",
             pos_x=0.1,
             pos_y=0.7,
             width=0.2,
@@ -104,7 +104,7 @@ def show_power_menu(qtile):
             h_align="center"
         ),
         PopupText(
-            text="Neustarten",
+            text="Reboot",
             pos_x=0.4,
             pos_y=0.7,
             width=0.2,
@@ -112,7 +112,7 @@ def show_power_menu(qtile):
             h_align="center"
         ),
         PopupText(
-            text="power off",
+            text="Power Off",
             pos_x=0.7,
             pos_y=0.7,
             width=0.2,
