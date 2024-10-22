@@ -320,7 +320,7 @@ widgets_list = [
 
     widget.TextBox(
         foreground="#F87A53",
-        text = "\uf028",
+        text = "\uf028 ",
     ),
 
     widget.Volume(
@@ -337,7 +337,7 @@ widgets_list = [
 
     widget.TextBox(
         foreground="#F87A53",
-        text = "\uf1c0",
+        text = "\uf1c0 ",
     ),
 
     widget.DF(
@@ -356,7 +356,7 @@ widgets_list = [
 
     widget.TextBox(
         foreground="#F87A53",
-        text = "\uf1c0",
+        text = "\uf1c0 ",
     ),
 
     widget.DF(
