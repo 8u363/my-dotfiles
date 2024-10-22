@@ -65,7 +65,7 @@ Color15 = (colordict['colors']['color15'])
 def show_power_menu(qtile):
     controls = [
         PopupImage(
-            filename="~/.config/qtile/icons/shutdown.png",
+            filename="~/.config/qtile/icons/logout.png",
             pos_x=0.15,
             pos_y=0.1,
             width=0.1,
@@ -75,7 +75,7 @@ def show_power_menu(qtile):
             }
         ),
         PopupImage(
-            filename="~/.config/qtile/icons/shutdown.png",
+            filename="~/.config/qtile/icons/reboot.png",
             pos_x=0.45,
             pos_y=0.1,
             width=0.1,
