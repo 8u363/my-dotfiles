@@ -386,6 +386,7 @@ widgets_list = [
     widget.TextBox(
         foreground="#F87A53",
         text = "\uf011 ",
+        mouse_callbacks={"Button1": lambda: qtile.function(show_power_menu)}
     ),
 
     widget.Spacer(length=5),
