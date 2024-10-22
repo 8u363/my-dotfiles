@@ -61,21 +61,21 @@ Color12 = (colordict['colors']['color12'])
 Color13 = (colordict['colors']['color13'])
 Color14 = (colordict['colors']['color14'])
 Color15 = (colordict['colors']['color15'])
-def show_power_menu(qtile):
 
+def show_power_menu(qtile):
     controls = [
         PopupImage(
-            #filename="~/Pictures/icons/lock.svg",
+            filename="~/.config/qtile/icons/shutdown.png",
             pos_x=0.15,
             pos_y=0.1,
             width=0.1,
             height=0.5,
-            mouse_callbacks={
-                "Button1": lazy.spawn("/path/to/lock_cmd")
-            }
+            #mouse_callbacks={
+            #    "Button1": lazy.spawn("/path/to/lock_cmd")
+            #}
         ),
         PopupImage(
-            #filename="~/Pictures/icons/sleep.svg",
+            filename="~/.config/qtile/icons/shutdown.png",
             pos_x=0.45,
             pos_y=0.1,
             width=0.1,
@@ -85,7 +85,7 @@ def show_power_menu(qtile):
             }
         ),
         PopupImage(
-            #filename="~/Pictures/icons/shutdown.svg",
+            filename="~/.config/qtile/icons/shutdown.png",
             pos_x=0.75,
             pos_y=0.1,
             width=0.1,
@@ -104,7 +104,7 @@ def show_power_menu(qtile):
             h_align="center"
         ),
         PopupText(
-            text="Sleep",
+            text="Neustarten",
             pos_x=0.4,
             pos_y=0.7,
             width=0.2,
@@ -112,7 +112,7 @@ def show_power_menu(qtile):
             h_align="center"
         ),
         PopupText(
-            text="Shutdown",
+            text="power off",
             pos_x=0.7,
             pos_y=0.7,
             width=0.2,
@@ -318,9 +318,14 @@ widgets_list = [
     ),
     widget.Spacer(length=5),
 
+    widget.TextBox(
+        foreground="#F87A53",
+        text = "\uf028",
+    ),
+
     widget.Volume(
         foreground="#ffffff",
-        fmt='\uf028  {}',
+        fmt=' {}',
     ),
 
     widget.Spacer(length=5),
@@ -329,12 +334,17 @@ widgets_list = [
         text = "|",
     ),
     widget.Spacer(length=5),
+
+    widget.TextBox(
+        foreground="#F87A53",
+        text = "\uf1c0",
+    ),
 
     widget.DF(
         foreground="#ffffff",
         visible_on_warn=False,
         partition='/',
-        format="\uf1c0  {p} {uf}{m} ({r:.0f}%)"
+        format="{p} {uf}{m} ({r:.0f}%)"
     ),
 
     widget.Spacer(length=5),
@@ -344,11 +354,16 @@ widgets_list = [
     ),
     widget.Spacer(length=5),
 
+    widget.TextBox(
+        foreground="#F87A53",
+        text = "\uf1c0",
+    ),
+
     widget.DF(
         foreground="#ffffff",
         visible_on_warn=False,
         partition='/home',
-        format="\uf1c0  {p} {uf}{m} ({r:.0f}%)"
+        format="{p} {uf}{m} ({r:.0f}%)"
     ),
 
     widget.Spacer(length=5),
