@@ -377,6 +377,21 @@ widgets_list = [
     ),
 
     widget.Spacer(length=5),
+
+    widget.TextBox(
+        foreground="#B7B7B7",
+        text = "|",
+    ),
+
+    widget.TextBox(
+        foreground="#F87A53",
+        text = "\uf011 ",
+    ),
+
+    widget.Spacer(length=5),
+
+
+
 ]
 
 # --------------------------------------------------------
