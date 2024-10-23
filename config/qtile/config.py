@@ -1,88 +1,402 @@
-
-#   ___ _____ ___ _     _____    ____             __ _       
+#   ___ _____ ___ _     _____    ____             __ _
 #  / _ \_   _|_ _| |   | ____|  / ___|___  _ __  / _(_) __ _ 
 # | | | || |  | || |   |  _|   | |   / _ \| '_ \| |_| |/ _` |
 # | |_| || |  | || |___| |___  | |__| (_) | | | |  _| | (_| |
 #  \__\_\|_| |___|_____|_____|  \____\___/|_| |_|_| |_|\__, |
 #                                                      |___/ 
 
+import json
 # --------------------------------------------------------
 # see https://docs.qtile.org/
 # --------------------------------------------------------
-
 import os
 import subprocess
-import json
 from pathlib import Path
 
 from libqtile import bar, layout, qtile, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
-
 from qtile_extras import widget
-from qtile_extras.widget.decorations import PowerLineDecoration
-
-
-from globalVariables import *
-from configKeys import initKeys
-from configGroups import initGroups
-from configWidgets import initWidgets
-from configLayouts import initLayouts
+from qtile_extras.popup.toolkit import (
+    PopupRelativeLayout,
+    PopupImage,
+    PopupText
+)
 
 # --------------------------------------------------------
 # autostart configuration
 # --------------------------------------------------------
-@ hook.subscribe.startup_once
+@hook.subscribe.startup_once
 def autostart():
     autostartPath = os.path.expanduser(home + '/.config/qtile/autostart.sh')
     subprocess.run([autostartPath])
 
+
 # --------------------------------------------------------
-# gernal configuration
+# general configuration
 # --------------------------------------------------------
-dgroups_key_binder          = None
-dgroups_app_rules           = []  # type: list
-follow_mouse_focus          = True
-bring_front_click           = False
-floats_kept_above           = True
-cursor_warp                 = False
+home = str(Path.home())  # get home path
+mod = "mod4"  # windows key
+terminal = "alacritty"
+numerOfGroups = 6
 
-auto_fullscreen             = True
-focus_on_window_activation  = "smart"
-reconfigure_screens         = True
+# --------------------------------------------------------
+# color configuration
+# --------------------------------------------------------
+Color0 = "#4A4947"
+Color1 = "#FAF7F0"
+Color2 = "#FD8B51"
+Color3 = "#CB6040"
+Color4 = "#257180"
 
-# If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
-auto_minimize               = True
+def show_power_menu(qtile):
+    controls = [
+        PopupImage(
+            filename="~/.config/qtile/icons/logout.png",
+            pos_x=0.15,
+            pos_y=0.1,
+            width=0.1,
+            height=0.5,
+            mouse_callbacks={
+                "Button1": lazy.shutdown()
+            }
+        ),
+        PopupImage(
+            filename="~/.config/qtile/icons/reboot.png",
+            pos_x=0.45,
+            pos_y=0.1,
+            width=0.1,
+            height=0.5,
+            mouse_callbacks={
+                "Button1": lazy.spawn("systemctl reboot")
+            }
+        ),
+        PopupImage(
+            filename="~/.config/qtile/icons/shutdown.png",
+            pos_x=0.75,
+            pos_y=0.1,
+            width=0.1,
+            height=0.5,
+            mouse_callbacks={
+                "Button1": lazy.spawn("systemctl poweroff")
+            }
+        ),
+        PopupText(
+            text="Logout",
+            pos_x=0.1,
+            pos_y=0.7,
+            width=0.2,
+            height=0.2,
+            h_align="center"
+        ),
+        PopupText(
+            text="Reboot",
+            pos_x=0.4,
+            pos_y=0.7,
+            width=0.2,
+            height=0.2,
+            h_align="center"
+        ),
+        PopupText(
+            text="Power Off",
+            pos_x=0.7,
+            pos_y=0.7,
+            width=0.2,
+            height=0.2,
+            h_align="center"
+        ),
+    ]
 
-# When using the Wayland backend, this can be used to configure input devices.
-wl_input_rules              = None
+    layout = PopupRelativeLayout(
+        qtile,
+        width=1000,
+        height=200,
+        controls=controls,
+        background="00000060",
+        initial_focus=None,
+    )
 
-# xcursor theme (string or None) and size (integer) for Wayland backend
-wl_xcursor_theme            = None
-wl_xcursor_size             = 24
-
-wmname = "QTILE"
+    layout.show(centered=True)
 
 # --------------------------------------------------------
 # key configuration
 # --------------------------------------------------------
-initKeys()
+keys = [
+    # general functions
+    Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
+
+    Key([mod], "q", lazy.window.kill(), desc="Close the focused window"),
+    Key([mod, "shift"], "q", lazy.function(show_power_menu)),
+
+    # Group functions
+    Key([mod], "Tab", lazy.next_layout(), desc="Use next layout on the actual group"),
+
+    # Layout function
+    Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
+    Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
+
+    Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
+    Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
+
+    Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
+    Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
+
+    Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
+    Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
+
+    # Window functions
+    Key([mod], "f", lazy.window.toggle_floating(), desc="Put the focused window to/from floating mode"),
+    Key([mod, "shift"], "f", lazy.window.toggle_fullscreen(), desc="Put the focused window to/from fullscreen mode"),
+
+    # Apps
+    Key([mod], 'r', lazy.spawn('rofi -show run')),
+    Key([mod], "w", lazy.spawn("sh " + home + "/.config/qtile/scripts/changeWallpaper.sh")),
+    Key([mod], "b", lazy.spawn("brave"), desc="Launch browser"),
+    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+
+    # scratch pad
+    Key([mod], 'e', lazy.group["6"].dropdown_toggle("explorer")),
+    Key([mod], "F2", lazy.group["6"].dropdown_toggle("terminal")),
+    Key([mod], "F3", lazy.group["6"].dropdown_toggle("nitrogen")),
+    Key([mod], 'F4', lazy.group["6"].dropdown_toggle("btop")),
+
+    # Audio functions
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset Master 5%-"), desc="Lower Volume by 5%"),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer sset Master 5%+"), desc="Raise Volume by 5%"),
+    Key([], "XF86AudioMute", lazy.spawn("amixer sset Master 1+ toggle"), desc="Mute/Unmute Volume"),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/Pause player"),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Skip to next"),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Skip to previous"),
+]
 
 # --------------------------------------------------------
 # group configuration
 # --------------------------------------------------------
-initGroups()
+groups = [Group(i) for i in "123456"]
+for vt in range(1, 6):
+    keys.append(
+        Key(
+            ["control", "mod1"],
+            f"f{vt}",
+            lazy.core.change_vt(vt).when(func=lambda: qtile.core.name == "wayland"),
+            desc=f"Switch to VT{vt}",
+        )
+    )
 
-# --------------------------------------------------------
-# widget configuration
-# --------------------------------------------------------
-initWidgets()
+for i in groups:
+    keys.extend(
+        [
+            # mod + group number = switch to group
+            Key(
+                [mod],
+                i.name,
+                lazy.group[i.name].toscreen(),
+                desc="Switch to group {}".format(i.name),
+            ),
+            # mod + shift + group number = switch to & move focused window to group
+            Key(
+                [mod, "shift"],
+                i.name,
+                lazy.window.togroup(i.name, switch_group=True),
+                desc="Switch to & move focused window to group {}".format(i.name),
+            ),
+        ]
+    )
+
+groups.append(ScratchPad("6", [
+    DropDown("btop", "alacritty -e btop", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False),
+    DropDown("explorer", "krusader", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False),
+    DropDown("nitrogen", "nitrogen", x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False),
+    DropDown("terminal", terminal, x=0.1, y=0.1, width=0.80, height=0.80, on_focus_lost_hide=False),
+]))
 
 # --------------------------------------------------------
 # layout configuration
 # --------------------------------------------------------
-initLayouts()
+layout_theme = {
+    "margin": 7,
+    "border_width": 2,
+    "border_focus": Color2,
+    "border_normal": Color1,
+    "single_border_width": 2
+}
+
+layouts = [
+    layout.Tile(**layout_theme),
+    layout.MonadTall(**layout_theme),
+    layout.MonadWide(**layout_theme),
+    layout.RatioTile(**layout_theme),
+]
+
+# --------------------------------------------------------
+# widget configuration
+# --------------------------------------------------------
+widget_defaults = dict(
+    font="Hack Nerd Font Bold",
+    fontsize=14,
+    padding=2,
+)
+
+widgets_list = [
+    widget.Spacer(length=5),
+
+    widget.CurrentLayoutIcon(
+        scale=0.5,
+    ),
+
+    widget.Spacer(length=5),
+    widget.TextBox(
+        foreground=Color4,
+        text = "|",
+    ),
+    widget.Spacer(length=5),
+
+    widget.GroupBox(
+        margin_x = 1,
+        margin_y = 4,
+        padding_y = 3,
+        padding_x = 3,
+        borderwidth = 2.5,
+        active = Color1,
+        inactive = Color0,
+        this_current_screen_border = Color3,
+        rounded = True,
+        highlight_method = "block",
+        center_aligned = True,
+        disable_drag = True,
+    ),
+
+    widget.Spacer(length=5),
+    widget.TextBox(
+        foreground=Color4,
+        text = "|",
+    ),
+    widget.Spacer(length=5),
+
+
+    widget.WindowName(
+        foreground=Color1,
+        max_chars=50,
+        width=400,
+    ),
+
+    widget.Spacer(length=bar.STRETCH),
+
+    widget.TextBox(
+        foreground=Color3,
+        text = "\uf073 ",
+    ),
+
+    widget.Clock(
+        foreground=Color1,
+        format="%A, %-d.%-m.%y",
+    ),
+
+    widget.TextBox(
+        foreground=Color3,
+        text = " \uf4ab ",
+    ),
+
+    widget.Clock(
+        foreground=Color1,
+        format="%H:%M",
+    ),
+
+    widget.Spacer(length=bar.STRETCH),
+
+    widget.TextBox(
+        foreground=Color3,
+        text = " \uf0ed ",
+    ),
+
+    widget.CheckUpdates(
+        foreground=Color1,
+        custom_command="checkupdates",
+        execute="alacritty -e paru",
+        display_format=" {updates}",
+        no_update_string= "-",
+    ),
+
+    widget.Spacer(length=5),
+    widget.TextBox(
+        foreground=Color4,
+        text = "|",
+    ),
+    widget.Spacer(length=5),
+
+    widget.TextBox(
+        foreground=Color3,
+        text = "\uf028 ",
+    ),
+
+    widget.Volume(
+        foreground=Color1,
+        fmt=' {}',
+    ),
+
+    widget.Spacer(length=5),
+    widget.TextBox(
+        foreground=Color4,
+        text = "|",
+    ),
+    widget.Spacer(length=5),
+
+    widget.TextBox(
+        foreground=Color3,
+        text = "\uf1c0 ",
+    ),
+
+    widget.DF(
+        foreground=Color1,
+        visible_on_warn=False,
+        partition='/',
+        format="{p} {uf}{m} ({r:.0f}%)"
+    ),
+
+    widget.Spacer(length=5),
+    widget.TextBox(
+        foreground=Color4,
+        text = "|",
+    ),
+    widget.Spacer(length=5),
+
+    widget.TextBox(
+        foreground=Color3,
+        text = "\uf1c0 ",
+    ),
+
+    widget.DF(
+        foreground=Color1,
+        visible_on_warn=False,
+        partition='/home',
+        format="{p} {uf}{m} ({r:.0f}%)"
+    ),
+
+    widget.Spacer(length=5),
+    widget.TextBox(
+        foreground=Color4,
+        text = "|",
+    ),
+    widget.Spacer(length=5),
+
+    widget.Systray(
+    ),
+
+    widget.Spacer(length=5),
+
+    widget.TextBox(
+        foreground=Color4,
+        text = "|",
+    ),
+
+    widget.TextBox(
+        foreground=Color3,
+        text = "\uf011 ",
+        mouse_callbacks={"Button1": lambda: qtile.function(show_power_menu)}
+    ),
+
+    widget.Spacer(length=5),
+]
 
 # --------------------------------------------------------
 # screen configuration
@@ -90,13 +404,12 @@ initLayouts()
 screens = [
     Screen(
         top=bar.Bar(
-            widget_list,
+            widgets_list,
             40,
-            padding=20,
             opacity=0.7,
             border_width=[0, 0, 0, 0],
-            margin=[0,0,0,0],
-            background="#000000.3"
+            margin=[0, 0, 0, 0],
+            background="#00000000"
         ),
     ),
 ]

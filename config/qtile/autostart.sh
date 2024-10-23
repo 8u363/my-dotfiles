@@ -1,8 +1,8 @@
 #!/bin/bash
 
-xrandr --output Virtual1 --primary --mode 1600x1200 --pos 0x0 --rotate normal
+xrandr --output Virtual1 --primary --mode 1600x900 --pos 0x0 --rotate normal
 
-~/.config/qtile/scripts/changeWallpaper.sh
+~/.config/qtile/scripts/setDefaultWallpaper.sh
 
 dunst &
 blueman-applet &
