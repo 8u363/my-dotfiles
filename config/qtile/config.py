@@ -43,24 +43,10 @@ numerOfGroups = 6
 # --------------------------------------------------------
 # color configuration
 # --------------------------------------------------------
-colors = os.path.expanduser('~/.cache/wal/colors.json')
-colordict = json.load(open(colors))
-Color0 = (colordict['colors']['color0'])
-Color1 = (colordict['colors']['color1'])
-Color2 = (colordict['colors']['color2'])
-Color3 = (colordict['colors']['color3'])
-Color4 = (colordict['colors']['color4'])
-Color5 = (colordict['colors']['color5'])
-Color6 = (colordict['colors']['color6'])
-Color7 = (colordict['colors']['color7'])
-Color8 = (colordict['colors']['color8'])
-Color9 = (colordict['colors']['color9'])
-Color10 = (colordict['colors']['color10'])
-Color11 = (colordict['colors']['color11'])
-Color12 = (colordict['colors']['color12'])
-Color13 = (colordict['colors']['color13'])
-Color14 = (colordict['colors']['color14'])
-Color15 = (colordict['colors']['color15'])
+Color0 = "#257180"
+Color1 = "#F2E5BF"
+Color2 = "#FD8B51"
+Color3 = "#CB6040"
 
 def show_power_menu(qtile):
     controls = [
@@ -231,7 +217,7 @@ layout_theme = {
     "margin": 7,
     "border_width": 2,
     "border_focus": Color2,
-    "border_normal": "#FFFFFF",
+    "border_normal": Color1,
     "single_border_width": 2
 }
 
@@ -271,9 +257,9 @@ widgets_list = [
         padding_y = 3,
         padding_x = 3,
         borderwidth = 2.5,
-        active = "#ffffff",
-        inactive = "#B7B7B7",
-        this_current_screen_border = "#F87A53",
+        active = Color1,
+        inactive = Color0,
+        this_current_screen_border = Color3,
         rounded = True,
         highlight_method = "block",
         center_aligned = True,
@@ -289,7 +275,7 @@ widgets_list = [
 
 
     widget.WindowName(
-        foreground="#ffffff",
+        foreground=Color1,
         max_chars=50,
         width=400,
     ),
