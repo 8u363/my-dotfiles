@@ -315,6 +315,7 @@ widgets_list = [
         custom_command="checkupdates",
         execute="alacritty -e paru",
         display_format=" {updates}",
+        no_update_string= "-",
     ),
 
     widget.Spacer(length=5),
