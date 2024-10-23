@@ -284,14 +284,14 @@ widgets_list = [
     widget.Spacer(length=bar.STRETCH),
 
     widget.Clock(
-        foreground="#ffffff",
+        foreground=Color1,
         format="%A, %-d.%-m.%y %H:%S",
     ),
 
     widget.Spacer(length=bar.STRETCH),
 
     widget.CheckUpdates(
-        foreground="#ffffff",
+        foreground=Color1,
         custom_command="checkupdates",
         execute="alacritty -e paru",
         display_format="\uf0ed  {updates}",
@@ -310,7 +310,7 @@ widgets_list = [
     ),
 
     widget.Volume(
-        foreground="#ffffff",
+        foreground=Color1,
         fmt=' {}',
     ),
 
@@ -327,7 +327,7 @@ widgets_list = [
     ),
 
     widget.DF(
-        foreground="#ffffff",
+        foreground=Color1,
         visible_on_warn=False,
         partition='/',
         format="{p} {uf}{m} ({r:.0f}%)"
@@ -346,7 +346,7 @@ widgets_list = [
     ),
 
     widget.DF(
-        foreground="#ffffff",
+        foreground=Color1,
         visible_on_warn=False,
         partition='/home',
         format="{p} {uf}{m} ({r:.0f}%)"
