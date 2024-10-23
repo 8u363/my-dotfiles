@@ -295,7 +295,7 @@ widgets_list = [
 
     widget.TextBox(
         foreground=Color3,
-        text = "\uf43a ",
+        text = " \udd54 ",
     ),
 
     widget.Clock(
