@@ -140,7 +140,6 @@ keys = [
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
 
     Key([mod], "q", lazy.window.kill(), desc="Close the focused window"),
-    #Key([mod, "shift"], "q", lazy.spawn("sh " + home + '/.config/qtile/scripts/powermenu.sh'), desc="Show Powermenu"),
     Key([mod, "shift"], "q", lazy.function(show_power_menu)),
 
     # Group functions
