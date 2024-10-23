@@ -282,10 +282,15 @@ widgets_list = [
     ),
 
     widget.Spacer(length=bar.STRETCH),
+    widget.TextBox(
+        foreground=Color3,
+        text = "\uf073 ",
+    ),
+
 
     widget.Clock(
         foreground=Color1,
-        format="%A, %-d.%-m.%y %H:%S",
+        format="%A, %-d.%-m.%y %H:%M",
     ),
 
     widget.Spacer(length=bar.STRETCH),
