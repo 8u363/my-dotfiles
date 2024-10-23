@@ -43,11 +43,11 @@ numerOfGroups = 6
 # --------------------------------------------------------
 # color configuration
 # --------------------------------------------------------
-Color0 = "#257180"
+Color0 = "#4A4947"
 Color1 = "#FAF7F0"
 Color2 = "#FD8B51"
 Color3 = "#CB6040"
-Color4 = "#4A4947"
+Color4 = "#257180"
 
 def show_power_menu(qtile):
     controls = [
@@ -295,7 +295,7 @@ widgets_list = [
 
     widget.TextBox(
         foreground=Color3,
-        text = " \udd54 ",
+        text = " \uf4ab ",
     ),
 
     widget.Clock(
@@ -304,6 +304,11 @@ widgets_list = [
     ),
 
     widget.Spacer(length=bar.STRETCH),
+
+    widget.TextBox(
+        foreground=Color3,
+        text = " \uf0ed ",
+    ),
 
     widget.CheckUpdates(
         foreground=Color1,
