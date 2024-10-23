@@ -77,7 +77,6 @@ def show_power_menu(qtile):
             pos_y=0.1,
             width=0.1,
             height=0.5,
-            highlight="A00000",
             mouse_callbacks={
                 "Button1": lazy.spawn("systemctl poweroff")
             }
@@ -397,9 +396,6 @@ widgets_list = [
     ),
 
     widget.Spacer(length=5),
-
-
-
 ]
 
 # --------------------------------------------------------
