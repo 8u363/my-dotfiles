@@ -283,6 +283,13 @@ widgets_list = [
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(brave)}
     ),
 
+    widget.TextBox(
+        fontsize=iconFontSize,
+        foreground=Color3,
+        text = " ",
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(thunderbird)}
+    ),
+
     widget.Spacer(length=spacerLength),
     widget.TextBox(
         foreground=Color4,
