@@ -276,7 +276,7 @@ widgets_list = [
 
     widget.TextBox(
         foreground=Color3,
-        text = "\uf059f ",
+        text = "󰖟 ",
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(brave)}
     ),
 
