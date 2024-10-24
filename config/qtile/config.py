@@ -231,6 +231,7 @@ layouts = [
 # --------------------------------------------------------
 # widget configuration
 # --------------------------------------------------------
+spacerLength=5
 widget_defaults = dict(
     font="Hack Nerd Font Bold",
     fontsize=14,
@@ -238,18 +239,18 @@ widget_defaults = dict(
 )
 
 widgets_list = [
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 
     widget.CurrentLayoutIcon(
         scale=0.5,
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
     widget.TextBox(
         foreground=Color4,
         text = "|",
     ),
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 
     widget.GroupBox(
         margin_x = 1,
@@ -266,12 +267,25 @@ widgets_list = [
         disable_drag = True,
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
     widget.TextBox(
         foreground=Color4,
         text = "|",
     ),
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
+
+    widget.TextBox(
+        foreground=Color3,
+        text = "\uf059f ",
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(brave)}
+    ),
+
+    widget.Spacer(length=spacerLength),
+    widget.TextBox(
+        foreground=Color4,
+        text = "|",
+    ),
+    widget.Spacer(length=spacerLength),
 
 
     widget.WindowName(
@@ -317,12 +331,12 @@ widgets_list = [
         no_update_string= "-",
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
     widget.TextBox(
         foreground=Color4,
         text = "|",
     ),
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 
     widget.TextBox(
         foreground=Color3,
@@ -334,12 +348,12 @@ widgets_list = [
         fmt=' {}',
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
     widget.TextBox(
         foreground=Color4,
         text = "|",
     ),
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 
     widget.TextBox(
         foreground=Color3,
@@ -353,12 +367,12 @@ widgets_list = [
         format="{p} {uf}{m} ({r:.0f}%)"
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
     widget.TextBox(
         foreground=Color4,
         text = "|",
     ),
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 
     widget.TextBox(
         foreground=Color3,
@@ -372,17 +386,17 @@ widgets_list = [
         format="{p} {uf}{m} ({r:.0f}%)"
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
     widget.TextBox(
         foreground=Color4,
         text = "|",
     ),
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 
     widget.Systray(
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 
     widget.TextBox(
         foreground=Color4,
@@ -395,7 +409,7 @@ widgets_list = [
         mouse_callbacks={"Button1": lambda: qtile.function(show_power_menu)}
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 ]
 
 # --------------------------------------------------------
