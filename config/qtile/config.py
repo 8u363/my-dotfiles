@@ -232,6 +232,8 @@ layouts = [
 # widget configuration
 # --------------------------------------------------------
 spacerLength=5
+iconFontSize=18
+
 widget_defaults = dict(
     font="Hack Nerd Font Bold",
     fontsize=14,
@@ -275,6 +277,7 @@ widgets_list = [
     widget.Spacer(length=spacerLength),
 
     widget.TextBox(
+        fontsize=iconFontSize,
         foreground=Color3,
         text = "󰖟 ",
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(brave)}
@@ -297,8 +300,9 @@ widgets_list = [
     widget.Spacer(length=bar.STRETCH),
 
     widget.TextBox(
+        fontsize=iconFontSize,
         foreground=Color3,
-        text = "\uf073 ",
+        text = " ",
     ),
 
     widget.Clock(
@@ -307,8 +311,9 @@ widgets_list = [
     ),
 
     widget.TextBox(
+        fontsize=iconFontSize,
         foreground=Color3,
-        text = " \uf4ab ",
+        text = " 󰥔 ",
     ),
 
     widget.Clock(
@@ -319,8 +324,9 @@ widgets_list = [
     widget.Spacer(length=bar.STRETCH),
 
     widget.TextBox(
+        fontsize=iconFontSize,
         foreground=Color3,
-        text = " \uf0ed ",
+        text = "  ",
     ),
 
     widget.CheckUpdates(
@@ -339,8 +345,9 @@ widgets_list = [
     widget.Spacer(length=spacerLength),
 
     widget.TextBox(
+        fontsize=iconFontSize,
         foreground=Color3,
-        text = "\uf028 ",
+        text = " ",
     ),
 
     widget.Volume(
@@ -356,8 +363,9 @@ widgets_list = [
     widget.Spacer(length=spacerLength),
 
     widget.TextBox(
+        fontsize=iconFontSize,
         foreground=Color3,
-        text = "\uf1c0 ",
+        text = " ",
     ),
 
     widget.DF(
@@ -375,8 +383,9 @@ widgets_list = [
     widget.Spacer(length=spacerLength),
 
     widget.TextBox(
+        fontsize=iconFontSize,
         foreground=Color3,
-        text = "\uf1c0 ",
+        text = " ",
     ),
 
     widget.DF(
@@ -404,8 +413,9 @@ widgets_list = [
     ),
 
     widget.TextBox(
+        fontsize=iconFontSize,
         foreground=Color3,
-        text = "\uf011 ",
+        text = " ",
         mouse_callbacks={"Button1": lambda: qtile.function(show_power_menu)}
     ),
 
