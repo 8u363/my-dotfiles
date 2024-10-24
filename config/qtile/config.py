@@ -46,8 +46,9 @@ numerOfGroups = 6
 Color0 = "#4A4947"
 Color1 = "#FAF7F0"
 Color2 = "#FD8B51"
-Color3 = "#CB6040"
+Color3 = "#FFC94A"
 Color4 = "#257180"
+Color5 = "#CB6040"
 
 def show_power_menu(qtile):
     controls = [
@@ -231,6 +232,9 @@ layouts = [
 # --------------------------------------------------------
 # widget configuration
 # --------------------------------------------------------
+spacerLength=5
+iconFontSize=16
+
 widget_defaults = dict(
     font="Hack Nerd Font Bold",
     fontsize=14,
@@ -238,18 +242,18 @@ widget_defaults = dict(
 )
 
 widgets_list = [
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 
     widget.CurrentLayoutIcon(
         scale=0.5,
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
     widget.TextBox(
         foreground=Color4,
         text = "|",
     ),
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 
     widget.GroupBox(
         margin_x = 1,
@@ -259,19 +263,40 @@ widgets_list = [
         borderwidth = 2.5,
         active = Color1,
         inactive = Color0,
-        this_current_screen_border = Color3,
+        this_current_screen_border = Color5,
         rounded = True,
         highlight_method = "block",
         center_aligned = True,
         disable_drag = True,
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
     widget.TextBox(
         foreground=Color4,
         text = "|",
     ),
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
+
+    widget.TextBox(
+        fontsize=iconFontSize,
+        foreground=Color3,
+        text = "󰖟 ",
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(brave)}
+    ),
+
+    widget.TextBox(
+        fontsize=iconFontSize,
+        foreground=Color3,
+        text = "󰇮 ",
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(thunderbird)}
+    ),
+
+    widget.Spacer(length=spacerLength),
+    widget.TextBox(
+        foreground=Color4,
+        text = "|",
+    ),
+    widget.Spacer(length=spacerLength),
 
 
     widget.WindowName(
@@ -283,8 +308,9 @@ widgets_list = [
     widget.Spacer(length=bar.STRETCH),
 
     widget.TextBox(
+        fontsize=iconFontSize,
         foreground=Color3,
-        text = "\uf073 ",
+        text = " ",
     ),
 
     widget.Clock(
@@ -293,8 +319,9 @@ widgets_list = [
     ),
 
     widget.TextBox(
+        fontsize=iconFontSize,
         foreground=Color3,
-        text = " \uf4ab ",
+        text = " 󰥔 ",
     ),
 
     widget.Clock(
@@ -305,8 +332,9 @@ widgets_list = [
     widget.Spacer(length=bar.STRETCH),
 
     widget.TextBox(
+        fontsize=iconFontSize,
         foreground=Color3,
-        text = " \uf0ed ",
+        text = "  ",
     ),
 
     widget.CheckUpdates(
@@ -317,16 +345,17 @@ widgets_list = [
         no_update_string= "-",
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
     widget.TextBox(
         foreground=Color4,
         text = "|",
     ),
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 
     widget.TextBox(
+        fontsize=iconFontSize,
         foreground=Color3,
-        text = "\uf028 ",
+        text = " ",
     ),
 
     widget.Volume(
@@ -334,16 +363,17 @@ widgets_list = [
         fmt=' {}',
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
     widget.TextBox(
         foreground=Color4,
         text = "|",
     ),
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 
     widget.TextBox(
+        fontsize=iconFontSize,
         foreground=Color3,
-        text = "\uf1c0 ",
+        text = " ",
     ),
 
     widget.DF(
@@ -353,16 +383,17 @@ widgets_list = [
         format="{p} {uf}{m} ({r:.0f}%)"
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
     widget.TextBox(
         foreground=Color4,
         text = "|",
     ),
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 
     widget.TextBox(
+        fontsize=iconFontSize,
         foreground=Color3,
-        text = "\uf1c0 ",
+        text = " ",
     ),
 
     widget.DF(
@@ -372,17 +403,17 @@ widgets_list = [
         format="{p} {uf}{m} ({r:.0f}%)"
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
     widget.TextBox(
         foreground=Color4,
         text = "|",
     ),
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 
     widget.Systray(
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 
     widget.TextBox(
         foreground=Color4,
@@ -390,12 +421,13 @@ widgets_list = [
     ),
 
     widget.TextBox(
+        fontsize=iconFontSize,
         foreground=Color3,
-        text = "\uf011 ",
+        text = " ",
         mouse_callbacks={"Button1": lambda: qtile.function(show_power_menu)}
     ),
 
-    widget.Spacer(length=5),
+    widget.Spacer(length=spacerLength),
 ]
 
 # --------------------------------------------------------
