@@ -46,8 +46,9 @@ numerOfGroups = 6
 Color0 = "#4A4947"
 Color1 = "#FAF7F0"
 Color2 = "#FD8B51"
-Color3 = "#CB6040"
+Color3 = "#FFC94A"
 Color4 = "#257180"
+Color5 = "#CB6040"
 
 def show_power_menu(qtile):
     controls = [
@@ -232,7 +233,7 @@ layouts = [
 # widget configuration
 # --------------------------------------------------------
 spacerLength=5
-iconFontSize=18
+iconFontSize=16
 
 widget_defaults = dict(
     font="Hack Nerd Font Bold",
@@ -262,7 +263,7 @@ widgets_list = [
         borderwidth = 2.5,
         active = Color1,
         inactive = Color0,
-        this_current_screen_border = Color3,
+        this_current_screen_border = Color5,
         rounded = True,
         highlight_method = "block",
         center_aligned = True,
@@ -286,7 +287,7 @@ widgets_list = [
     widget.TextBox(
         fontsize=iconFontSize,
         foreground=Color3,
-        text = " ",
+        text = "󰇮 ",
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(thunderbird)}
     ),
 
