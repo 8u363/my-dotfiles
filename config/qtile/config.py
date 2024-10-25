@@ -133,32 +133,30 @@ keys = [
     Key([mod], "Tab", lazy.next_layout(), desc="Use next layout on the actual group"),
 
     # Layout function
-    Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
 
-    Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
 
-    Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
-    Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
+    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
 
-    Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
-    Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
 
     # Window functions
-    Key([mod], "f", lazy.window.toggle_floating(), desc="Put the focused window to/from floating mode"),
-    Key([mod, "shift"], "f", lazy.window.toggle_fullscreen(), desc="Put the focused window to/from fullscreen mode"),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Put the focused window to/from fullscreen mode"),
+    Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="Put the focused window to/from floating mode"),
 
     # Apps
-    Key([mod], 'r', lazy.spawn('rofi -show run')),
-    Key([mod], "w", lazy.spawn("sh " + home + "/.config/qtile/scripts/changeWallpaper.sh")),
-    Key([mod], "b", lazy.spawn("brave"), desc="Launch browser"),
+    Key([mod], "Space", lazy.spawn('rofi -show run')),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "w", lazy.spawn("sh " + home + "/.config/qtile/scripts/changeWallpaper.sh")),
 
     # scratch pad
     Key([mod], 'e', lazy.group["6"].dropdown_toggle("explorer")),
     Key([mod], "F2", lazy.group["6"].dropdown_toggle("terminal")),
-    Key([mod], "F3", lazy.group["6"].dropdown_toggle("nitrogen")),
     Key([mod], 'F4', lazy.group["6"].dropdown_toggle("btop")),
 
     # Audio functions
