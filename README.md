@@ -12,7 +12,6 @@
 - neovim
 - picom
 - qtile
-- rofi
 - stow
 - zsh
 - zsh-completions
