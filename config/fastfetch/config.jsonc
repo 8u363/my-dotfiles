@@ -41,20 +41,22 @@
             "keyColor": "red"
         },
         {
+            "type": "battery",
+            "key": "  ",
+            "keyColor": "white"
+        },
+        "break",
+        {
             "type": "localip",
             "key": "  󰩟",
             "keyColor": "cyan",
             "showIpv4": true
         },
+        "break",
         {
             "type": "uptime",
             "key": "  ",
             "keyColor": "blue"
-        },
-        {
-            "type": "battery",
-            "key": "  ",
-            "keyColor": "white"
         },
         "break",
         {
