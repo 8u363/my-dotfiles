@@ -129,6 +129,8 @@ keys = [
     Key([mod], "q", lazy.window.kill(), desc="Close the focused window"),
     Key([mod, "shift"], "q", lazy.function(show_power_menu)),
 
+    Key([mod], "Space", lazy.spawn('betterlockscreen -l dim')),
+
     # Group functions
     Key([mod], "Tab", lazy.next_layout(), desc="Use next layout on the actual group"),
 
@@ -150,22 +152,19 @@ keys = [
     Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="Put the focused window to/from floating mode"),
 
     # Apps
-    Key([mod], "Space", lazy.spawn('rofi -show run')),
+    Key([mod], "r", lazy.spawn('rofi -show run')),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "w", lazy.spawn("sh " + home + "/.config/qtile/scripts/changeWallpaper.sh")),
 
     # scratch pad
     Key([mod], 'e', lazy.group["6"].dropdown_toggle("explorer")),
     Key([mod], "F2", lazy.group["6"].dropdown_toggle("terminal")),
-    Key([mod], 'F4', lazy.group["6"].dropdown_toggle("btop")),
+    Key([mod], 'F3', lazy.group["6"].dropdown_toggle("btop")),
 
     # Audio functions
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset Master 5%-"), desc="Lower Volume by 5%"),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer sset Master 5%+"), desc="Raise Volume by 5%"),
     Key([], "XF86AudioMute", lazy.spawn("amixer sset Master 1+ toggle"), desc="Mute/Unmute Volume"),
-    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/Pause player"),
-    Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Skip to next"),
-    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Skip to previous"),
 ]
 
 # --------------------------------------------------------
