@@ -7,7 +7,7 @@
         }
     },
     "display": {
-        "separator": ""
+        "separator": "  "
     },
     "modules": [
         {
@@ -22,41 +22,49 @@
         },
         {
             "type": "kernel",
-            "key": " ",
-            "keyColor": "blue"
+            "key": "  ",
+            "keyColor": "white"
         },
         {
             "type": "packages",
-            "key": " ",
-            "keyColor": "blue"
-        },
-        {
-            "type": "wm",
-            "key": "  󰨇",
-            "keyColor": "blue"
+            "key": "  ",
+            "keyColor": "yellow"
         },
         {
             "type": "terminal",
             "key": "  ",
-            "keyColor": "blue"
+            "keyColor": "magenta"
         },
         {
             "type": "shell",
             "key": "  ",
-            "keyColor": "blue"
-        },
-        "break",
-        {
-            "type": "uptime",
-            "key": " Uptime",
-            "keyColor": "33",
+            "keyColor": "red"
         },
         {
             "type": "localip",
-            "key": "󰩟 LocalIP",
-            "keyColor": "33",
-            "showIpv4": true,
+            "key": "  󰩟",
+            "keyColor": "cyan",
+            "showIpv4": true
         },
         "break",
+        {
+            "type": "custom",
+            "format": "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫"
+        },
+        {
+            "type": "uptime",
+            "key": "  ",
+            "keyColor": "blue"
+        },
+        {
+            "type": "weather",
+            "key": "  󰖐",
+            "keyColor": "white"
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
+        }
     ]
 }
