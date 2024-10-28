@@ -46,19 +46,14 @@
             "keyColor": "cyan",
             "showIpv4": true
         },
-        "break",
-        {
-            "type": "custom",
-            "format": "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫"
-        },
         {
             "type": "uptime",
             "key": "  ",
             "keyColor": "blue"
         },
         {
-            "type": "weather",
-            "key": "  󰖐",
+            "type": "battery",
+            "key": "  ",
             "keyColor": "white"
         },
         "break",
