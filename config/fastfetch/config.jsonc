@@ -14,7 +14,6 @@
             "type": "custom",
             "format": "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
         },
-        "break",
         {
             "type": "os",
             "key": "  ",
@@ -30,7 +29,6 @@
             "key": "  ",
             "keyColor": "yellow"
         },
-        "break",
         {
             "type": "custom",
             "format": "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫"
@@ -45,7 +43,6 @@
             "key": "  ",
             "keyColor": "red"
         },
-        "break",
         {
             "type": "custom",
             "format": "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫"
@@ -56,7 +53,11 @@
             "keyColor": "cyan",
             "showIpv4": true
         },
-        "break",
+        {
+            "type": "publicip",
+            "key": "  󰩟",
+            "keyColor": "blue",
+        },
         {
             "type": "custom",
             "format": "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫"
@@ -66,13 +67,11 @@
             "key": "  ",
             "keyColor": "white"
         },
-        "break",
         {
             "type": "uptime",
             "key": "  ",
             "keyColor": "blue"
         },
-        "break",
         {
             "type": "custom",
             "format": "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
