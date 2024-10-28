@@ -30,6 +30,11 @@
             "key": "  ",
             "keyColor": "yellow"
         },
+        "break",
+        {
+            "type": "custom",
+            "format": "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫"
+        },
         {
             "type": "terminal",
             "key": "  ",
@@ -40,17 +45,26 @@
             "key": "  ",
             "keyColor": "red"
         },
-        {
-            "type": "battery",
-            "key": "  ",
-            "keyColor": "white"
-        },
         "break",
+        {
+            "type": "custom",
+            "format": "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫"
+        },
         {
             "type": "localip",
             "key": "  󰩟",
             "keyColor": "cyan",
             "showIpv4": true
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫"
+        },
+        {
+            "type": "battery",
+            "key": "  ",
+            "keyColor": "white"
         },
         "break",
         {
