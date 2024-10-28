@@ -3,6 +3,7 @@
 ## Required Software
 - alacritty
 - bash-completion
+- betterlockscreen
 - btop
 - dmenu
 - dunst
