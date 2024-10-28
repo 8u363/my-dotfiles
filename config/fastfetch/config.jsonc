@@ -1,49 +1,80 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
-        "type": "small",
-        "padding": {
-            "top": 2
+        "source": "~/.config/fastfetch/arch",
+        "color": {
+            "1": "blue"
         }
     },
     "display": {
-        "separator": "",
-        "key": {
-            "width": 15
-        }
+        "separator": "  "
     },
     "modules": [
-        "break",
-        "break",
-        "break",
+        {
+            "type": "custom",
+            "format": "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
+        },
         {
             "type": "os",
-            "key": " os",
-            "keyColor": "31", // = color1
+            "key": "  ",
+            "keyColor": "blue"
         },
         {
             "type": "kernel",
-            "key": " Kernel",
-            "keyColor": "31",
-            "format": "{2} {4}"
+            "key": "  ",
+            "keyColor": "white"
         },
         {
             "type": "packages",
-            "key": "󰏖 Packages",
-            "keyColor": "31",
+            "key": "  ",
+            "keyColor": "yellow"
         },
-        "break",
         {
-            "type": "uptime",
-            "key": " Uptime",
-            "keyColor": "33",
+            "type": "custom",
+            "format": "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫"
+        },
+        {
+            "type": "terminal",
+            "key": "  ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "shell",
+            "key": "  ",
+            "keyColor": "red"
+        },
+        {
+            "type": "custom",
+            "format": "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫"
         },
         {
             "type": "localip",
-            "key": "󰩟 LocalIP",
-            "keyColor": "33",
-            "showIpv4": true,
+            "key": "  󰩟",
+            "keyColor": "cyan",
+            "showIpv4": true
         },
-        "break",
+        {
+            "type": "publicip",
+            "key": "  󰩟",
+            "keyColor": "blue",
+        },
+        {
+            "type": "custom",
+            "format": "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫"
+        },
+        {
+            "type": "battery",
+            "key": "  ",
+            "keyColor": "white"
+        },
+        {
+            "type": "uptime",
+            "key": "  ",
+            "keyColor": "blue"
+        },
+        {
+            "type": "custom",
+            "format": "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
+        }
     ]
 }
